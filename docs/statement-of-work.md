@@ -6,7 +6,7 @@
 |---|---|
 | **Client** | Aesium |
 | **Supplier** | David Pipe |
-| **Version** | 1.0, 23 September 2026, draft for review |
+| **Version** | 1.0, 23 September 2026, final |
 | **Basis** | *Aesium Platform Requirements & Build Options* and the derived working documents in `docs/` (foundations, content types, entity model) |
 | **Currency** | Build pricing in NZD excluding GST. Hosting and service costs in USD unless stated. |
 
@@ -114,7 +114,7 @@ The audio player is written against a small provider interface (load, play, paus
 
 ## 5. Deliverables and hour estimates
 
-Hours are estimates of the effort to deliver working, tested functionality using the Supplier's delivery approach, which leans heavily on generated scaffolding, reusable components and automated testing. Each work package includes its own automated tests and short technical notes. A detailed breakdown is in Appendix A.
+Hours are estimates of the effort to deliver working, tested functionality. Each work package includes its own automated tests and short technical notes. A detailed breakdown is in Appendix A.
 
 | Work package | What it delivers | Hours | Phase |
 |---|---|---|---|
@@ -282,7 +282,7 @@ Recommendation: keep the base configuration for audio, because the listening exp
 
 ### 8.1 Build
 
-Rate: NZD 150 per hour, excluding GST. This is the assumed rate for this draft and is the only input to the figures below; change the rate and every figure scales.
+Rate: NZD 150 per hour, excluding GST. Every figure below is hours multiplied by this rate.
 
 | Phase | Hours | Price (NZD, ex GST) |
 |---|---|---|
@@ -301,12 +301,6 @@ Option adjustments to the total:
 | SoundCloud adapter kept alongside self-hosting | plus 20 | plus 3,000 |
 | YouTube adapter kept alongside Cloudflare Stream | plus 8 | plus 1,200 |
 | Recommended configuration (base audio plus SoundCloud adapter, YouTube video) | 538 | 80,700 |
-
-Rate sensitivity for the base configuration (522 hours):
-
-| Rate (NZD per hour) | 120 | 150 | 180 |
-|---|---|---|---|
-| Total (NZD, ex GST) | 62,640 | 78,300 | 93,960 |
 
 ### 8.2 Running costs
 
@@ -413,7 +407,6 @@ These are the Client's, and are not included in the figures above:
 | Events | External ticketing plus free RSVP (assumed) | Work package 10 |
 | Admin visibility of audience activity | Aggregates only, or per-user detail | Work packages 11 and 13, privacy policy |
 | Hosting region | Auckland if fully available, otherwise Sydney | Work package 1 |
-| Hourly rate and payment schedule | Confirm the figures in Sections 8 and 11 | Pricing |
 
 ## Appendix A. Detailed hour breakdown
 
