@@ -4,6 +4,22 @@ A self-contained static single-page site. Everything (markup, the `dc-runtime`
 JavaScript, and all fonts) is bundled into [`index.html`](index.html) — there is
 no build step and no external assets to fetch.
 
+## Docs site
+
+The working documents in [`docs/`](docs/README.md) are also rendered as styled
+HTML pages that sit next to the markdown (`docs/index.html`,
+`docs/statement-of-work.html`, and so on). The HTML is committed, so Pages still
+needs no build step. After editing any markdown under `docs/`, regenerate the
+pages with:
+
+```bash
+python3 tools/build-docs.py
+```
+
+On the deployed site the docs live under `/docs/`, for example
+`https://<project>.pages.dev/docs/` and
+`https://<project>.pages.dev/docs/statement-of-work`.
+
 ## Deploy to Cloudflare Pages (GitHub-connected)
 
 1. Push this repo to GitHub (already wired to `github.com/davidkpipe/aesium-hub`).

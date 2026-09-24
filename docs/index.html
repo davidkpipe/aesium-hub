@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aesium Platform — Foundations · Aesium Platform docs</title>
+<meta name="description" content="Working documents extracted from *Aesium Platform Requirements &amp; Build Options* (Documents/Aesium Platform/Aesium_Platform_Requirements_Build_Options_Updated_Final.docx). Each file is deliberately sho">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ground:#fbf9ef; --ground-2:#f4efe1; --ground-3:#ece5d6;
+  --ink:#17120e; --ink-2:#3d332a; --muted:#7d6a52; --muted-2:#8a8175;
+  --accent:#c8762f; --accent-deep:#b0633f; --accent-light:#e6b27a;
+  --rule:#d9d0bd; --rule-soft:#e6dfcf;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono","SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --ground:#17120e; --ground-2:#1d1813; --ground-3:#231c15;
+    --ink:#f4efe1; --ink-2:#d8cfbf; --muted:#b3a895; --muted-2:#8a8175;
+    --accent:#e6b27a; --accent-deep:#c8762f; --accent-light:#f0c993;
+    --rule:#3a3128; --rule-soft:#2c251d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:0 72px;padding-inline:clamp(16px,4vw,40px)}
+.topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding-block:18px;border-bottom:1px solid var(--rule);font-size:14px}
+.topnav .brand{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
+.topnav a:not(.brand){color:var(--ink-2);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.topnav a:not(.brand):hover,.topnav a[aria-current="page"]{color:var(--accent-deep);border-bottom-color:var(--accent)}
+.mast{padding-block:44px 26px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mast h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:12px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+.mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 28px;margin:24px 0 0;padding-top:18px;border-top:1px solid var(--rule-soft)}
+.meta div{font-size:14px;color:var(--ink-2)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.meta dd{margin:0}
+.layout{display:grid;grid-template-columns:1fr;gap:32px;margin-top:32px}
+@media (min-width:940px){.layout{grid-template-columns:220px minmax(0,1fr);gap:56px}}
+.toc{position:sticky;top:0;align-self:start;font-size:14px;padding-top:6px}
+.toc .eyebrow{font-size:11px;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--ink-2);text-decoration:none;display:block;padding:2px 0 2px 10px;border-left:2px solid transparent;line-height:1.35}
+.toc a:hover{color:var(--accent-deep);border-left-color:var(--accent)}
+@media (max-width:939px){.toc{position:static;border:1px solid var(--rule);border-radius:6px;padding:14px 16px;background:var(--ground-2)}.toc:empty{display:none}}
+main{min-width:0;max-width:80ch}
+.sec{padding-block:6px 22px;border-bottom:1px solid var(--rule-soft);margin-bottom:22px}
+.sec:last-child{border-bottom:0}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(25px,3vw,32px);line-height:1.15;letter-spacing:-.01em;margin:22px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:28px 0 10px;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:70ch}
+li{margin-bottom:6px}
+li>ul,li>ol{margin-top:6px;margin-bottom:0}
+code{font-family:var(--mono);font-size:.86em;background:var(--ground-3);padding:1px 5px;border-radius:3px}
+pre{background:var(--ground-2);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+pre code{background:none;padding:0;font-size:inherit}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.callout{border-left:3px solid var(--accent);background:var(--ground-2);padding:12px 16px;margin:18px 0 20px;font-size:15px;color:var(--ink-2);max-width:70ch}
+.table-wrap{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+.wide table{font-size:13px}
+th,td{padding:9px 12px;vertical-align:top;border-bottom:1px solid var(--rule-soft);text-align:left}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--ground-3);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700;background:var(--ground-3)}
+tr.total td.num{color:var(--accent-deep)}
+.diagram{margin:16px 0 24px;padding:16px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2);overflow-x:auto}
+.diagram pre.mermaid{background:none;border:0;padding:0;margin:0;overflow:visible;font-family:var(--mono);white-space:pre}
+.diagram svg{max-width:100%;height:auto}
+.docs-index{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule)}
+.docs-index .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 32px;margin-top:14px}
+.docs-index h2{font-size:14px;font-family:var(--mono);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.docs-index ul{list-style:none;padding:0;margin:0;font-size:14.5px}
+.docs-index li{margin-bottom:5px}
+.docs-index a{color:var(--ink-2);text-decoration:none}
+.docs-index a:hover{color:var(--accent-deep);text-decoration:underline}
+.foot{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.topnav,.toc,.docs-index{display:none}.layout{display:block}.wrap{padding:0}body{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav" aria-label="Site"><a class="brand" href="index.html">Aesium Platform docs</a><a href="index.html" aria-current="page">Overview</a><a href="index.html#foundations">Foundations</a><a href="index.html#content-types">Content types</a><a href="entity-diagram.html">Entity diagram</a><a href="statement-of-work.html">Statement of work</a><a href="https://github.com/davidkpipe/aesium-hub" rel="noopener">GitHub</a></nav>
+<header class="mast">
+  <div class="eyebrow">Working documents</div>
+  <h1>Aesium Platform — Foundations</h1>
+  
+  
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#how-to-read-this">How to read this</a></li><li><a href="#foundations">Foundations</a></li><li><a href="#content-types">Content types</a></li><li><a href="#dependency-matrix">Dependency matrix</a></li><li><a href="#decisions-aesium-carries-into-the-build-discussion-24">Decisions Aesium carries into the build discussion (§24)</a></li><li><a href="#out-of-scope-for-v1">Out of scope for V1</a></li></ol></nav>
+  <main>
+<p>Working documents extracted from <em>Aesium Platform Requirements &amp; Build Options</em> (<code>Documents/Aesium Platform/Aesium_Platform_Requirements_Build_Options_Updated_Final.docx</code>). Each file is deliberately short: a starting point to expand with the developer, not a finished spec. Section numbers (§) refer to the source document.</p>
+<section class="sec" id="how-to-read-this"><h2>How to read this</h2>
+<p>The requirements draw a line between two kinds of thing:</p>
+<ul>
+<li><strong>Foundations</strong> are shared building blocks. Each is built once and used by several features (CMS, accounts, publishing, tagging, media, commerce, payments, admin, hosting, analytics, search).
+</li>
+<li><strong>Content types</strong> are the features the audience sees (artist profiles, mixes, series, editorial, videos, events, products). Each is a record in the CMS that relies on the foundations rather than being its own system.
+</li></ul>
+<p>The <a href="entity-diagram.html">entity diagram</a> shows how the records relate. The <a href="statement-of-work.html">statement of work</a> prices the build, phases and hosting options.</p>
+</section>
+<section class="sec" id="foundations"><h2>Foundations</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th class="num">#</th>
+<th>Foundation</th>
+<th>One-liner</th>
+</tr></thead><tbody>
+<tr>
+<td class="num">01</td>
+<td><a href="foundations/01-accounts-and-permissions.html">Accounts &amp; Permissions</a></td>
+<td>Free audience accounts, staff roles. Artists have no accounts in V1.</td>
+</tr>
+<tr>
+<td class="num">02</td>
+<td><a href="foundations/02-cms-content-model.html">CMS &amp; Content Model</a></td>
+<td>The records and, crucially, the relationships between them. Shared hub structure for Artist Profiles and Series.</td>
+</tr>
+<tr>
+<td class="num">03</td>
+<td><a href="foundations/03-publishing-workflow.html">Publishing Workflow</a></td>
+<td>Draft, scheduled, published, unpublished. Featured and homepage placement.</td>
+</tr>
+<tr>
+<td class="num">04</td>
+<td><a href="foundations/04-tagging-and-classification.html">Tagging &amp; Classification</a></td>
+<td>Managed genre list (multi-select on mixes) plus existing fixed classifications.</td>
+</tr>
+<tr>
+<td class="num">05</td>
+<td><a href="foundations/05-media-assets.html">Media Assets</a></td>
+<td>Images and artwork for every record.</td>
+</tr>
+<tr>
+<td class="num">06</td>
+<td><a href="foundations/06-music-upload-and-audio-hosting.html">Music Upload &amp; Audio Hosting</a></td>
+<td>Getting mix audio in and delivered. Gated by licensing and the provider decision.</td>
+</tr>
+<tr>
+<td class="num">07</td>
+<td><a href="foundations/07-audio-player.html">Audio Player</a></td>
+<td>Persistent Now Playing bar, full-view player, volume. Shapes the whole site's navigation.</td>
+</tr>
+<tr>
+<td class="num">08</td>
+<td><a href="foundations/08-video-upload-and-hosting.html">Video Upload &amp; Hosting</a></td>
+<td>Video provider, playback, rights.</td>
+</tr>
+<tr>
+<td class="num">09</td>
+<td><a href="foundations/09-audience-activity.html">Audience Activity</a></td>
+<td>Follow, like, save. Private, with public aggregate follower counts.</td>
+</tr>
+<tr>
+<td class="num">10</td>
+<td><a href="foundations/10-notifications.html">Notifications</a></td>
+<td>Preference-driven updates from followed artists.</td>
+</tr>
+<tr>
+<td class="num">11</td>
+<td><a href="foundations/11-commerce-and-cart.html">Commerce &amp; Cart</a></td>
+<td>Products, cart, checkout model, commission tracking.</td>
+</tr>
+<tr>
+<td class="num">12</td>
+<td><a href="foundations/12-payments.html">Payments</a></td>
+<td>Processing, refunds, reconciliation, artist payouts.</td>
+</tr>
+<tr>
+<td class="num">13</td>
+<td><a href="foundations/13-admin-back-office.html">Admin / Back Office</a></td>
+<td>One place for staff to manage everything and the links between records.</td>
+</tr>
+<tr>
+<td class="num">14</td>
+<td><a href="foundations/14-content-submission.html">Content Submission</a></td>
+<td>Artist → Aesium review → publish. Manual or structured form.</td>
+</tr>
+<tr>
+<td class="num">15</td>
+<td><a href="foundations/15-search-and-discovery.html">Search &amp; Discovery</a></td>
+<td>Keyword search and genre filtering over the existing content model.</td>
+</tr>
+<tr>
+<td class="num">16</td>
+<td><a href="foundations/16-analytics.html">Analytics</a></td>
+<td>Web, plays, views, activity, commerce and events made useful together.</td>
+</tr>
+<tr>
+<td class="num">17</td>
+<td><a href="foundations/17-hosting-and-infrastructure.html">Hosting &amp; Infrastructure</a></td>
+<td>App, database, assets, backups, monitoring. Decided last.</td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="sec" id="content-types"><h2>Content types</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Content type</th>
+<th>One-liner</th>
+</tr></thead><tbody>
+<tr>
+<td><a href="content-types/artist-profiles.html">Artist Profiles</a></td>
+<td>Hub page per artist. Aesium-managed. Follow and follower count.</td>
+</tr>
+<tr>
+<td><a href="content-types/mixes.html">Mixes</a></td>
+<td>Core audio content. Artist, optional Series episode, genres, like/save.</td>
+</tr>
+<tr>
+<td><a href="content-types/series.html">Series</a></td>
+<td>Theme-led hub collecting mixes (ordered episodes), video, editorial, shop content, links.</td>
+</tr>
+<tr>
+<td><a href="content-types/editorial-articles.html">Editorial / Articles</a></td>
+<td>Interviews and articles linked to artists and/or Series.</td>
+</tr>
+<tr>
+<td><a href="content-types/videos.html">Videos</a></td>
+<td>Behind the Scenes, Live Sessions, Music Videos, Event Recordings.</td>
+</tr>
+<tr>
+<td><a href="content-types/events.html">Events</a></td>
+<td>Upcoming / past, Next Up, ticket or RSVP action, recordings.</td>
+</tr>
+<tr>
+<td><a href="content-types/products-shop.html">Products / Shop</a></td>
+<td>Artist-attributed products, Aesium takes a percentage, no stock handling.</td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="sec" id="dependency-matrix"><h2>Dependency matrix</h2>
+<p>Which foundations each feature needs. ● required for V1 · ○ optional or later · – not used.</p>
+<div class="table-wrap wide"><table>
+<thead><tr>
+<th>Feature</th>
+<th>Acc</th>
+<th>CMS</th>
+<th>Pub</th>
+<th>Tag</th>
+<th>Img</th>
+<th>Aud</th>
+<th>Ply</th>
+<th>Vid</th>
+<th>Act</th>
+<th>Ntf</th>
+<th>Com</th>
+<th>Pay</th>
+<th>Adm</th>
+<th>Sub</th>
+<th>Srch</th>
+<th>Ana</th>
+<th>Host</th>
+</tr></thead><tbody>
+<tr>
+<td>Artist Profiles</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>–</td>
+<td>○</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>–</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Mixes</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>–</td>
+<td>●</td>
+<td>○</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Series</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>–</td>
+<td>○</td>
+<td>○</td>
+<td>–</td>
+<td>●</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Editorial</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>○</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Videos</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>○</td>
+<td>–</td>
+<td>○</td>
+<td>○</td>
+<td>○</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Products / Shop</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Homepage</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>–</td>
+<td>–</td>
+<td>○</td>
+<td>–</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+</tr>
+<tr>
+<td>Audience account area</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+<td>○</td>
+<td>–</td>
+<td>●</td>
+<td>–</td>
+<td>–</td>
+<td>●</td>
+<td>●</td>
+</tr>
+</tbody></table></div>
+<p>Column key: Acc Accounts &amp; Permissions · CMS CMS &amp; Content Model · Pub Publishing Workflow · Tag Tagging &amp; Classification · Img Media Assets · Aud Music Upload &amp; Audio Hosting · Ply Audio Player · Vid Video Upload &amp; Hosting · Act Audience Activity · Ntf Notifications · Com Commerce &amp; Cart · Pay Payments · Adm Admin / Back Office · Sub Content Submission · Srch Search &amp; Discovery · Ana Analytics · Host Hosting &amp; Infrastructure.</p>
+<p>Notes on the matrix:</p>
+<ul>
+<li>Artist Profiles need Tagging because related artists are derived from the genres on an artist's mixes (§7).
+</li>
+<li>Videos and Products use their own fixed classifications (Video Category, Shop Category) rather than genre (§4).
+</li>
+<li>Events touch Commerce and Payments only if Aesium hosts ticket checkout (§11, §15).
+</li>
+<li>The Audio Player affects Hosting because playback must survive page navigation (§5, §17, §20).
+</li></ul>
+</section>
+<section class="sec" id="decisions-aesium-carries-into-the-build-discussion-24"><h2>Decisions Aesium carries into the build discussion (§24)</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Decision</th>
+<th>Where it is captured</th>
+</tr></thead><tbody>
+<tr>
+<td>Audio hosting / playback approach</td>
+<td><a href="foundations/06-music-upload-and-audio-hosting.html">06 Music Upload</a>, <a href="foundations/07-audio-player.html">07 Audio Player</a></td>
+</tr>
+<tr>
+<td>Video hosting / playback approach</td>
+<td><a href="foundations/08-video-upload-and-hosting.html">08 Video Upload</a></td>
+</tr>
+<tr>
+<td>Commerce model, including Aesium's percentage</td>
+<td><a href="foundations/11-commerce-and-cart.html">11 Commerce &amp; Cart</a>, <a href="foundations/12-payments.html">12 Payments</a></td>
+</tr>
+<tr>
+<td>Event checkout / RSVP approach</td>
+<td><a href="content-types/events.html">Events</a>, <a href="foundations/12-payments.html">12 Payments</a></td>
+</tr>
+<tr>
+<td>Audience authentication provider</td>
+<td><a href="foundations/01-accounts-and-permissions.html">01 Accounts</a></td>
+</tr>
+<tr>
+<td>CMS / admin approach</td>
+<td><a href="foundations/02-cms-content-model.html">02 CMS</a>, <a href="foundations/13-admin-back-office.html">13 Admin</a></td>
+</tr>
+<tr>
+<td>Artist / content submission approach</td>
+<td><a href="foundations/14-content-submission.html">14 Content Submission</a></td>
+</tr>
+<tr>
+<td>Payment relationship across Shop and Events</td>
+<td><a href="foundations/12-payments.html">12 Payments</a></td>
+</tr>
+<tr>
+<td>Minimum V1 analytics</td>
+<td><a href="foundations/16-analytics.html">16 Analytics</a></td>
+</tr>
+<tr>
+<td>Minimum V1 search</td>
+<td><a href="foundations/15-search-and-discovery.html">15 Search</a></td>
+</tr>
+<tr>
+<td>Final staff permissions</td>
+<td><a href="foundations/01-accounts-and-permissions.html">01 Accounts</a>, <a href="foundations/13-admin-back-office.html">13 Admin</a></td>
+</tr>
+<tr>
+<td>Licensing and legal (music, video, events, artist payments, NZ Privacy Act 2020)</td>
+<td>06, 08, Events, 12, 01</td>
+</tr>
+<tr>
+<td>Genre list structure, granularity and control</td>
+<td><a href="foundations/04-tagging-and-classification.html">04 Tagging</a></td>
+</tr>
+<tr>
+<td>Now Playing experience (immediate switching, full-view player)</td>
+<td><a href="foundations/07-audio-player.html">07 Audio Player</a></td>
+</tr>
+<tr>
+<td>Shopping Cart presentation and persistence, unified cart question</td>
+<td><a href="foundations/11-commerce-and-cart.html">11 Commerce &amp; Cart</a></td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="sec" id="out-of-scope-for-v1"><h2>Out of scope for V1</h2>
+<ul>
+<li>Membership / paywall. Audience accounts stay free (§1).
+</li>
+<li>Artist self-service accounts (§7).
+</li>
+<li>Cross-visit persistence for player position, volume and cart (§5, §6, §13).
+</li>
+<li>Queue / playlist / autoplay (§5).
+</li>
+<li>Tagging beyond genre on mixes; mood, BPM, region; recommendations (§4).
+</li>
+<li>Artist-facing analytics (§18).
+</li></ul>
+</section>
+  </main>
+</div>
+<section class="docs-index" aria-label="All documents"><div class="eyebrow">All documents</div><div class="cols"><div><h2>Foundations</h2><ul><li><a href="foundations/01-accounts-and-permissions.html">01 · Accounts &amp; Permissions</a></li><li><a href="foundations/02-cms-content-model.html">02 · CMS &amp; Content Model</a></li><li><a href="foundations/03-publishing-workflow.html">03 · Publishing Workflow</a></li><li><a href="foundations/04-tagging-and-classification.html">04 · Tagging &amp; Classification</a></li><li><a href="foundations/05-media-assets.html">05 · Media Assets (Images &amp; Artwork)</a></li><li><a href="foundations/06-music-upload-and-audio-hosting.html">06 · Music Upload &amp; Audio Hosting</a></li><li><a href="foundations/07-audio-player.html">07 · Audio Player (Persistent Now Playing &amp; Volume)</a></li><li><a href="foundations/08-video-upload-and-hosting.html">08 · Video Upload &amp; Hosting</a></li><li><a href="foundations/09-audience-activity.html">09 · Audience Activity (Follow, Like, Save)</a></li><li><a href="foundations/10-notifications.html">10 · Notifications</a></li><li><a href="foundations/11-commerce-and-cart.html">11 · Commerce &amp; Shopping Cart</a></li><li><a href="foundations/12-payments.html">12 · Payments</a></li><li><a href="foundations/13-admin-back-office.html">13 · Admin / Back Office</a></li><li><a href="foundations/14-content-submission.html">14 · Content Submission &amp; Intake</a></li><li><a href="foundations/15-search-and-discovery.html">15 · Search &amp; Discovery</a></li><li><a href="foundations/16-analytics.html">16 · Analytics</a></li><li><a href="foundations/17-hosting-and-infrastructure.html">17 · Hosting &amp; Infrastructure</a></li></ul></div><div><h2>Content types</h2><ul><li><a href="content-types/artist-profiles.html">Artist Profiles</a></li><li><a href="content-types/mixes.html">Mixes (DJ / Mix)</a></li><li><a href="content-types/series.html">Series</a></li><li><a href="content-types/editorial-articles.html">Editorial / Articles</a></li><li><a href="content-types/videos.html">Videos</a></li><li><a href="content-types/events.html">Events</a></li><li><a href="content-types/products-shop.html">Products / Shop</a></li></ul></div><div><h2>Reference and commercial</h2><ul><li><a href="entity-diagram.html">Aesium Entity Diagram</a></li><li><a href="statement-of-work.html">Aesium Platform Statement of Work</a></li></ul></div></div></section>
+<footer class="foot"><span>Aesium Platform · working documents</span><span>Source: <a href="https://github.com/davidkpipe/aesium-hub/blob/main/docs/README.md">README.md</a></span></footer>
+</div>
+
+</body>
+</html>

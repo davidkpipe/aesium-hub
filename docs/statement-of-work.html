@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aesium Platform Statement of Work · Aesium Platform docs</title>
+<meta name="description" content="This Statement of Work covers the design, build, hosting set-up and launch of Version 1 of the Aesium platform: a New Zealand cultural platform for DJ mixes, artists, series, editorial, video, events ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ground:#fbf9ef; --ground-2:#f4efe1; --ground-3:#ece5d6;
+  --ink:#17120e; --ink-2:#3d332a; --muted:#7d6a52; --muted-2:#8a8175;
+  --accent:#c8762f; --accent-deep:#b0633f; --accent-light:#e6b27a;
+  --rule:#d9d0bd; --rule-soft:#e6dfcf;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono","SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --ground:#17120e; --ground-2:#1d1813; --ground-3:#231c15;
+    --ink:#f4efe1; --ink-2:#d8cfbf; --muted:#b3a895; --muted-2:#8a8175;
+    --accent:#e6b27a; --accent-deep:#c8762f; --accent-light:#f0c993;
+    --rule:#3a3128; --rule-soft:#2c251d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:0 72px;padding-inline:clamp(16px,4vw,40px)}
+.topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding-block:18px;border-bottom:1px solid var(--rule);font-size:14px}
+.topnav .brand{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
+.topnav a:not(.brand){color:var(--ink-2);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.topnav a:not(.brand):hover,.topnav a[aria-current="page"]{color:var(--accent-deep);border-bottom-color:var(--accent)}
+.mast{padding-block:44px 26px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mast h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:12px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+.mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 28px;margin:24px 0 0;padding-top:18px;border-top:1px solid var(--rule-soft)}
+.meta div{font-size:14px;color:var(--ink-2)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.meta dd{margin:0}
+.layout{display:grid;grid-template-columns:1fr;gap:32px;margin-top:32px}
+@media (min-width:940px){.layout{grid-template-columns:220px minmax(0,1fr);gap:56px}}
+.toc{position:sticky;top:0;align-self:start;font-size:14px;padding-top:6px}
+.toc .eyebrow{font-size:11px;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--ink-2);text-decoration:none;display:block;padding:2px 0 2px 10px;border-left:2px solid transparent;line-height:1.35}
+.toc a:hover{color:var(--accent-deep);border-left-color:var(--accent)}
+@media (max-width:939px){.toc{position:static;border:1px solid var(--rule);border-radius:6px;padding:14px 16px;background:var(--ground-2)}.toc:empty{display:none}}
+main{min-width:0;max-width:80ch}
+.sec{padding-block:6px 22px;border-bottom:1px solid var(--rule-soft);margin-bottom:22px}
+.sec:last-child{border-bottom:0}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(25px,3vw,32px);line-height:1.15;letter-spacing:-.01em;margin:22px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:28px 0 10px;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:70ch}
+li{margin-bottom:6px}
+li>ul,li>ol{margin-top:6px;margin-bottom:0}
+code{font-family:var(--mono);font-size:.86em;background:var(--ground-3);padding:1px 5px;border-radius:3px}
+pre{background:var(--ground-2);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+pre code{background:none;padding:0;font-size:inherit}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.callout{border-left:3px solid var(--accent);background:var(--ground-2);padding:12px 16px;margin:18px 0 20px;font-size:15px;color:var(--ink-2);max-width:70ch}
+.table-wrap{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+.wide table{font-size:13px}
+th,td{padding:9px 12px;vertical-align:top;border-bottom:1px solid var(--rule-soft);text-align:left}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--ground-3);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700;background:var(--ground-3)}
+tr.total td.num{color:var(--accent-deep)}
+.diagram{margin:16px 0 24px;padding:16px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2);overflow-x:auto}
+.diagram pre.mermaid{background:none;border:0;padding:0;margin:0;overflow:visible;font-family:var(--mono);white-space:pre}
+.diagram svg{max-width:100%;height:auto}
+.docs-index{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule)}
+.docs-index .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 32px;margin-top:14px}
+.docs-index h2{font-size:14px;font-family:var(--mono);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.docs-index ul{list-style:none;padding:0;margin:0;font-size:14.5px}
+.docs-index li{margin-bottom:5px}
+.docs-index a{color:var(--ink-2);text-decoration:none}
+.docs-index a:hover{color:var(--accent-deep);text-decoration:underline}
+.foot{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.topnav,.toc,.docs-index{display:none}.layout{display:block}.wrap{padding:0}body{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav" aria-label="Site"><a class="brand" href="index.html">Aesium Platform docs</a><a href="index.html">Overview</a><a href="index.html#foundations">Foundations</a><a href="index.html#content-types">Content types</a><a href="entity-diagram.html">Entity diagram</a><a href="statement-of-work.html" aria-current="page">Statement of work</a><a href="https://github.com/davidkpipe/aesium-hub" rel="noopener">GitHub</a></nav>
+<header class="mast">
+  <div class="eyebrow">Commercial · Version 1.0 · Final</div>
+  <h1>Aesium Platform Statement of Work</h1>
+  <p class="sub">Design, build and launch of Version 1 of the Aesium platform on .NET, SvelteKit and PostgreSQL, hosted on AWS with media on Cloudflare R2, with priced options for SoundCloud audio hosting and YouTube video.</p>
+  <dl class="meta">
+<div><dt>Client</dt><dd>Aesium</dd></div>
+<div><dt>Supplier</dt><dd>David Pipe</dd></div>
+<div><dt>Version</dt><dd>1.0, 23 September 2026, final</dd></div>
+<div><dt>Basis</dt><dd><em>Aesium Platform Requirements &amp; Build Options</em> and the derived working documents in <code>docs/</code> (foundations, content types, entity model)</dd></div>
+<div><dt>Currency</dt><dd>Build pricing in NZD excluding GST. Hosting and service costs in USD unless stated.</dd></div>
+</dl>
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#1-overview">1. Overview</a></li><li><a href="#2-objectives">2. Objectives</a></li><li><a href="#3-scope">3. Scope</a></li><li><a href="#4-technical-approach">4. Technical approach</a></li><li><a href="#5-deliverables-and-hour-estimates">5. Deliverables and hour estimates</a></li><li><a href="#6-delivery-plan">6. Delivery plan</a></li><li><a href="#7-hosting-options-for-audio-and-video">7. Hosting options for audio and video</a></li><li><a href="#8-pricing">8. Pricing</a></li><li><a href="#9-assumptions-and-dependencies">9. Assumptions and dependencies</a></li><li><a href="#10-client-responsibilities">10. Client responsibilities</a></li><li><a href="#11-commercial-terms">11. Commercial terms</a></li><li><a href="#12-decisions-required-before-kick-off">12. Decisions required before kick-off</a></li><li><a href="#appendix-a-detailed-hour-breakdown">Appendix A. Detailed hour breakdown</a></li></ol></nav>
+  <main>
+<section class="sec" id="1-overview"><h2>1. Overview</h2>
+<p>This Statement of Work covers the design, build, hosting set-up and launch of Version 1 of the Aesium platform: a New Zealand cultural platform for DJ mixes, artists, series, editorial, video, events and an artist shop.</p>
+<p>It sets out scope, the technical approach, deliverables with hour estimates, the delivery plan, two hosting options for audio and video with their trade-offs, build pricing, monthly running costs, assumptions, and commercial terms.</p>
+<p>The build is a custom platform rather than a configured content management product. Staff edit pages in place on the live templates; the database record is the source of truth and the page templates are code. This keeps the editing experience close to the audience experience and avoids a second administration system.</p>
+</section>
+<section class="sec" id="2-objectives"><h2>2. Objectives</h2>
+<ul>
+<li>Launch a fast, branded platform where audiences discover artists, listen to mixes without interruption while browsing, and follow the artists they care about.
+</li>
+<li>Give Aesium staff one place to manage every record and the relationships between records, editing pages directly.
+</li>
+<li>Keep running costs low and predictable for a New Zealand audience.
+</li>
+<li>Leave a clean foundation for later phases (membership, artist self-service, recommendations) without a rebuild.
+</li></ul>
+<p>Success criteria at launch:</p>
+<ul>
+<li>Every V1 content type can be created, connected, scheduled, published and unpublished by staff without developer help.
+</li>
+<li>Playback continues across page navigation on desktop and mobile.
+</li>
+<li>Public pages reach a Lighthouse performance score of 90 or better on mobile, with Largest Contentful Paint under 2.0 seconds on a typical New Zealand 4G connection.
+</li>
+<li>Public pages meet WCAG 2.1 AA.
+</li>
+<li>Staging and production are reproducible from code, with automated deploys and nightly database backups.
+</li></ul>
+</section>
+<section class="sec" id="3-scope"><h2>3. Scope</h2>
+<h3 id="3-1-in-scope-version-1">3.1 In scope (Version 1)</h3>
+<p>Shared foundations, built once and used across every feature:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th class="num">#</th>
+<th>Foundation</th>
+<th>V1 scope</th>
+</tr></thead><tbody>
+<tr>
+<td class="num">01</td>
+<td>Accounts &amp; permissions</td>
+<td>Free audience accounts; staff sign-in with roles. Artists do not log in.</td>
+</tr>
+<tr>
+<td class="num">02</td>
+<td>CMS &amp; content model</td>
+<td>Records, relationships and the shared hub-page pattern for artist profiles and series; edit-in-place editing.</td>
+</tr>
+<tr>
+<td class="num">03</td>
+<td>Publishing workflow</td>
+<td>Draft, scheduled, published, unpublished; scheduler; featured and homepage placement.</td>
+</tr>
+<tr>
+<td class="num">04</td>
+<td>Tagging &amp; classification</td>
+<td>Managed genre list with multi-select on mixes; fixed classifications kept per area.</td>
+</tr>
+<tr>
+<td class="num">05</td>
+<td>Media assets</td>
+<td>Image upload, storage, responsive variants, alt text, reuse across records.</td>
+</tr>
+<tr>
+<td class="num">06</td>
+<td>Audio hosting</td>
+<td>Upload or connect mix audio; deliver it to the player; respect publishing state.</td>
+</tr>
+<tr>
+<td class="num">07</td>
+<td>Audio player</td>
+<td>Persistent Now Playing bar, full-view player, immediate switching, volume and mute.</td>
+</tr>
+<tr>
+<td class="num">08</td>
+<td>Video hosting</td>
+<td>Upload or connect video; branded playback; thumbnails; view counts.</td>
+</tr>
+<tr>
+<td class="num">09</td>
+<td>Audience activity</td>
+<td>Follow, like, save; private library; public aggregate follower counts.</td>
+</tr>
+<tr>
+<td class="num">10</td>
+<td>Notifications</td>
+<td>Preferences and email updates when a followed artist publishes.</td>
+</tr>
+<tr>
+<td class="num">11</td>
+<td>Commerce &amp; cart</td>
+<td>Products with artist attribution; cart; guest checkout hand-off.</td>
+</tr>
+<tr>
+<td class="num">12</td>
+<td>Payments</td>
+<td>Card processing, refunds, transaction records, automatic Aesium and artist split.</td>
+</tr>
+<tr>
+<td class="num">13</td>
+<td>Admin back office</td>
+<td>Dashboard, content lists, staff, settings, genre list, featured slots.</td>
+</tr>
+<tr>
+<td class="num">14</td>
+<td>Content submission</td>
+<td>Structured public submission form with genre nomination and staff review.</td>
+</tr>
+<tr>
+<td class="num">15</td>
+<td>Search &amp; discovery</td>
+<td>Keyword search across content including genre; genre filtering and genre pages.</td>
+</tr>
+<tr>
+<td class="num">16</td>
+<td>Analytics</td>
+<td>Web analytics, plays, views, follows, shop activity, admin performance views.</td>
+</tr>
+<tr>
+<td class="num">17</td>
+<td>Hosting &amp; infrastructure</td>
+<td>AWS application and database, Cloudflare front end and media, backups, monitoring.</td>
+</tr>
+</tbody></table></div>
+<p>Content types and pages: Artist profiles, Mixes, Series, Editorial articles, Videos, Events, Products and Shop, Homepage with curated placements, audience account area, and static pages (About, Contact, Privacy, Terms).</p>
+<h3 id="3-2-out-of-scope">3.2 Out of scope</h3>
+<ul>
+<li>Membership or paywall. Audience accounts stay free.
+</li>
+<li>Artist self-service accounts and artist-facing analytics.
+</li>
+<li>Queue, playlist and autoplay; resuming playback or cart across visits.
+</li>
+<li>Tagging beyond genre on mixes (mood, BPM, region) and recommendations.
+</li>
+<li>Aesium-hosted ticket checkout for events. V1 links to external ticketing and supports free RSVP.
+</li>
+<li>Native mobile apps.
+</li>
+<li>Content production: copywriting, photography, video production, audio mastering, artwork.
+</li>
+<li>Legal documents (privacy policy, terms of use, artist agreements), music licensing negotiations and accounting set-up.
+</li>
+<li>Migration of historical content beyond the initial import in work package 18.
+</li>
+<li>Ongoing support and maintenance after the warranty period. This is available under a separate support agreement.
+</li></ul>
+</section>
+<section class="sec" id="4-technical-approach"><h2>4. Technical approach</h2>
+<h3 id="4-1-stack">4.1 Stack</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Layer</th>
+<th>Choice</th>
+<th>Reason</th>
+</tr></thead><tbody>
+<tr>
+<td>Back end</td>
+<td>.NET 10 (ASP.NET Core minimal APIs), Entity Framework Core</td>
+<td>Long-term support release; strongly typed; runs well in a small container.</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>PostgreSQL 17 on Amazon RDS</td>
+<td>Relational model fits the content graph; JSONB for flexible fields; built-in full-text search covers V1.</td>
+</tr>
+<tr>
+<td>Front end</td>
+<td>SvelteKit on Svelte 5</td>
+<td>Client-side navigation keeps the player alive between pages; server rendering for search engines and sharing; small bundles.</td>
+</tr>
+<tr>
+<td>Front-end hosting</td>
+<td>Cloudflare Pages</td>
+<td>Edge delivery with New Zealand points of presence; generous free tier.</td>
+</tr>
+<tr>
+<td>Application hosting</td>
+<td>Amazon ECS Express Mode on Fargate, ap-southeast-6 (Auckland) with ap-southeast-2 (Sydney) as fallback</td>
+<td>Managed containers, nothing to patch, data stays in New Zealand where the region supports every service.</td>
+</tr>
+<tr>
+<td>Media storage</td>
+<td>Cloudflare R2</td>
+<td>No egress fees; S3-compatible API; served through Cloudflare's CDN on an Aesium domain.</td>
+</tr>
+<tr>
+<td>Images</td>
+<td>Cloudflare Image Transformations</td>
+<td>Responsive variants generated on demand from the original.</td>
+</tr>
+<tr>
+<td>Audio (base)</td>
+<td>Self-hosted on R2 with a custom player</td>
+<td>Full control over the listening experience. See Option A.</td>
+</tr>
+<tr>
+<td>Video (base)</td>
+<td>Cloudflare Stream</td>
+<td>Branded player and adaptive streaming inside the same Cloudflare account. See Option B.</td>
+</tr>
+<tr>
+<td>Editing</td>
+<td>Edit-in-place on rendered templates; TipTap for rich text</td>
+<td>The page is the editor. Templates are code; records are data.</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>ASP.NET Core Identity for staff and audience; email sign-in; two-factor for staff</td>
+<td>No per-user fees; can be swapped for a managed provider later without changing the data model.</td>
+</tr>
+<tr>
+<td>Background jobs</td>
+<td>Hangfire</td>
+<td>Scheduled publishing, media processing, notification sending.</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>Stripe Checkout and Stripe Connect</td>
+<td>Supported in New Zealand; automatic split between Aesium and artist accounts.</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Amazon SES</td>
+<td>Transactional and notification email at very low cost.</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Plausible</td>
+<td>Privacy-friendly and cookie-free, which simplifies NZ Privacy Act compliance.</td>
+</tr>
+<tr>
+<td>Infrastructure as code</td>
+<td>AWS CDK; GitHub Actions</td>
+<td>Staging and production defined in code; automated test and deploy on every change.</td>
+</tr>
+</tbody></table></div>
+<h3 id="4-2-editing-model">4.2 Editing model</h3>
+<p>Staff sign in and switch any page into edit mode. Text, rich text, artwork slots, dates and classifications become editable where they sit on the page. Relationships (artist on a mix, episodes in a series, videos on an event) are set through pickers that search existing records. Changes save automatically as a draft; a publishing bar shows status and offers schedule, publish and unpublish. A back office covers what does not belong on a page: content lists with filters, the genre list, featured slots, staff, submissions, orders and settings.</p>
+<h3 id="4-3-player-architecture">4.3 Player architecture</h3>
+<p>The audio player is written against a small provider interface (load, play, pause, seek, volume, progress events). The self-hosted provider and the SoundCloud provider both implement it, so the hosting decision in Option A changes the provider, not the site. The same pattern applies to video.</p>
+<h3 id="4-4-environments-and-delivery">4.4 Environments and delivery</h3>
+<ul>
+<li>Staging and production, each with its own database, buckets and secrets.
+</li>
+<li>Preview deployments of the front end for every change under review.
+</li>
+<li>Nightly automated database backups with 14-day retention; media buckets versioned.
+</li>
+<li>Uptime monitoring, error tracking and log retention of 30 days.
+</li></ul>
+</section>
+<section class="sec" id="5-deliverables-and-hour-estimates"><h2>5. Deliverables and hour estimates</h2>
+<p>Hours are estimates of the effort to deliver working, tested functionality. Each work package includes its own automated tests and short technical notes. A detailed breakdown is in Appendix A.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Work package</th>
+<th>What it delivers</th>
+<th class="num">Hours</th>
+<th>Phase</th>
+</tr></thead><tbody>
+<tr>
+<td>1. Platform foundations &amp; infrastructure</td>
+<td>Repositories, CI/CD, staging and production on AWS via CDK, Cloudflare set-up, logging and alerts</td>
+<td class="num">32</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2. Accounts &amp; permissions</td>
+<td>Staff sign-in with roles and two-factor; audience registration, sign-in, recovery, profile, deletion and data export</td>
+<td class="num">30</td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td>3. Content model &amp; edit-in-place</td>
+<td>Data model for every record and relationship; inline editing framework on rendered pages; slugs and SEO metadata</td>
+<td class="num">48</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4. Publishing workflow</td>
+<td>Draft, scheduled, published, unpublished on every type; scheduler; preview links; publish hooks</td>
+<td class="num">12</td>
+<td>1</td>
+</tr>
+<tr>
+<td>5. Tagging &amp; classification</td>
+<td>Managed genre list, multi-select, fixed classifications, filters, genre pages</td>
+<td class="num">8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>6. Media assets</td>
+<td>Direct-to-R2 upload, responsive variants, alt text, media library, reuse, clean-up</td>
+<td class="num">16</td>
+<td>1</td>
+</tr>
+<tr>
+<td>7. Audio hosting &amp; delivery</td>
+<td>Large-file upload, processing, waveform, delivery, play counting (base: self-hosted on R2)</td>
+<td class="num">20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>8. Audio player</td>
+<td>Persistent Now Playing bar, full-view player, immediate switching, volume and mute, lock-screen controls</td>
+<td class="num">24</td>
+<td>1</td>
+</tr>
+<tr>
+<td>9. Video hosting &amp; playback</td>
+<td>Upload, processing, branded player, thumbnails, view counts (base: Cloudflare Stream)</td>
+<td class="num">12</td>
+<td>2</td>
+</tr>
+<tr>
+<td>10. Content types &amp; pages</td>
+<td>Templates and behaviours for every content type, homepage placements, account area, static pages</td>
+<td class="num">104</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>11. Audience activity &amp; notifications</td>
+<td>Follow, like, save, private library, follower counts; preferences; publish-triggered email</td>
+<td class="num">24</td>
+<td>2</td>
+</tr>
+<tr>
+<td>12. Commerce &amp; payments</td>
+<td>Cart, guest checkout, Stripe Checkout, Stripe Connect split, refunds, orders, reporting</td>
+<td class="num">36</td>
+<td>3</td>
+</tr>
+<tr>
+<td>13. Admin back office &amp; submissions</td>
+<td>Dashboard, content lists, staff, settings, audit log; submission form and review queue</td>
+<td class="num">26</td>
+<td>2</td>
+</tr>
+<tr>
+<td>14. Search &amp; discovery</td>
+<td>Full-text search, results page, genre filtering, related content</td>
+<td class="num">10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>15. Analytics</td>
+<td>Web analytics, custom events, admin performance views</td>
+<td class="num">8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>16. Design system &amp; front-end build</td>
+<td>Tokens, typography, components, responsive layouts, dark mode, accessibility</td>
+<td class="num">28</td>
+<td>1</td>
+</tr>
+<tr>
+<td>17. Quality, security &amp; performance</td>
+<td>End-to-end tests, performance tuning, security and privacy review, load test</td>
+<td class="num">28</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>18. Launch &amp; handover</td>
+<td>Content import, staff training, documentation, go-live, two weeks of hypercare</td>
+<td class="num">16</td>
+<td>1, 2, 3</td>
+</tr>
+<tr class="total">
+<td>Subtotal, build</td>
+<td></td>
+<td class="num">482</td>
+<td></td>
+</tr>
+<tr>
+<td>19. Project management &amp; communication</td>
+<td>Planning, weekly reviews and demos, decision log, reporting</td>
+<td class="num">40</td>
+<td>All</td>
+</tr>
+<tr class="total">
+<td>Total</td>
+<td></td>
+<td class="num">522</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Content types and pages (work package 10) in detail:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Page or content type</th>
+<th>Included</th>
+<th class="num">Hours</th>
+</tr></thead><tbody>
+<tr>
+<td>Artist profiles</td>
+<td>Hub page pattern, Experiences grid and filters, related artists from shared genres, follow button and follower count, external links, releases, grouped presentation for artists with little content</td>
+<td class="num">18</td>
+</tr>
+<tr>
+<td>Mixes</td>
+<td>Listing with genre filter, detail page, tracklist, credits, series episode display, like and save</td>
+<td class="num">14</td>
+</tr>
+<tr>
+<td>Series</td>
+<td>Hub page reuse, episode ordering, collected videos, articles, products and links</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Editorial articles</td>
+<td>Rich text layout, images, pull quote, "In Their Words" section on profiles</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Videos</td>
+<td>Listing, detail page, video categories, artist, series and event links, like and save</td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>Upcoming and Past, Next Up, venue, ticket link or RSVP, recordings</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Products and Shop</td>
+<td>Listing, detail page, shop categories, artist attribution, series placement</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Homepage &amp; featured placements</td>
+<td>Curated slots with ordering and start and end dates, latest and featured content</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Static pages, navigation and footer</td>
+<td>About, Contact, Privacy, Terms; header, footer, cart icon</td>
+<td class="num">4</td>
+</tr>
+<tr class="total">
+<td>Total</td>
+<td></td>
+<td class="num">104</td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="sec" id="6-delivery-plan"><h2>6. Delivery plan</h2>
+<p>The build is delivered in three phases. Each phase ends with a working, deployable release that Aesium can put in front of real users.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Phase</th>
+<th>Focus</th>
+<th class="num">Build hours</th>
+<th class="num">PM hours</th>
+<th class="num">Total hours</th>
+<th>Duration</th>
+</tr></thead><tbody>
+<tr>
+<td>1. Discover &amp; listen</td>
+<td>Infrastructure, staff accounts, content model and editing, publishing, genres, media, audio, player, artist profiles, mixes, series, homepage, static pages, search, analytics, design system</td>
+<td class="num">304</td>
+<td class="num">24</td>
+<td class="num">328</td>
+<td>10 to 11 weeks</td>
+</tr>
+<tr>
+<td>2. Audience &amp; editorial</td>
+<td>Audience accounts, follow, like and save, notifications, editorial, video, events, admin dashboard, submissions</td>
+<td class="num">120</td>
+<td class="num">10</td>
+<td class="num">130</td>
+<td>4 weeks</td>
+</tr>
+<tr>
+<td>3. Shop &amp; payments</td>
+<td>Products, cart, checkout, Stripe Connect, orders, refunds, reporting</td>
+<td class="num">58</td>
+<td class="num">6</td>
+<td class="num">64</td>
+<td>2 to 3 weeks</td>
+</tr>
+<tr class="total">
+<td>Total</td>
+<td></td>
+<td class="num">482</td>
+<td class="num">40</td>
+<td class="num">522</td>
+<td>16 to 18 weeks</td>
+</tr>
+</tbody></table></div>
+<p>Milestones:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Milestone</th>
+<th class="num">Week</th>
+<th>Evidence</th>
+</tr></thead><tbody>
+<tr>
+<td>M0 Kick-off</td>
+<td class="num">0</td>
+<td>Decisions in Section 12 confirmed; accounts and access in place</td>
+</tr>
+<tr>
+<td>M1 Foundations</td>
+<td class="num">3</td>
+<td>Staging live on AWS; staff sign-in; content model migrated; edit-in-place working on the artist template</td>
+</tr>
+<tr>
+<td>M2 Phase 1 beta</td>
+<td class="num">8</td>
+<td>Artists, mixes, series, homepage, player and search working end to end on staging with real content</td>
+</tr>
+<tr>
+<td>M3 Phase 1 launch</td>
+<td class="num">11</td>
+<td>Production live; hypercare begins</td>
+</tr>
+<tr>
+<td>M4 Phase 2 release</td>
+<td class="num">15</td>
+<td>Audience accounts, follow, notifications, editorial, video, events, submissions live</td>
+</tr>
+<tr>
+<td>M5 Phase 3 release</td>
+<td class="num">18</td>
+<td>Shop and payments live; reconciliation report available</td>
+</tr>
+<tr>
+<td>M6 Handover</td>
+<td class="num">18</td>
+<td>Documentation, training and warranty start</td>
+</tr>
+</tbody></table></div>
+<p>Durations assume decisions and content arrive when needed and a delivery cadence of roughly 30 hours per week on the project.</p>
+</section>
+<section class="sec" id="7-hosting-options-for-audio-and-video"><h2>7. Hosting options for audio and video</h2>
+<p>Two decisions from the requirements (§24) shape the product, the build and the running cost: where mix audio lives, and where video lives. The base configuration keeps both under Aesium's control. Each option below swaps a provider, describes what changes in the interface, lists the downsides, and prices the difference.</p>
+<h3 id="7-1-audio-self-hosted-on-r2-base-or-soundcloud-option-a">7.1 Audio: self-hosted on R2 (base) or SoundCloud (Option A)</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th></th>
+<th>Base: self-hosted on R2</th>
+<th>Option A: SoundCloud</th>
+</tr></thead><tbody>
+<tr>
+<td>Where audio lives</td>
+<td>Aesium's R2 bucket, served on an Aesium domain</td>
+<td>SoundCloud, on Aesium's account or the artist's own account</td>
+</tr>
+<tr>
+<td>How staff add a mix</td>
+<td>Upload the file on the mix page; processing runs in the background</td>
+<td>Upload on soundcloud.com, then paste the track link on the mix page</td>
+</tr>
+<tr>
+<td>Player</td>
+<td>Fully custom bar and full-view player</td>
+<td>Custom bar controlling a SoundCloud widget that must remain visible</td>
+</tr>
+<tr>
+<td>Licensing</td>
+<td>Aesium's responsibility; online licences from APRA AMCOS and Recorded Music NZ must be in place before launch</td>
+<td>Covered by SoundCloud's platform licences under its terms; Aesium should still confirm its position</td>
+</tr>
+<tr>
+<td>Play analytics</td>
+<td>In Aesium's database and reports</td>
+<td>On SoundCloud; Aesium records play starts only</td>
+</tr>
+<tr>
+<td>Build hours</td>
+<td>20 (work package 7, audio hosting) + 24 (work package 8, audio player)</td>
+<td>14 (SoundCloud integration) + 30 (work package 8 with the widget adapter). Net change: 0</td>
+</tr>
+<tr>
+<td>Monthly cost</td>
+<td>R2 storage about USD 1 to 3; music licences from about NZD 510 a year on the published small-service tariffs, otherwise quoted</td>
+<td>Artist Pro plan USD 99 a year (NZD 135 when bought from New Zealand), or free on artists' accounts</td>
+</tr>
+</tbody></table></div>
+<p>Interface changes with Option A:</p>
+<ul>
+<li>The Now Playing bar carries a compact SoundCloud widget. SoundCloud's terms require its player and branding to stay visible and unobscured, so the bar shows a slim SoundCloud strip (track link, logo) alongside Aesium's own play, pause, progress and volume controls, which drive the widget through its API.
+</li>
+<li>Artwork, waveform and duration come from SoundCloud. The full-view player shows SoundCloud's waveform rather than a custom one.
+</li>
+<li>Mixes are added by pasting a SoundCloud link. There is no audio upload in Aesium's admin in V1. SoundCloud now issues API credentials to Artist Pro subscribers, so upload from Aesium through SoundCloud's API can be added later (about 8 hours).
+</li>
+<li>On iOS Safari and some Android browsers, audio inside a third-party frame needs a tap inside that frame before it will start. "Play from any card" and "switch immediately" work on desktop but can require a second tap on mobile.
+</li>
+<li>Tracks that are deleted, made private, geo-blocked or have embedding turned off show a fallback state instead of playing. Staff get a warning in the admin when a linked track stops resolving.
+</li>
+<li>Volume works through the widget API, so the desktop slider and mobile mute both function.
+</li></ul>
+<p>Downsides of Option A:</p>
+<ul>
+<li>Loss of control. Availability, playback quality, branding and the terms of use are SoundCloud's. Tracks can be removed by automated rights matching without notice.
+</li>
+<li>Branding and leakage. The SoundCloud logo and link sit inside the listening experience, and each track links out to soundcloud.com.
+</li>
+<li>Advertising. SoundCloud is ad-supported for free listeners inside its own apps and site. It does not currently play ads inside embedded players, but its terms allow it to change that.
+</li>
+<li>Dependency for the core feature. A change to SoundCloud's widget, API or pricing affects every mix on the site.
+</li>
+<li>Analytics split. Listening data lives on SoundCloud; Aesium reports show play starts only.
+</li>
+<li>Future limits. Content on SoundCloud cannot be placed behind an Aesium membership later.
+</li>
+<li>Workflow. Every mix is uploaded twice: to SoundCloud, then linked in Aesium.
+</li></ul>
+<p>Upsides of Option A:</p>
+<ul>
+<li>No storage, transcoding or delivery to run. Waveforms and encodes are provided.
+</li>
+<li>Licensing exposure sits with the platform rather than with Aesium.
+</li>
+<li>Many artists already publish to SoundCloud, and their existing audiences and play counts carry over.
+</li>
+<li>Fast path to launch if the OneMusic position is unresolved.
+</li></ul>
+<p>Alternative considered: Mixcloud. It is built for DJ mixes and its licensing for mixes is the most established of the three. Its widget must also stay visible and, for free listeners, restricts seeking within a mix, which conflicts with the required player behaviour. Mixcloud Pro costs USD 11.25 a month on the annual plan (USD 15 monthly). It can be priced as a variant of Option A if Aesium prefers it.</p>
+<h3 id="7-2-video-cloudflare-stream-base-or-youtube-option-b">7.2 Video: Cloudflare Stream (base) or YouTube (Option B)</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th></th>
+<th>Base: Cloudflare Stream</th>
+<th>Option B: YouTube</th>
+</tr></thead><tbody>
+<tr>
+<td>Where video lives</td>
+<td>Aesium's Cloudflare account</td>
+<td>Aesium's YouTube channel, or the artist's own channel</td>
+</tr>
+<tr>
+<td>How staff add a video</td>
+<td>Upload on the video page; processing runs in the background</td>
+<td>Upload in YouTube Studio, then paste the link on the video page</td>
+</tr>
+<tr>
+<td>Player</td>
+<td>Aesium-branded player, adaptive streaming</td>
+<td>YouTube's player inside Aesium's page</td>
+</tr>
+<tr>
+<td>Advertising</td>
+<td>None</td>
+<td>YouTube may show ads before or during videos</td>
+</tr>
+<tr>
+<td>View analytics</td>
+<td>In Aesium's database and reports</td>
+<td>In YouTube Studio; Aesium records play starts, and can pull view counts</td>
+</tr>
+<tr>
+<td>Build hours</td>
+<td>12 (work package 9, video hosting)</td>
+<td>8 (YouTube integration). Net change: minus 4</td>
+</tr>
+<tr>
+<td>Monthly cost</td>
+<td>USD 5 per 1,000 minutes stored plus USD 1 per 1,000 minutes watched. About USD 45 at a modest starting library; scales with viewing</td>
+<td>USD 0</td>
+</tr>
+</tbody></table></div>
+<p>Interface changes with Option B:</p>
+<ul>
+<li>Video pages show Aesium's own thumbnail and play button until the viewer clicks. The YouTube player loads only then, which keeps pages fast and on-brand until playback starts.
+</li>
+<li>Once playing, the player is YouTube's: YouTube logo, title overlay when paused, share button, "Watch on YouTube" link, and end-screen suggestions from the same channel. None of this can be restyled or removed.
+</li>
+<li>The player sits in a fixed 16:9 frame. Vertical or square videos show with letterboxing.
+</li>
+<li>Starting a video pauses the mix in the Now Playing bar, and starting a mix pauses the video. This is done through YouTube's player events.
+</li>
+<li>Videos are added by pasting a link. Title, duration and a fallback thumbnail are fetched automatically. There is no video upload in Aesium's admin.
+</li>
+<li>Embedding uses YouTube's privacy-enhanced domain and loads no Google scripts until the viewer chooses to play. This makes any ads non-personalised but does not remove them, and the privacy policy still needs to cover Google's processing once playback starts.
+</li>
+<li>Videos that are private, deleted, age-restricted, or have embedding disabled by their owner show a fallback state. Artist-owned videos are the usual source of this.
+</li></ul>
+<p>Downsides of Option B:</p>
+<ul>
+<li>Advertising. YouTube's terms give it the right to run ads on any video, including those from channels that are not in its Partner Program, and those ads appear in embedded players. Neither the channel owner nor the embedding site can switch ads off for embeds, Aesium cannot choose which brands appear, and Aesium earns nothing from them unless it joins the Partner Program.
+</li>
+<li>Rights matching. Live sets and mixes containing recorded music are routinely matched by Content ID. Outcomes include muted audio, blocking in some countries, or the claimant taking ad revenue. A strike can restrict the channel.
+</li>
+<li>Loss of control. Availability, player design, policy changes and removals are YouTube's decisions. A channel termination removes every video at once.
+</li>
+<li>Branding and leakage. The YouTube logo, title bar and end-screen suggestions pull viewers off Aesium.
+</li>
+<li>Analytics off-platform. Watch time and audience data live in YouTube Studio.
+</li>
+<li>Future limits. YouTube-hosted video cannot be placed behind an Aesium membership later.
+</li>
+<li>Account dependency. Aesium's video library lives in a Google account that must be secured and kept in good standing.
+</li></ul>
+<p>Upsides of Option B:</p>
+<ul>
+<li>No hosting or delivery cost at any scale.
+</li>
+<li>Adaptive streaming, captions, chapters and live streaming are included.
+</li>
+<li>YouTube search and recommendations bring an audience of their own.
+</li>
+<li>Artists often have their videos there already, so linking is immediate.
+</li></ul>
+<p>Alternative considered: Vimeo. It gives an ad-free, brandable player with domain-restricted embedding and privacy controls for a fixed subscription (Starter USD 12 a month on the annual plan with 2 TB of storage; Standard USD 25 with 4 TB), with no per-minute charge. It sits between the two options on cost and control and can be substituted for Cloudflare Stream at no change to build hours.</p>
+<h3 id="7-3-option-combinations">7.3 Option combinations</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Configuration</th>
+<th>Build hours change</th>
+<th>Monthly cost change</th>
+<th>Notes</th>
+</tr></thead><tbody>
+<tr>
+<td>Base: R2 audio, Cloudflare Stream video</td>
+<td>0</td>
+<td>0</td>
+<td>Full control; music licences required before audio launch</td>
+</tr>
+<tr>
+<td>Option A only: SoundCloud audio</td>
+<td>0</td>
+<td>plus USD 0 to 8; removes the music licence fees</td>
+<td>Player provider swap</td>
+</tr>
+<tr>
+<td>Option B only: YouTube video</td>
+<td>minus 4</td>
+<td>about minus USD 45 at launch volume, more as viewing grows</td>
+<td>Provider swap</td>
+</tr>
+<tr>
+<td>Options A and B</td>
+<td>minus 4</td>
+<td>about minus USD 38 at launch; removes the music licence fees</td>
+<td>Lowest running cost, least control</td>
+</tr>
+<tr>
+<td>Base plus SoundCloud adapter kept</td>
+<td>plus 20</td>
+<td>0</td>
+<td>Both audio providers available; mixes can be self-hosted or linked</td>
+</tr>
+<tr>
+<td>Base plus YouTube adapter kept</td>
+<td>plus 8</td>
+<td>0</td>
+<td>Both video providers available</td>
+</tr>
+</tbody></table></div>
+<p>Recommendation: keep the base configuration for audio, because the listening experience is the product, and build the SoundCloud adapter (plus 20 hours) so that individual mixes can be linked where licensing or an artist's preference requires it, and so the site can launch on linked audio if the licences are not yet in place. For video, launch with YouTube (Option B) and the click-to-play facade, since the video library is small at launch and advertising exposure is limited to the videos Aesium chooses to embed. Move to Cloudflare Stream when a branded, ad-free experience matters more than the per-minute cost; the provider interface makes that a 12-hour change.</p>
+</section>
+<section class="sec" id="8-pricing"><h2>8. Pricing</h2>
+<h3 id="8-1-build">8.1 Build</h3>
+<p>Rate: NZD 150 per hour, excluding GST. Every figure below is hours multiplied by this rate.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Phase</th>
+<th class="num">Hours</th>
+<th class="num">Price (NZD, ex GST)</th>
+</tr></thead><tbody>
+<tr>
+<td>1. Discover &amp; listen</td>
+<td class="num">328</td>
+<td class="num">49,200</td>
+</tr>
+<tr>
+<td>2. Audience &amp; editorial</td>
+<td class="num">130</td>
+<td class="num">19,500</td>
+</tr>
+<tr>
+<td>3. Shop &amp; payments</td>
+<td class="num">64</td>
+<td class="num">9,600</td>
+</tr>
+<tr class="total">
+<td>Total, base configuration</td>
+<td class="num">522</td>
+<td class="num">78,300</td>
+</tr>
+<tr>
+<td>Contingency reserve (10%, drawn only with written approval)</td>
+<td class="num">52</td>
+<td class="num">7,800</td>
+</tr>
+</tbody></table></div>
+<p>Option adjustments to the total:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Option</th>
+<th>Hours</th>
+<th>Price (NZD, ex GST)</th>
+</tr></thead><tbody>
+<tr>
+<td>Option A: SoundCloud instead of self-hosted audio</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Option B: YouTube instead of Cloudflare Stream</td>
+<td>minus 4</td>
+<td>minus 600</td>
+</tr>
+<tr>
+<td>SoundCloud adapter kept alongside self-hosting</td>
+<td>plus 20</td>
+<td>plus 3,000</td>
+</tr>
+<tr>
+<td>YouTube adapter kept alongside Cloudflare Stream</td>
+<td>plus 8</td>
+<td>plus 1,200</td>
+</tr>
+<tr>
+<td>Recommended configuration (base audio plus SoundCloud adapter, YouTube video)</td>
+<td>538</td>
+<td>80,700</td>
+</tr>
+</tbody></table></div>
+<h3 id="8-2-running-costs">8.2 Running costs</h3>
+<p>Estimated monthly costs at launch volume: about 10,000 page views a month, 300 mixes averaging 150 MB, 60 videos averaging 40 minutes, 2,000 video views a month, 20,000 emails a month, one application container and a single-zone database. Figures are in USD and drawn from the providers' published price lists on 23 September 2026, using the Auckland region (ap-southeast-6), which runs about 10% above Sydney. There is no extra charge for ECS Express Mode.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Item</th>
+<th>Base</th>
+<th>Options A and B</th>
+<th>Notes</th>
+</tr></thead><tbody>
+<tr>
+<td>AWS: application container (0.5 vCPU, 1 GB, always on)</td>
+<td>24</td>
+<td>24</td>
+<td>A second container for redundancy adds about 24</td>
+</tr>
+<tr>
+<td>AWS: load balancer</td>
+<td>25</td>
+<td>25</td>
+<td>Created by ECS Express Mode; billed hourly plus usage</td>
+</tr>
+<tr>
+<td>AWS: PostgreSQL db.t4g.micro, 20 GB storage, backups</td>
+<td>22</td>
+<td>22</td>
+<td>Multi-zone standby doubles this</td>
+</tr>
+<tr>
+<td>AWS: secrets, container registry, logs, data transfer</td>
+<td>7</td>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloudflare: Workers Paid plan for server rendering</td>
+<td>5</td>
+<td>5</td>
+<td>Free tier may be enough at launch</td>
+</tr>
+<tr>
+<td>Cloudflare: R2 storage (about 50 GB)</td>
+<td>1</td>
+<td>0</td>
+<td>No egress charges; first 10 GB free</td>
+</tr>
+<tr>
+<td>Cloudflare: image transformations</td>
+<td>3</td>
+<td>3</td>
+<td>First 5,000 unique transformations free</td>
+</tr>
+<tr>
+<td>Cloudflare: Stream (2,400 minutes stored, 30,000 minutes watched)</td>
+<td>45</td>
+<td>0</td>
+<td>Storage prepaid in 1,000-minute blocks; grows with library and viewing</td>
+</tr>
+<tr>
+<td>SoundCloud Artist Pro (annual plan)</td>
+<td>0</td>
+<td>8</td>
+<td>USD 99 a year; not needed if mixes stay on artists' own accounts</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>Plausible Analytics, Starter plan (10,000 page views)</td>
+<td>9</td>
+<td>9</td>
+<td>19 at 100,000 page views; Growth plan 14</td>
+</tr>
+<tr>
+<td>Amazon SES (20,000 emails)</td>
+<td>2</td>
+<td>2</td>
+<td>Sydney rate; SES pricing is not yet listed for Auckland</td>
+</tr>
+<tr>
+<td>Error tracking and uptime monitoring</td>
+<td>0</td>
+<td>0</td>
+<td>Free tiers at this scale</td>
+</tr>
+<tr>
+<td>Domain and DNS</td>
+<td>2</td>
+<td>2</td>
+<td>Annual registration averaged</td>
+</tr>
+<tr class="total">
+<td>Total per month</td>
+<td>about 145</td>
+<td>about 107</td>
+<td></td>
+</tr>
+<tr class="total">
+<td>Total per year</td>
+<td>about 1,740</td>
+<td>about 1,280</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>Not included above: music licences for self-hosted streaming (Section 8.4, base configuration only), Stripe processing fees (Section 8.3), and any paid support plans.</p>
+<p>Growth scenario, ten times the launch volume (100,000 page views, two containers, a larger database, 30,000 minutes stored and 300,000 minutes watched):</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Configuration</th>
+<th>Monthly (USD)</th>
+<th>What drives it</th>
+</tr></thead><tbody>
+<tr>
+<td>Base</td>
+<td>about 630</td>
+<td>Cloudflare Stream is about 70% of the total</td>
+</tr>
+<tr>
+<td>Options A and B</td>
+<td>about 185</td>
+<td>Compute and database; media delivery costs nothing</td>
+</tr>
+</tbody></table></div>
+<h3 id="8-3-transaction-and-usage-fees">8.3 Transaction and usage fees</h3>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Fee</th>
+<th>Amount</th>
+<th>Applies to</th>
+</tr></thead><tbody>
+<tr>
+<td>Stripe card processing, New Zealand cards</td>
+<td>2.65% + NZD 0.30 per successful charge (Stripe's Connect page shows 2.7%; confirm at sign-up)</td>
+<td>Every shop order</td>
+</tr>
+<tr>
+<td>Stripe card processing, international cards</td>
+<td>3.5% + NZD 0.30, plus 2% where currency conversion is needed</td>
+<td>Orders paid with non-NZ cards</td>
+</tr>
+<tr>
+<td>Stripe Connect, Aesium sets its own pricing</td>
+<td>NZD 2 per connected artist account in any month it is paid, plus 0.25% + NZD 0.25 per payout</td>
+<td>Artist share of each order</td>
+</tr>
+<tr>
+<td>Stripe disputes</td>
+<td>NZD 25 per dispute, refunded if won</td>
+<td>Chargebacks</td>
+</tr>
+<tr>
+<td>Amazon SES</td>
+<td>USD 0.10 per 1,000 emails</td>
+<td>Notification and transactional email</td>
+</tr>
+<tr>
+<td>Cloudflare R2</td>
+<td>USD 0.015 per GB-month; USD 4.50 per million writes; USD 0.36 per million reads</td>
+<td>Media beyond the free tier</td>
+</tr>
+<tr>
+<td>Cloudflare Stream</td>
+<td>USD 5 per 1,000 minutes stored; USD 1 per 1,000 minutes watched</td>
+<td>Base video configuration</td>
+</tr>
+</tbody></table></div>
+<h3 id="8-4-costs-outside-this-statement-of-work">8.4 Costs outside this Statement of Work</h3>
+<p>These are the Client's, and are not included in the figures above:</p>
+<ul>
+<li>Music licences for on-demand streaming of mixes (base audio configuration). OneMusic NZ licenses premises, not websites; online use is licensed separately by APRA AMCOS (compositions) and Recorded Music NZ (recordings). APRA AMCOS publishes an Online Mini Licence at NZD 250 to 1,000 a year per category of use for services earning under NZD 12,000 a year; Recorded Music NZ publishes an Audio Webcast Licence at NZD 260 plus GST a year for non-interactive webcasts and quotes on-demand services case by case. Whether an on-demand mix player fits the fixed tariffs or needs a quoted licence must be confirmed with both bodies.
+</li>
+<li>Rights clearance for video: music synchronisation, footage, likeness, and attendee permissions for filmed events.
+</li>
+<li>Domain registration, business email, and the Stripe, AWS, Cloudflare, SoundCloud, YouTube and Plausible accounts, which are opened in Aesium's name.
+</li>
+<li>Legal documents: privacy policy, terms of use, artist agreements, refund policy.
+</li>
+<li>Accounting and tax advice on the artist money flow and Aesium's commission.
+</li>
+<li>Paid support plans on any third-party service.
+</li></ul>
+</section>
+<section class="sec" id="9-assumptions-and-dependencies"><h2>9. Assumptions and dependencies</h2>
+<ul>
+<li>The existing Aesium mockup and brand (typefaces, palette, layouts) is the design source. No separate design phase is included; each template gets up to two rounds of visual refinement during build.
+</li>
+<li>One Administrator role and one Editor role are enough for V1. Further roles are a change.
+</li>
+<li>Artists do not log in. Content arrives through the structured submission form or directly to staff.
+</li>
+<li>Notifications are email only in V1. Browser push is a later addition.
+</li>
+<li>The shop is Aesium-managed: products are records in Aesium, orders go through one unified cart and Stripe Checkout, and Stripe Connect splits each order between Aesium and the artist. Aesium handles customer service and refunds through Stripe. Fulfilment stays with artists.
+</li>
+<li>Events link to external ticketing. Free events can take an RSVP from a signed-in audience member. No Aesium ticket checkout.
+</li>
+<li>Search uses PostgreSQL full-text search. A dedicated search engine is a later option.
+</li>
+<li>The application runs in ap-southeast-6 (Auckland) if ECS, RDS and the supporting services are available there at kick-off; otherwise in ap-southeast-2 (Sydney) with a documented migration path.
+</li>
+<li>Self-hosted audio does not go live until Aesium holds the online music licences described in Section 8.4. The build proceeds regardless; only public playback is gated.
+</li>
+<li>Browser support: the current and previous major versions of Chrome, Safari, Firefox and Edge; iOS 16 and later; Android 11 and later.
+</li>
+<li>English only. All prices exclude GST. Hours are estimates; see Section 11 for how variances are handled.
+</li>
+<li>Hosting figures are estimates from published pricing and are not a quote from the providers. Aesium is billed directly by each provider.
+</li></ul>
+</section>
+<section class="sec" id="10-client-responsibilities"><h2>10. Client responsibilities</h2>
+<ul>
+<li>Name one decision-maker with authority to approve scope, designs and releases.
+</li>
+<li>Answer decisions and review requests within three business days, and complete acceptance testing within ten business days of each phase release.
+</li>
+<li>Supply content, artwork, audio, video links, copy and the approved genre list by the dates agreed at kick-off.
+</li>
+<li>Open the third-party accounts listed in Section 8.4 and grant the Supplier access.
+</li>
+<li>Provide legal documents and confirm licensing and rights positions.
+</li>
+<li>Provide two to four staff members for training and acceptance testing.
+</li></ul>
+</section>
+<section class="sec" id="11-commercial-terms"><h2>11. Commercial terms</h2>
+<ul>
+<li><strong>Engagement.</strong> Fixed price per phase based on the hours in Section 5. Work outside the described scope is agreed in writing through change control before it starts and priced at the same hourly rate.
+</li>
+<li><strong>Payment schedule.</strong> 20% of the Phase 1 price on signing; the balance of each phase in two milestone payments on beta (M2, M4 or M5 equivalent) and on release. Invoices are due within 14 days. GST is added to every invoice.
+</li>
+<li><strong>Acceptance.</strong> Each phase release is accepted when the acceptance criteria in Section 2 and the work package descriptions are met, or ten business days after release if no material defects are reported.
+</li>
+<li><strong>Defects and warranty.</strong> Defects found during acceptance are fixed at no charge. Each phase carries a 30-day warranty from its production release for defects in the delivered work.
+</li>
+<li><strong>Support.</strong> After warranty, support and small improvements are available under a monthly retainer, priced separately.
+</li>
+<li><strong>Intellectual property.</strong> Aesium owns the platform code, design and content on payment of each phase. The Supplier retains ownership of pre-existing tools, libraries and generic components and grants Aesium a perpetual, royalty-free licence to use them within the platform.
+</li>
+<li><strong>Third-party services.</strong> Aesium contracts directly with AWS, Cloudflare, Stripe, SoundCloud, YouTube, Plausible and any other provider, and is bound by their terms.
+</li>
+<li><strong>Confidentiality.</strong> Both parties keep the other's non-public information confidential during and after the engagement.
+</li>
+<li><strong>Governing law.</strong> New Zealand.
+</li></ul>
+</section>
+<section class="sec" id="12-decisions-required-before-kick-off"><h2>12. Decisions required before kick-off</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Decision</th>
+<th>Options</th>
+<th>Affects</th>
+</tr></thead><tbody>
+<tr>
+<td>Audio hosting</td>
+<td>Base (self-hosted) or Option A (SoundCloud); whether to keep both</td>
+<td>Work packages 7 and 8, licensing, running cost</td>
+</tr>
+<tr>
+<td>Video hosting</td>
+<td>Base (Cloudflare Stream), Option B (YouTube), or Vimeo</td>
+<td>Work package 9, running cost, advertising exposure</td>
+</tr>
+<tr>
+<td>Music licensing</td>
+<td>APRA AMCOS and Recorded Music NZ licences in place before Phase 1 launch, or launch with linked audio</td>
+<td>Phase 1 launch content</td>
+</tr>
+<tr>
+<td>Genre list</td>
+<td>Initial list and who controls it</td>
+<td>Work package 5, search, related artists</td>
+</tr>
+<tr>
+<td>Staff roles</td>
+<td>Administrator only, or Administrator plus Editor</td>
+<td>Work packages 2 and 13</td>
+</tr>
+<tr>
+<td>Submissions</td>
+<td>Structured public form (assumed) or manual entry only</td>
+<td>Work package 13</td>
+</tr>
+<tr>
+<td>Commerce model</td>
+<td>Aesium-managed products with unified cart and Stripe Connect (assumed)</td>
+<td>Work package 12</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>External ticketing plus free RSVP (assumed)</td>
+<td>Work package 10</td>
+</tr>
+<tr>
+<td>Admin visibility of audience activity</td>
+<td>Aggregates only, or per-user detail</td>
+<td>Work packages 11 and 13, privacy policy</td>
+</tr>
+<tr>
+<td>Hosting region</td>
+<td>Auckland if fully available, otherwise Sydney</td>
+<td>Work package 1</td>
+</tr>
+</tbody></table></div>
+</section>
+<section class="sec" id="appendix-a-detailed-hour-breakdown"><h2>Appendix A. Detailed hour breakdown</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Work package</th>
+<th>Item</th>
+<th class="num">Hours</th>
+</tr></thead><tbody>
+<tr>
+<td>1. Platform foundations &amp; infrastructure</td>
+<td>Repository, solution structure, environments, CI/CD pipelines</td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td>1. Platform foundations &amp; infrastructure</td>
+<td>AWS via CDK: ECS Express Mode service, RDS PostgreSQL, Secrets Manager, container registry, load balancer, TLS, backups</td>
+<td class="num">14</td>
+</tr>
+<tr>
+<td>1. Platform foundations &amp; infrastructure</td>
+<td>Cloudflare: Pages project, R2 buckets and custom domains, image transformations, DNS, basic firewall rules</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td>1. Platform foundations &amp; infrastructure</td>
+<td>Logging, error tracking, uptime alerts</td>
+<td class="num">4</td>
+</tr>
+<tr>
+<td>2. Accounts &amp; permissions</td>
+<td>Staff sign-in, roles, two-factor, password reset</td>
+<td class="num">10</td>
+</tr>
+<tr>
+<td>2. Accounts &amp; permissions</td>
+<td>Audience registration, sign-in, password reset, profile, account deletion and data export</td>
+<td class="num">14</td>
+</tr>
+<tr>
+<td>2. Accounts &amp; permissions</td>
+<td>Authorisation policies and session handling across API and front end</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td>3. Content model &amp; edit-in-place</td>
+<td>Data model and migrations for every content type and relationship</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>3. Content model &amp; edit-in-place</td>
+<td>Edit-in-place framework: inline text, rich text, artwork slots, relationship pickers, autosave, validation, required-field rules</td>
+<td class="num">30</td>
+</tr>
+<tr>
+<td>3. Content model &amp; edit-in-place</td>
+<td>Slugs, SEO metadata, social sharing cards</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td>4. Publishing workflow</td>
+<td>Publishing states on every type, scheduler job, preview links, publish event hooks</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>5. Tagging &amp; classification</td>
+<td>Genre list management, multi-select, fixed classifications, filters, genre pages</td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td>6. Media assets</td>
+<td>Direct-to-R2 upload, asset records, responsive variants, alt text, media library, reuse, orphan clean-up</td>
+<td class="num">16</td>
+</tr>
+<tr>
+<td>7. Audio hosting &amp; delivery</td>
+<td>Multipart upload, processing job (duration, waveform peaks, streaming rendition), delivery URLs, publish-state enforcement, play counting</td>
+<td class="num">20</td>
+</tr>
+<tr>
+<td>8. Audio player</td>
+<td>Persistent Now Playing bar, full-view player, immediate switching, seek, volume and mute, lock-screen and keyboard controls, session state</td>
+<td class="num">24</td>
+</tr>
+<tr>
+<td>9. Video hosting &amp; playback</td>
+<td>Direct upload to Cloudflare Stream, processing webhooks, branded player, thumbnails, view counts</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>10. Content types &amp; pages</td>
+<td>Content types and pages, as itemised in Section 5</td>
+<td class="num">104</td>
+</tr>
+<tr>
+<td>11. Audience activity &amp; notifications</td>
+<td>Follow, like, save, private library, aggregate follower counts</td>
+<td class="num">10</td>
+</tr>
+<tr>
+<td>11. Audience activity &amp; notifications</td>
+<td>Notification preferences, publish-triggered emails to followers, email templates, sent log</td>
+<td class="num">14</td>
+</tr>
+<tr>
+<td>12. Commerce &amp; payments</td>
+<td>Cart drawer and badge, guest checkout, Stripe Checkout, order and payment records, webhooks, order emails</td>
+<td class="num">18</td>
+</tr>
+<tr>
+<td>12. Commerce &amp; payments</td>
+<td>Stripe Connect onboarding for artists, commission split, refunds, admin order and payout views, reconciliation export</td>
+<td class="num">18</td>
+</tr>
+<tr>
+<td>13. Admin back office &amp; submissions</td>
+<td>Dashboard, content lists with status filters, staff management, settings, audit log</td>
+<td class="num">16</td>
+</tr>
+<tr>
+<td>13. Admin back office &amp; submissions</td>
+<td>Structured submission form with genre nomination, review queue, conversion to a draft record</td>
+<td class="num">10</td>
+</tr>
+<tr>
+<td>14. Search &amp; discovery</td>
+<td>Full-text search across content, results page, genre filtering, related content</td>
+<td class="num">10</td>
+</tr>
+<tr>
+<td>15. Analytics</td>
+<td>Web analytics, custom events (plays, views, follows, cart), admin performance views</td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td>16. Design system &amp; front-end build</td>
+<td>Design tokens, typography, component library, responsive layouts, dark mode, accessibility (WCAG 2.1 AA), motion</td>
+<td class="num">28</td>
+</tr>
+<tr>
+<td>17. Quality, security &amp; performance</td>
+<td>API and end-to-end test suites, performance tuning, security review, privacy checks, load test</td>
+<td class="num">28</td>
+</tr>
+<tr>
+<td>18. Launch &amp; handover</td>
+<td>Content import, staff training, documentation, go-live checklist, two weeks of hypercare</td>
+<td class="num">16</td>
+</tr>
+<tr>
+<td>19. Project management &amp; communication</td>
+<td>Project management and communication</td>
+<td class="num">40</td>
+</tr>
+<tr class="total">
+<td>Total</td>
+<td></td>
+<td class="num">522</td>
+</tr>
+</tbody></table></div>
+</section>
+  </main>
+</div>
+<section class="docs-index" aria-label="All documents"><div class="eyebrow">All documents</div><div class="cols"><div><h2>Foundations</h2><ul><li><a href="foundations/01-accounts-and-permissions.html">01 · Accounts &amp; Permissions</a></li><li><a href="foundations/02-cms-content-model.html">02 · CMS &amp; Content Model</a></li><li><a href="foundations/03-publishing-workflow.html">03 · Publishing Workflow</a></li><li><a href="foundations/04-tagging-and-classification.html">04 · Tagging &amp; Classification</a></li><li><a href="foundations/05-media-assets.html">05 · Media Assets (Images &amp; Artwork)</a></li><li><a href="foundations/06-music-upload-and-audio-hosting.html">06 · Music Upload &amp; Audio Hosting</a></li><li><a href="foundations/07-audio-player.html">07 · Audio Player (Persistent Now Playing &amp; Volume)</a></li><li><a href="foundations/08-video-upload-and-hosting.html">08 · Video Upload &amp; Hosting</a></li><li><a href="foundations/09-audience-activity.html">09 · Audience Activity (Follow, Like, Save)</a></li><li><a href="foundations/10-notifications.html">10 · Notifications</a></li><li><a href="foundations/11-commerce-and-cart.html">11 · Commerce &amp; Shopping Cart</a></li><li><a href="foundations/12-payments.html">12 · Payments</a></li><li><a href="foundations/13-admin-back-office.html">13 · Admin / Back Office</a></li><li><a href="foundations/14-content-submission.html">14 · Content Submission &amp; Intake</a></li><li><a href="foundations/15-search-and-discovery.html">15 · Search &amp; Discovery</a></li><li><a href="foundations/16-analytics.html">16 · Analytics</a></li><li><a href="foundations/17-hosting-and-infrastructure.html">17 · Hosting &amp; Infrastructure</a></li></ul></div><div><h2>Content types</h2><ul><li><a href="content-types/artist-profiles.html">Artist Profiles</a></li><li><a href="content-types/mixes.html">Mixes (DJ / Mix)</a></li><li><a href="content-types/series.html">Series</a></li><li><a href="content-types/editorial-articles.html">Editorial / Articles</a></li><li><a href="content-types/videos.html">Videos</a></li><li><a href="content-types/events.html">Events</a></li><li><a href="content-types/products-shop.html">Products / Shop</a></li></ul></div><div><h2>Reference and commercial</h2><ul><li><a href="entity-diagram.html">Aesium Entity Diagram</a></li><li><a href="statement-of-work.html">Aesium Platform Statement of Work</a></li></ul></div></div></section>
+<footer class="foot"><span>Aesium Platform · working documents</span><span>Source: <a href="https://github.com/davidkpipe/aesium-hub/blob/main/docs/statement-of-work.md">statement-of-work.md</a></span></footer>
+</div>
+
+</body>
+</html>

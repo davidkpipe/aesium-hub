@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mixes (DJ / Mix) · Aesium Platform docs</title>
+<meta name="description" content="Aesium&#x27;s core audio content. A mix belongs to an artist, may sit in a Series with an episode number, carries one or more genres from the managed list, and can be liked and saved privately.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ground:#fbf9ef; --ground-2:#f4efe1; --ground-3:#ece5d6;
+  --ink:#17120e; --ink-2:#3d332a; --muted:#7d6a52; --muted-2:#8a8175;
+  --accent:#c8762f; --accent-deep:#b0633f; --accent-light:#e6b27a;
+  --rule:#d9d0bd; --rule-soft:#e6dfcf;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono","SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --ground:#17120e; --ground-2:#1d1813; --ground-3:#231c15;
+    --ink:#f4efe1; --ink-2:#d8cfbf; --muted:#b3a895; --muted-2:#8a8175;
+    --accent:#e6b27a; --accent-deep:#c8762f; --accent-light:#f0c993;
+    --rule:#3a3128; --rule-soft:#2c251d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:0 72px;padding-inline:clamp(16px,4vw,40px)}
+.topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding-block:18px;border-bottom:1px solid var(--rule);font-size:14px}
+.topnav .brand{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
+.topnav a:not(.brand){color:var(--ink-2);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.topnav a:not(.brand):hover,.topnav a[aria-current="page"]{color:var(--accent-deep);border-bottom-color:var(--accent)}
+.mast{padding-block:44px 26px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mast h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:12px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+.mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 28px;margin:24px 0 0;padding-top:18px;border-top:1px solid var(--rule-soft)}
+.meta div{font-size:14px;color:var(--ink-2)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.meta dd{margin:0}
+.layout{display:grid;grid-template-columns:1fr;gap:32px;margin-top:32px}
+@media (min-width:940px){.layout{grid-template-columns:220px minmax(0,1fr);gap:56px}}
+.toc{position:sticky;top:0;align-self:start;font-size:14px;padding-top:6px}
+.toc .eyebrow{font-size:11px;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--ink-2);text-decoration:none;display:block;padding:2px 0 2px 10px;border-left:2px solid transparent;line-height:1.35}
+.toc a:hover{color:var(--accent-deep);border-left-color:var(--accent)}
+@media (max-width:939px){.toc{position:static;border:1px solid var(--rule);border-radius:6px;padding:14px 16px;background:var(--ground-2)}.toc:empty{display:none}}
+main{min-width:0;max-width:80ch}
+.sec{padding-block:6px 22px;border-bottom:1px solid var(--rule-soft);margin-bottom:22px}
+.sec:last-child{border-bottom:0}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(25px,3vw,32px);line-height:1.15;letter-spacing:-.01em;margin:22px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:28px 0 10px;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:70ch}
+li{margin-bottom:6px}
+li>ul,li>ol{margin-top:6px;margin-bottom:0}
+code{font-family:var(--mono);font-size:.86em;background:var(--ground-3);padding:1px 5px;border-radius:3px}
+pre{background:var(--ground-2);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+pre code{background:none;padding:0;font-size:inherit}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.callout{border-left:3px solid var(--accent);background:var(--ground-2);padding:12px 16px;margin:18px 0 20px;font-size:15px;color:var(--ink-2);max-width:70ch}
+.table-wrap{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+.wide table{font-size:13px}
+th,td{padding:9px 12px;vertical-align:top;border-bottom:1px solid var(--rule-soft);text-align:left}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--ground-3);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700;background:var(--ground-3)}
+tr.total td.num{color:var(--accent-deep)}
+.diagram{margin:16px 0 24px;padding:16px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2);overflow-x:auto}
+.diagram pre.mermaid{background:none;border:0;padding:0;margin:0;overflow:visible;font-family:var(--mono);white-space:pre}
+.diagram svg{max-width:100%;height:auto}
+.docs-index{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule)}
+.docs-index .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 32px;margin-top:14px}
+.docs-index h2{font-size:14px;font-family:var(--mono);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.docs-index ul{list-style:none;padding:0;margin:0;font-size:14.5px}
+.docs-index li{margin-bottom:5px}
+.docs-index a{color:var(--ink-2);text-decoration:none}
+.docs-index a:hover{color:var(--accent-deep);text-decoration:underline}
+.foot{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.topnav,.toc,.docs-index{display:none}.layout{display:block}.wrap{padding:0}body{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav" aria-label="Site"><a class="brand" href="../index.html">Aesium Platform docs</a><a href="../index.html">Overview</a><a href="../index.html#foundations">Foundations</a><a href="../index.html#content-types">Content types</a><a href="../entity-diagram.html">Entity diagram</a><a href="../statement-of-work.html">Statement of work</a><a href="https://github.com/davidkpipe/aesium-hub" rel="noopener">GitHub</a></nav>
+<header class="mast">
+  <div class="eyebrow">Content type</div>
+  <h1>Mixes (DJ / Mix)</h1>
+  
+  <dl class="meta">
+<div><dt>Type</dt><dd>Content type</dd></div>
+<div><dt>Foundations required (V1)</dt><dd>CMS &amp; Content Model, Publishing Workflow, Tagging (genre), Media Assets, Music Upload &amp; Audio Hosting, Audio Player, Audience Activity (like / save), Accounts, Admin, Search, Analytics</dd></div>
+<div><dt>Foundations optional</dt><dd>Series (episode), Content Submission, Notifications</dd></div>
+<div><dt>Source</dt><dd>§3, §4, §5, §6</dd></div>
+</dl>
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#what-it-is">What it is</a></li><li><a href="#record">Record</a></li><li><a href="#relationships">Relationships</a></li><li><a href="#v1-behaviours">V1 behaviours</a></li><li><a href="#later">Later</a></li><li><a href="#open-questions">Open questions</a></li></ol></nav>
+  <main>
+<section class="sec" id="what-it-is"><h2>What it is</h2>
+<p>Aesium's core audio content. A mix belongs to an artist, may sit in a Series with an episode number, carries one or more genres from the managed list, and can be liked and saved privately.</p>
+</section>
+<section class="sec" id="record"><h2>Record</h2>
+<ul>
+<li>Title, slug, description, artwork.
+</li>
+<li>Mix Type: In-House / Guest / Series.
+</li>
+<li>Audio reference (provider id or file), duration.
+</li>
+<li>Genres (multi-select from the managed list).
+</li>
+<li>Publish status, scheduled / published dates, featured / homepage placement.
+</li></ul>
+</section>
+<section class="sec" id="relationships"><h2>Relationships</h2>
+<ul>
+<li>Artist(s).
+</li>
+<li>Series plus episode order (optional). The mix stays an ordinary mix with an added relationship.
+</li>
+<li>Genres (many-to-many).
+</li>
+<li>Likes and saves (private).
+</li>
+<li>Play events (analytics).
+</li></ul>
+</section>
+<section class="sec" id="v1-behaviours"><h2>V1 behaviours</h2>
+<ul>
+<li>Create / edit records; upload or connect audio; playable through the persistent player.
+</li>
+<li>Draft, scheduled, published.
+</li>
+<li>Homepage / featured placement.
+</li>
+<li>Genre filtering and search.
+</li>
+<li>Like and save.
+</li></ul>
+</section>
+<section class="sec" id="later"><h2>Later</h2>
+<ul>
+<li>Queue / playlist, resume across visits, genre recommendations.
+</li></ul>
+</section>
+<section class="sec" id="open-questions"><h2>Open questions</h2>
+<ul>
+<li>Audio provider and what its API allows; OneMusic NZ licensing position.
+</li></ul>
+</section>
+  </main>
+</div>
+<section class="docs-index" aria-label="All documents"><div class="eyebrow">All documents</div><div class="cols"><div><h2>Foundations</h2><ul><li><a href="../foundations/01-accounts-and-permissions.html">01 · Accounts &amp; Permissions</a></li><li><a href="../foundations/02-cms-content-model.html">02 · CMS &amp; Content Model</a></li><li><a href="../foundations/03-publishing-workflow.html">03 · Publishing Workflow</a></li><li><a href="../foundations/04-tagging-and-classification.html">04 · Tagging &amp; Classification</a></li><li><a href="../foundations/05-media-assets.html">05 · Media Assets (Images &amp; Artwork)</a></li><li><a href="../foundations/06-music-upload-and-audio-hosting.html">06 · Music Upload &amp; Audio Hosting</a></li><li><a href="../foundations/07-audio-player.html">07 · Audio Player (Persistent Now Playing &amp; Volume)</a></li><li><a href="../foundations/08-video-upload-and-hosting.html">08 · Video Upload &amp; Hosting</a></li><li><a href="../foundations/09-audience-activity.html">09 · Audience Activity (Follow, Like, Save)</a></li><li><a href="../foundations/10-notifications.html">10 · Notifications</a></li><li><a href="../foundations/11-commerce-and-cart.html">11 · Commerce &amp; Shopping Cart</a></li><li><a href="../foundations/12-payments.html">12 · Payments</a></li><li><a href="../foundations/13-admin-back-office.html">13 · Admin / Back Office</a></li><li><a href="../foundations/14-content-submission.html">14 · Content Submission &amp; Intake</a></li><li><a href="../foundations/15-search-and-discovery.html">15 · Search &amp; Discovery</a></li><li><a href="../foundations/16-analytics.html">16 · Analytics</a></li><li><a href="../foundations/17-hosting-and-infrastructure.html">17 · Hosting &amp; Infrastructure</a></li></ul></div><div><h2>Content types</h2><ul><li><a href="../content-types/artist-profiles.html">Artist Profiles</a></li><li><a href="../content-types/mixes.html">Mixes (DJ / Mix)</a></li><li><a href="../content-types/series.html">Series</a></li><li><a href="../content-types/editorial-articles.html">Editorial / Articles</a></li><li><a href="../content-types/videos.html">Videos</a></li><li><a href="../content-types/events.html">Events</a></li><li><a href="../content-types/products-shop.html">Products / Shop</a></li></ul></div><div><h2>Reference and commercial</h2><ul><li><a href="../entity-diagram.html">Aesium Entity Diagram</a></li><li><a href="../statement-of-work.html">Aesium Platform Statement of Work</a></li></ul></div></div></section>
+<footer class="foot"><span>Aesium Platform · working documents</span><span>Source: <a href="https://github.com/davidkpipe/aesium-hub/blob/main/docs/content-types/mixes.md">content-types/mixes.md</a></span></footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aesium Entity Diagram · Aesium Platform docs</title>
+<meta name="description" content="A first-pass data model drawn from the requirements document, for the developer to validate (§23). It is deliberately concrete so there is something to argue with. Section numbers (§) refer to *Aesium">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ground:#fbf9ef; --ground-2:#f4efe1; --ground-3:#ece5d6;
+  --ink:#17120e; --ink-2:#3d332a; --muted:#7d6a52; --muted-2:#8a8175;
+  --accent:#c8762f; --accent-deep:#b0633f; --accent-light:#e6b27a;
+  --rule:#d9d0bd; --rule-soft:#e6dfcf;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"Space Mono","SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme:dark;
+    --ground:#17120e; --ground-2:#1d1813; --ground-3:#231c15;
+    --ink:#f4efe1; --ink-2:#d8cfbf; --muted:#b3a895; --muted-2:#8a8175;
+    --accent:#e6b27a; --accent-deep:#c8762f; --accent-light:#f0c993;
+    --rule:#3a3128; --rule-soft:#2c251d;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:0 72px;padding-inline:clamp(16px,4vw,40px)}
+.topnav{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding-block:18px;border-bottom:1px solid var(--rule);font-size:14px}
+.topnav .brand{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
+.topnav a:not(.brand){color:var(--ink-2);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.topnav a:not(.brand):hover,.topnav a[aria-current="page"]{color:var(--accent-deep);border-bottom-color:var(--accent)}
+.mast{padding-block:44px 26px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mast h1{font-family:var(--display);font-weight:500;font-size:clamp(32px,5vw,54px);line-height:1.05;margin:12px 0 10px;letter-spacing:-.01em;text-wrap:balance}
+.mast .sub{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 28px;margin:24px 0 0;padding-top:18px;border-top:1px solid var(--rule-soft)}
+.meta div{font-size:14px;color:var(--ink-2)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.meta dd{margin:0}
+.layout{display:grid;grid-template-columns:1fr;gap:32px;margin-top:32px}
+@media (min-width:940px){.layout{grid-template-columns:220px minmax(0,1fr);gap:56px}}
+.toc{position:sticky;top:0;align-self:start;font-size:14px;padding-top:6px}
+.toc .eyebrow{font-size:11px;margin-bottom:10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--ink-2);text-decoration:none;display:block;padding:2px 0 2px 10px;border-left:2px solid transparent;line-height:1.35}
+.toc a:hover{color:var(--accent-deep);border-left-color:var(--accent)}
+@media (max-width:939px){.toc{position:static;border:1px solid var(--rule);border-radius:6px;padding:14px 16px;background:var(--ground-2)}.toc:empty{display:none}}
+main{min-width:0;max-width:80ch}
+.sec{padding-block:6px 22px;border-bottom:1px solid var(--rule-soft);margin-bottom:22px}
+.sec:last-child{border-bottom:0}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(25px,3vw,32px);line-height:1.15;letter-spacing:-.01em;margin:22px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;margin:28px 0 10px;text-wrap:balance}
+h4{font-family:var(--body);font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 8px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:70ch}
+li{margin-bottom:6px}
+li>ul,li>ol{margin-top:6px;margin-bottom:0}
+code{font-family:var(--mono);font-size:.86em;background:var(--ground-3);padding:1px 5px;border-radius:3px}
+pre{background:var(--ground-2);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.5}
+pre code{background:none;padding:0;font-size:inherit}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.callout{border-left:3px solid var(--accent);background:var(--ground-2);padding:12px 16px;margin:18px 0 20px;font-size:15px;color:var(--ink-2);max-width:70ch}
+.table-wrap{overflow-x:auto;margin:14px 0 22px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+.wide table{font-size:13px}
+th,td{padding:9px 12px;vertical-align:top;border-bottom:1px solid var(--rule-soft);text-align:left}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;background:var(--ground-3);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700;background:var(--ground-3)}
+tr.total td.num{color:var(--accent-deep)}
+.diagram{margin:16px 0 24px;padding:16px;border:1px solid var(--rule);border-radius:6px;background:var(--ground-2);overflow-x:auto}
+.diagram pre.mermaid{background:none;border:0;padding:0;margin:0;overflow:visible;font-family:var(--mono);white-space:pre}
+.diagram svg{max-width:100%;height:auto}
+.docs-index{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule)}
+.docs-index .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 32px;margin-top:14px}
+.docs-index h2{font-size:14px;font-family:var(--mono);font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.docs-index ul{list-style:none;padding:0;margin:0;font-size:14.5px}
+.docs-index li{margin-bottom:5px}
+.docs-index a{color:var(--ink-2);text-decoration:none}
+.docs-index a:hover{color:var(--accent-deep);text-decoration:underline}
+.foot{margin-top:36px;padding-top:18px;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.topnav,.toc,.docs-index{display:none}.layout{display:block}.wrap{padding:0}body{font-size:12.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="topnav" aria-label="Site"><a class="brand" href="index.html">Aesium Platform docs</a><a href="index.html">Overview</a><a href="index.html#foundations">Foundations</a><a href="index.html#content-types">Content types</a><a href="entity-diagram.html" aria-current="page">Entity diagram</a><a href="statement-of-work.html">Statement of work</a><a href="https://github.com/davidkpipe/aesium-hub" rel="noopener">GitHub</a></nav>
+<header class="mast">
+  <div class="eyebrow">Reference</div>
+  <h1>Aesium Entity Diagram</h1>
+  
+  
+</header>
+<div class="layout">
+  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#reading-the-notation">Reading the notation</a></li><li><a href="#overview">Overview</a></li><li><a href="#1-content-graph">1. Content graph</a></li><li><a href="#2-audience-activity">2. Audience &amp; activity</a></li><li><a href="#3-commerce-payments">3. Commerce &amp; payments</a></li><li><a href="#4-operations">4. Operations</a></li><li><a href="#decisions-that-change-this-diagram">Decisions that change this diagram</a></li></ol></nav>
+  <main>
+<p>A first-pass data model drawn from the requirements document, for the developer to validate (§23). It is deliberately concrete so there is something to argue with. Section numbers (§) refer to <em>Aesium Platform Requirements &amp; Build Options</em>.</p>
+<p>GitHub renders the diagrams below. The <a href="index.html">foundation docs</a> describe what each area must do.</p>
+<section class="sec" id="reading-the-notation"><h2>Reading the notation</h2>
+<p>Crow's-foot cardinality, read from the far entity's point of view:</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr></thead><tbody>
+<tr>
+<td>`\</td>
+<td>\</td>
+</tr>
+<tr>
+<td>`\</td>
+<td>o`</td>
+</tr>
+<tr>
+<td>`}\</td>
+<td>`</td>
+</tr>
+<tr>
+<td><code>}o</code></td>
+<td>zero or more</td>
+</tr>
+</tbody></table></div>
+<p><code>Artist }|--o{ Mix</code> reads: each Mix has one or more Artists; each Artist has zero or more Mixes.</p>
+</section>
+<section class="sec" id="overview"><h2>Overview</h2>
+<p>The core graph without attributes. Content records on the left connect to each other; audience and commerce records hang off them.</p>
+<figure class="diagram"><pre class="mermaid">erDiagram
+    Artist }|--o{ Mix : "credited on"
+    Artist }o--o{ Video : "features in"
+    Artist }o--o{ Article : "subject of"
+    Artist }o--o{ Event : "plays at"
+    Artist ||--o{ Product : "attributed"
+    Mix }o--o{ Genre : "tagged"
+    Series |o--o{ Mix : "numbered episodes"
+    Series }o--o{ Video : "collects"
+    Series }o--o{ Article : "collects"
+    Series }o--o{ Product : "collects"
+    Series }o--o{ Event : "associated"
+    Event |o--o{ Video : "recorded as"
+    AudienceUser }o--o{ Artist : "follows"
+    AudienceUser }o--o{ Mix : "likes, saves"
+    AudienceUser }o--o{ Video : "likes, saves"
+    AudienceUser |o--o{ Order : "places, or guest"
+    Order }o--|{ Product : "contains"
+    Order ||--o{ Payment : "settled by"
+    StaffUser ||--o{ ContentSubmission : "reviews"
+    ContentSubmission }o--o| Artist : "on behalf of"</pre></figure>
+</section>
+<section class="sec" id="1-content-graph"><h2>1. Content graph</h2>
+<p>Everything Aesium publishes, and how the records connect. Artist Profiles and Series are both "hub" pages over the same content (§8).</p>
+<figure class="diagram"><pre class="mermaid">erDiagram
+    Artist }|--o{ Mix : "credited on"
+    Artist }o--o{ Video : "features in"
+    Artist }o--o{ Article : "subject of"
+    Artist }o--o{ Event : "plays at"
+    Artist }|--o{ Release : "released"
+    Artist ||--o{ Product : "attributed to"
+    Artist }o--o{ ArtistGroup : "member of"
+    Artist }o--o{ Artist : "related, curated"
+    Mix }o--o{ Genre : "tagged with"
+    Series ||--o{ SeriesEpisode : "orders"
+    Mix ||--o| SeriesEpisode : "appears as"
+    Series }o--o{ Video : "collects"
+    Series }o--o{ Article : "collects"
+    Series }o--o{ Product : "collects"
+    Series ||--o{ ExternalLink : "links out"
+    Series }o--o{ Event : "associated with"
+    Event |o--o{ Video : "recorded as"
+
+    Artist {
+        string id PK
+        string name
+        string slug UK
+        enum status "resident | guest"
+        string location
+        text bio
+        string artwork_id FK "MediaAsset"
+        string spotify_url "defined fields in V1"
+        string bandcamp_url
+        json social_links
+        enum publish_status
+        int follower_count "derived aggregate, never identities"
+    }
+    Mix {
+        string id PK
+        string title
+        string slug UK
+        text description
+        string artwork_id FK "MediaAsset"
+        enum mix_type "in_house | guest | series"
+        string audio_provider "self-hosted | Mixcloud | SoundCloud"
+        string audio_ref "provider track id or file key"
+        int duration_sec
+        enum publish_status "draft | scheduled | published | unpublished"
+        datetime scheduled_at
+        datetime published_at
+        bool featured "homepage placement"
+    }
+    Genre {
+        string id PK
+        string name UK
+        string slug UK
+        int sort_order
+    }
+    Series {
+        string id PK
+        string title
+        string slug UK
+        text description
+        string artwork_id FK "MediaAsset"
+        enum publish_status
+    }
+    SeriesEpisode {
+        string series_id FK
+        string mix_id FK
+        int episode_number
+        int sort_order
+    }
+    Article {
+        string id PK
+        string title
+        string slug UK
+        text body "rich text"
+        text pull_quote "In Their Words"
+        string hero_image_id FK "MediaAsset"
+        enum publish_status
+        datetime scheduled_at
+        datetime published_at
+    }
+    Video {
+        string id PK
+        string title
+        string slug UK
+        text description
+        enum category "bts | live_session | music_video | event_recording"
+        string video_provider "YouTube | Vimeo | Stream | Mux"
+        string video_ref "provider video id"
+        string thumbnail_id FK "MediaAsset"
+        int duration_sec
+        enum publish_status
+        datetime scheduled_at
+        datetime published_at
+    }
+    Event {
+        string id PK
+        string title
+        string slug UK
+        text description
+        datetime starts_at "upcoming or past is derived"
+        datetime ends_at
+        string venue
+        string artwork_id FK "MediaAsset"
+        enum action_type "external_ticket | rsvp | aesium_checkout"
+        string action_url
+        bool next_up "featured event"
+        enum publish_status
+    }
+    Product {
+        string id PK
+        string title
+        string slug UK
+        text description
+        decimal price
+        string shop_category
+        string artist_id FK "attribution"
+        enum source "aesium | commerce_platform | artist_store"
+        string external_ref "platform product id or store URL"
+        enum publish_status
+    }
+    Release {
+        string id PK
+        string title
+        date released_on
+        string artwork_id FK "MediaAsset"
+        string listen_url
+    }
+    ArtistGroup {
+        string id PK
+        string name
+        enum kind "collective | discovery_group"
+    }
+    ExternalLink {
+        string id PK
+        string series_id FK
+        string label
+        string url
+    }</pre></figure>
+<p>Modelling notes:</p>
+<ul>
+<li>Artist ↔ Mix is many-to-many so back-to-back sets and collaborations work. Most mixes will have one artist. A <code>primary_artist_id</code> on Mix plus a credits table is an equivalent shape if the developer prefers it.
+</li>
+<li><code>SeriesEpisode</code> is a junction that carries data (episode number, order), so a mix stays an ordinary mix with an added Series relationship (§8).
+</li>
+<li>Product → Artist is a single attribution in V1 (§12). Turn it into a junction if co-branded products appear.
+</li>
+<li>Related artists are derived at read time from shared genres across an artist's mixes (§7). The curated self-link is optional context for collectives.
+</li>
+<li><code>ArtistGroup</code> covers both an established collective and the shared discovery presentation for artists with limited content (§7).
+</li>
+<li>Artist external links are defined fields in V1 (§7), not a link table. Series external links are a list.
+</li>
+<li>Every content entity carries the same publishing fields (§3). Event upcoming / past is derived from <code>starts_at</code>, never stored (§11).
+</li>
+<li>Artwork fields reference <code>MediaAsset</code> (see Operations).
+</li></ul>
+</section>
+<section class="sec" id="2-audience-activity"><h2>2. Audience &amp; activity</h2>
+<p>Free accounts and their private activity. Only <code>follower_count</code> on Artist is ever public (§7, §14).</p>
+<figure class="diagram"><pre class="mermaid">erDiagram
+    AudienceUser ||--o{ Follow : "follows via"
+    Artist ||--o{ Follow : "followed via"
+    AudienceUser ||--o{ Like : "makes"
+    AudienceUser ||--o{ Save : "makes"
+    Mix |o--o{ Like : "target"
+    Video |o--o{ Like : "target"
+    Mix |o--o{ Save : "target"
+    Video |o--o{ Save : "target"
+    AudienceUser ||--o{ NotificationPreference : "sets"
+    AudienceUser ||--o{ Notification : "receives"
+
+    AudienceUser {
+        string id PK
+        string email UK
+        string display_name
+        string auth_provider_ref "Auth0, Clerk or Supabase id"
+        datetime created_at
+    }
+    Follow {
+        string user_id FK
+        string artist_id FK
+        datetime created_at
+    }
+    Like {
+        string user_id FK
+        enum content_type "mix | video"
+        string content_id FK
+        datetime created_at
+    }
+    Save {
+        string user_id FK
+        enum content_type "mix | video"
+        string content_id FK
+        datetime created_at
+    }
+    NotificationPreference {
+        string user_id FK
+        enum channel "email | browser"
+        enum topic "new_mix | new_video | new_article | event"
+        bool enabled
+    }
+    Notification {
+        string id PK
+        string user_id FK
+        string topic
+        string content_ref
+        datetime sent_at
+        datetime read_at
+    }</pre></figure>
+<p>Modelling notes:</p>
+<ul>
+<li>Like and Save point at exactly one of Mix or Video: a <code>content_type</code> + <code>content_id</code> pair, or two nullable foreign keys.
+</li>
+<li><code>follower_count</code> is an aggregate over Follow. Follower identities are never exposed; admin visibility is still to be defined (§14).
+</li>
+<li>Notifications are produced by Follow + publish events, filtered by preferences (§14).
+</li>
+<li>With a managed auth provider, <code>AudienceUser</code> holds only the provider reference plus profile fields; passwords never live in Aesium's database.
+</li></ul>
+</section>
+<section class="sec" id="3-commerce-payments"><h2>3. Commerce &amp; payments</h2>
+<p>Which of these tables exist on Aesium's side depends entirely on the commerce architecture (§12, §13, §15).</p>
+<figure class="diagram"><pre class="mermaid">erDiagram
+    AudienceUser |o--o{ Cart : "owns, optional"
+    Cart ||--o{ CartItem : "holds"
+    Product ||--o{ CartItem : "added as"
+    Cart ||--o| Order : "checks out into"
+    AudienceUser |o--o{ Order : "places, guest allowed"
+    Order ||--|{ OrderItem : "contains"
+    Product ||--o{ OrderItem : "sold as"
+    Artist ||--o{ OrderItem : "earns from"
+    Order ||--o{ Payment : "settled by"
+    ArtistPayout |o--|{ OrderItem : "aggregates"
+    Artist ||--o{ ArtistPayout : "receives"
+    Event |o--o{ Order : "ticket order, if Aesium checkout"
+    Event ||--o{ EventRSVP : "collects"
+    AudienceUser |o--o{ EventRSVP : "responds"
+
+    Cart {
+        string id PK
+        string session_id "guests"
+        string user_id FK "null for guests"
+        datetime updated_at
+    }
+    CartItem {
+        string cart_id FK
+        string product_id FK
+        int quantity
+    }
+    Order {
+        string id PK
+        string user_id FK "null for guest"
+        string email
+        enum status "pending | paid | fulfilled | refunded"
+        decimal subtotal
+        decimal total
+        string commerce_platform_ref "e.g. Shopify order id"
+        datetime created_at
+    }
+    OrderItem {
+        string order_id FK
+        string product_id FK
+        string artist_id FK "for commission"
+        int quantity
+        decimal unit_price
+        decimal aesium_commission
+        decimal artist_share
+    }
+    Payment {
+        string id PK
+        string order_id FK
+        string provider "Stripe"
+        string provider_ref
+        decimal amount
+        decimal provider_fee
+        enum status "authorised | captured | refunded"
+        datetime created_at
+    }
+    ArtistPayout {
+        string id PK
+        string artist_id FK
+        date period_start
+        date period_end
+        decimal amount
+        enum status "pending | paid"
+        string provider_ref "Stripe Connect transfer"
+    }
+    EventRSVP {
+        string id PK
+        string event_id FK
+        string user_id FK "or email for guests"
+        string email
+        enum status "going | cancelled"
+        datetime created_at
+    }</pre></figure>
+<p>Modelling notes:</p>
+<ul>
+<li>With Aesium-owned or headless Shopify, Cart, Order and Payment live in Shopify and Stripe; Aesium keeps references for reporting (§12, §13).
+</li>
+<li>With artist-owned stores there may be no Cart or Order on Aesium's side at all, only outbound links. A unified cart across independent stores is not established as achievable (§13).
+</li>
+<li><code>OrderItem</code> carries <code>artist_id</code> and the split so Aesium's percentage is calculable per line (§12, §15).
+</li>
+<li><code>ArtistPayout</code> aggregates order items per period. Stripe Connect could replace it with automatic transfers (§15).
+</li>
+<li><code>EventRSVP</code> exists only if Aesium hosts RSVP. Tickets sold through Aesium checkout would be Orders (§11).
+</li></ul>
+</section>
+<section class="sec" id="4-operations"><h2>4. Operations</h2>
+<p>Staff, intake, media, featured placement and activity data behind the Admin / Back Office.</p>
+<figure class="diagram"><pre class="mermaid">erDiagram
+    Role ||--o{ StaffUser : "assigned to"
+    StaffUser ||--o{ ContentSubmission : "reviews"
+    Artist |o--o{ ContentSubmission : "on behalf of"
+    StaffUser ||--o{ MediaAsset : "uploads"
+    StaffUser ||--o{ FeaturedPlacement : "curates"
+    AudienceUser |o--o{ ActivityEvent : "attributed, when signed in"
+
+    Role {
+        string id PK
+        string name "Administrator | Content-Editorial | Events | Commerce | Contributor"
+        json permissions
+    }
+    StaffUser {
+        string id PK
+        string email UK
+        string name
+        string role_id FK
+    }
+    ContentSubmission {
+        string id PK
+        string artist_id FK "may not exist yet"
+        string submitter_email
+        enum content_type "mix | video | article | event | product | profile_change"
+        json files_or_links
+        json proposed_metadata
+        json proposed_genres "checked against the Genre list"
+        enum status "received | reviewed | approved | rejected"
+        string reviewed_by FK "StaffUser"
+        string result_type "record type created"
+        string result_id "record created on approval"
+        datetime submitted_at
+    }
+    FeaturedPlacement {
+        string id PK
+        enum slot "homepage_mix | homepage_hero | next_up_event | featured_product"
+        string content_type
+        string content_id "polymorphic"
+        int sort_order
+        datetime starts_at
+        datetime ends_at
+    }
+    MediaAsset {
+        string id PK
+        string storage_key
+        string url "CDN"
+        string filename
+        int width
+        int height
+        string alt_text
+        string uploaded_by FK
+        datetime uploaded_at
+    }
+    ActivityEvent {
+        string id PK
+        enum kind "play | view | search | genre_filter | add_to_cart"
+        string content_type
+        string content_id
+        string user_id "null when anonymous"
+        string session_id
+        enum source "site | audio_provider | video_provider | commerce"
+        datetime occurred_at
+    }</pre></figure>
+<p>Modelling notes:</p>
+<ul>
+<li>Roles follow §22 and may collapse to Administrator only in V1.
+</li>
+<li><code>ContentSubmission</code> exists only if the structured submission route is chosen (§14, §21). On approval it produces the real content record.
+</li>
+<li><code>FeaturedPlacement</code> is polymorphic (slot + content reference) so one mechanism covers homepage mixes, the Next Up event and featured products.
+</li>
+<li><code>MediaAsset</code> is referenced by every artwork, thumbnail and hero-image field in the content graph.
+</li>
+<li><code>ActivityEvent</code> may live in the analytics provider rather than the database (§18). Play and view data often arrives from the audio and video providers.
+</li></ul>
+</section>
+<section class="sec" id="decisions-that-change-this-diagram"><h2>Decisions that change this diagram</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Decision (§24)</th>
+<th>What moves</th>
+</tr></thead><tbody>
+<tr>
+<td>Audio provider</td>
+<td><code>Mix.audio_*</code> fields; whether play events are collected or synced</td>
+</tr>
+<tr>
+<td>Video provider</td>
+<td><code>Video.video_*</code> fields; whether view events are collected or synced</td>
+</tr>
+<tr>
+<td>Commerce model</td>
+<td>Whether Cart, Order, Payment, ArtistPayout exist locally or as references</td>
+</tr>
+<tr>
+<td>Event checkout / RSVP</td>
+<td>Whether <code>EventRSVP</code> exists; whether Orders can be ticket orders</td>
+</tr>
+<tr>
+<td>Authentication provider</td>
+<td>Shape of <code>AudienceUser</code>; possibly <code>StaffUser</code></td>
+</tr>
+<tr>
+<td>Submission approach</td>
+<td>Whether <code>ContentSubmission</code> exists</td>
+</tr>
+<tr>
+<td>Staff permissions</td>
+<td>Number of <code>Role</code> rows</td>
+</tr>
+<tr>
+<td>Genre list</td>
+<td><code>Genre</code> rows and granularity</td>
+</tr>
+</tbody></table></div>
+</section>
+  </main>
+</div>
+<section class="docs-index" aria-label="All documents"><div class="eyebrow">All documents</div><div class="cols"><div><h2>Foundations</h2><ul><li><a href="foundations/01-accounts-and-permissions.html">01 · Accounts &amp; Permissions</a></li><li><a href="foundations/02-cms-content-model.html">02 · CMS &amp; Content Model</a></li><li><a href="foundations/03-publishing-workflow.html">03 · Publishing Workflow</a></li><li><a href="foundations/04-tagging-and-classification.html">04 · Tagging &amp; Classification</a></li><li><a href="foundations/05-media-assets.html">05 · Media Assets (Images &amp; Artwork)</a></li><li><a href="foundations/06-music-upload-and-audio-hosting.html">06 · Music Upload &amp; Audio Hosting</a></li><li><a href="foundations/07-audio-player.html">07 · Audio Player (Persistent Now Playing &amp; Volume)</a></li><li><a href="foundations/08-video-upload-and-hosting.html">08 · Video Upload &amp; Hosting</a></li><li><a href="foundations/09-audience-activity.html">09 · Audience Activity (Follow, Like, Save)</a></li><li><a href="foundations/10-notifications.html">10 · Notifications</a></li><li><a href="foundations/11-commerce-and-cart.html">11 · Commerce &amp; Shopping Cart</a></li><li><a href="foundations/12-payments.html">12 · Payments</a></li><li><a href="foundations/13-admin-back-office.html">13 · Admin / Back Office</a></li><li><a href="foundations/14-content-submission.html">14 · Content Submission &amp; Intake</a></li><li><a href="foundations/15-search-and-discovery.html">15 · Search &amp; Discovery</a></li><li><a href="foundations/16-analytics.html">16 · Analytics</a></li><li><a href="foundations/17-hosting-and-infrastructure.html">17 · Hosting &amp; Infrastructure</a></li></ul></div><div><h2>Content types</h2><ul><li><a href="content-types/artist-profiles.html">Artist Profiles</a></li><li><a href="content-types/mixes.html">Mixes (DJ / Mix)</a></li><li><a href="content-types/series.html">Series</a></li><li><a href="content-types/editorial-articles.html">Editorial / Articles</a></li><li><a href="content-types/videos.html">Videos</a></li><li><a href="content-types/events.html">Events</a></li><li><a href="content-types/products-shop.html">Products / Shop</a></li></ul></div><div><h2>Reference and commercial</h2><ul><li><a href="entity-diagram.html">Aesium Entity Diagram</a></li><li><a href="statement-of-work.html">Aesium Platform Statement of Work</a></li></ul></div></div></section>
+<footer class="foot"><span>Aesium Platform · working documents</span><span>Source: <a href="https://github.com/davidkpipe/aesium-hub/blob/main/docs/entity-diagram.md">entity-diagram.md</a></span></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'neutral',
+    themeVariables: { fontFamily: 'Hanken Grotesk, Helvetica Neue, Arial, sans-serif' },
+    er: { useMaxWidth: true }
+  });
+</script>
+</body>
+</html>
