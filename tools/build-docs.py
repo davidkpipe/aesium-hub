@@ -413,7 +413,7 @@ def eyebrow_for(page: Page) -> str:
     if rel == "entity-diagram.html":
         return "Reference"
     if rel == "statement-of-work.html":
-        return "Commercial · Version 1.1"
+        return "Commercial · Version 1.2"
     return "Document"
 
 

@@ -95,19 +95,19 @@ tr.total td.num{color:var(--accent-deep)}
 <div class="wrap">
 <nav class="topnav" aria-label="Site"><a class="brand" href="index.html">Aesium Platform docs</a><a href="index.html">Overview</a><a href="index.html#foundations">Foundations</a><a href="index.html#content-types">Content types</a><a href="entity-diagram.html">Entity diagram</a><a href="statement-of-work.html" aria-current="page">Statement of work</a><a href="https://github.com/davidkpipe/aesium-hub" rel="noopener">GitHub</a></nav>
 <header class="mast">
-  <div class="eyebrow">Commercial · Version 1.1</div>
+  <div class="eyebrow">Commercial · Version 1.2</div>
   <h1>Aesium Platform Statement of Work</h1>
   <p class="sub">Design, build and launch of Version 1 of the Aesium platform on .NET, SvelteKit and PostgreSQL, hosted on AWS with media on Cloudflare R2, with priced options for SoundCloud audio hosting, YouTube video and managed authentication, and a costed stretch package for physical goods.</p>
   <dl class="meta">
 <div><dt>Client</dt><dd>Aesium</dd></div>
 <div><dt>Supplier</dt><dd>David Pipe</dd></div>
-<div><dt>Version</dt><dd>1.1, 26 September 2026</dd></div>
+<div><dt>Version</dt><dd>1.2, 27 September 2026</dd></div>
 <div><dt>Basis</dt><dd><em>Aesium Platform Requirements &amp; Build Options</em>, <em>Aesium Platform Operating Model</em>, and the derived working documents in <code>docs/</code> (foundations, content types, entity model)</dd></div>
 <div><dt>Currency</dt><dd>Build pricing in NZD excluding GST. Hosting and service costs in USD unless stated.</dd></div>
 </dl>
 </header>
 <div class="layout">
-  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#1-overview">1. Overview</a></li><li><a href="#2-objectives">2. Objectives</a></li><li><a href="#3-scope">3. Scope</a></li><li><a href="#4-technical-approach">4. Technical approach</a></li><li><a href="#5-deliverables-and-hour-estimates">5. Deliverables and hour estimates</a></li><li><a href="#6-delivery-plan">6. Delivery plan</a></li><li><a href="#7-options">7. Options</a></li><li><a href="#8-pricing">8. Pricing</a></li><li><a href="#9-assumptions-and-dependencies">9. Assumptions and dependencies</a></li><li><a href="#10-client-responsibilities">10. Client responsibilities</a></li><li><a href="#11-commercial-terms">11. Commercial terms</a></li><li><a href="#12-decisions">12. Decisions</a></li><li><a href="#appendix-a-detailed-hour-breakdown">Appendix A. Detailed hour breakdown</a></li><li><a href="#appendix-b-changes-from-version-1-0">Appendix B. Changes from version 1.0</a></li></ol></nav>
+  <nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ol><li><a href="#1-overview">1. Overview</a></li><li><a href="#2-objectives">2. Objectives</a></li><li><a href="#3-scope">3. Scope</a></li><li><a href="#4-technical-approach">4. Technical approach</a></li><li><a href="#5-deliverables-and-hour-estimates">5. Deliverables and hour estimates</a></li><li><a href="#6-delivery-plan">6. Delivery plan</a></li><li><a href="#7-options">7. Options</a></li><li><a href="#8-pricing">8. Pricing</a></li><li><a href="#9-assumptions-and-dependencies">9. Assumptions and dependencies</a></li><li><a href="#10-client-responsibilities">10. Client responsibilities</a></li><li><a href="#11-commercial-terms">11. Commercial terms</a></li><li><a href="#12-decisions">12. Decisions</a></li><li><a href="#appendix-a-detailed-hour-breakdown">Appendix A. Detailed hour breakdown</a></li><li><a href="#appendix-b-revision-history">Appendix B. Revision history</a></li></ol></nav>
   <main>
 <section class="sec" id="1-overview"><h2>1. Overview</h2>
 <p>This Statement of Work covers the design, build, hosting set-up and launch of Version 1 of the Aesium platform: a New Zealand cultural platform for DJ mixes, artists, series, editorial, video, events and an artist shop.</p>
@@ -448,151 +448,151 @@ tr.total td.num{color:var(--accent-deep)}
 <tr>
 <td>1. Discovery, decisions &amp; design mock-ups</td>
 <td>Decision workshops and a decision log for the open questions in Section 12.2; wireframes and visual mock-ups for every screen the existing concept does not cover</td>
-<td class="num">36</td>
+<td class="num">20</td>
 <td>1, 2, 3</td>
 </tr>
 <tr>
 <td>2. Platform foundations &amp; infrastructure</td>
 <td>Repositories in Aesium's GitHub organisation, CI/CD, staging and production on AWS via CDK across two availability zones, Cloudflare set-up, logging and alerts</td>
-<td class="num">34</td>
+<td class="num">20</td>
 <td>1</td>
 </tr>
 <tr>
 <td>3. Accounts &amp; permissions</td>
 <td>Staff sign-in with Administrator and Editor roles and two-factor; audience registration, sign-in, recovery, profile, deletion and data export</td>
-<td class="num">30</td>
+<td class="num">18</td>
 <td>1, 2</td>
 </tr>
 <tr>
 <td>4. Content model &amp; edit-in-place</td>
 <td>Data model for every record and relationship; inline editing framework on rendered pages; slugs and page metadata</td>
-<td class="num">48</td>
+<td class="num">34</td>
 <td>1</td>
 </tr>
 <tr>
 <td>5. Credits &amp; rights metadata</td>
 <td>Collaborator records and roles on every content item; rights holder, licence terms and cleared uses per asset; credits on public pages; archive export</td>
-<td class="num">12</td>
+<td class="num">6</td>
 <td>1</td>
 </tr>
 <tr>
 <td>6. Publishing workflow</td>
 <td>Draft, scheduled, published, unpublished on every type; scheduler; preview links; publish hooks</td>
-<td class="num">12</td>
+<td class="num">6</td>
 <td>1</td>
 </tr>
 <tr>
 <td>7. Tagging &amp; classification</td>
 <td>Managed genre list, multi-select, fixed classifications, filters, genre pages</td>
-<td class="num">8</td>
+<td class="num">5</td>
 <td>1</td>
 </tr>
 <tr>
 <td>8. Media assets</td>
 <td>Direct-to-R2 upload, responsive variants, alt text, media library, reuse, clean-up</td>
-<td class="num">16</td>
+<td class="num">10</td>
 <td>1</td>
 </tr>
 <tr>
 <td>9. Audio hosting &amp; delivery</td>
 <td>Large-file upload, processing, waveform, streaming delivery, play counting (base: self-hosted on R2)</td>
-<td class="num">20</td>
+<td class="num">12</td>
 <td>1</td>
 </tr>
 <tr>
 <td>10. Audio player</td>
 <td>Persistent Now Playing bar, full-view player, immediate switching, volume and mute, lock-screen controls</td>
-<td class="num">24</td>
+<td class="num">17</td>
 <td>1</td>
 </tr>
 <tr>
 <td>11. Video hosting &amp; playback</td>
 <td>Upload, processing, branded player with caption tracks, thumbnails, view counts (base: Cloudflare Stream)</td>
-<td class="num">14</td>
+<td class="num">8</td>
 <td>2</td>
 </tr>
 <tr>
 <td>12. Content types &amp; pages</td>
 <td>Templates and behaviours for every content type, homepage placements, account area, static pages</td>
-<td class="num">102</td>
+<td class="num">56</td>
 <td>1, 2, 3</td>
 </tr>
 <tr>
 <td>13. Search &amp; discovery</td>
 <td>Full-text search with macron-insensitive matching, results page, genre filtering, related content</td>
-<td class="num">10</td>
+<td class="num">5</td>
 <td>1</td>
 </tr>
 <tr>
 <td>14. Design system &amp; front-end build</td>
 <td>Tokens, typography, components, responsive layouts, dark mode, accessibility</td>
-<td class="num">28</td>
+<td class="num">14</td>
 <td>1</td>
 </tr>
 <tr>
 <td>15. Email deliverability &amp; SEO</td>
 <td>Sending domain, DKIM, DMARC, bounce and complaint handling, one-click unsubscribe; sitemap, robots, canonical URLs, structured data</td>
-<td class="num">14</td>
+<td class="num">7</td>
 <td>1</td>
 </tr>
 <tr>
 <td>16. Analytics &amp; reporting</td>
 <td>Web analytics, platform events, reporting views mapped to the Operating Model's measures, CSV export, monthly summary</td>
-<td class="num">16</td>
+<td class="num">10</td>
 <td>1, 2, 3</td>
 </tr>
 <tr>
 <td>17. Audience activity &amp; notifications</td>
 <td>Follow, like, save, private library, follower counts; preferences; publish-triggered email</td>
-<td class="num">24</td>
+<td class="num">12</td>
 <td>2</td>
 </tr>
 <tr>
 <td>18. Ticketing integration</td>
 <td>Ticketing platform linked to event records, embedded checkout on event pages, ticket and attendee counts synced</td>
-<td class="num">16</td>
+<td class="num">8</td>
 <td>2</td>
 </tr>
 <tr>
 <td>19. Admin back office &amp; submissions</td>
 <td>Dashboard, content lists, staff, settings, audit log; submission form and review queue</td>
-<td class="num">26</td>
+<td class="num">14</td>
 <td>2</td>
 </tr>
 <tr>
 <td>20. Commerce &amp; payments</td>
 <td>Cart, guest checkout, Stripe Checkout, Stripe Connect split at a per-artist commission with per-product override, refunds, orders, reporting</td>
-<td class="num">40</td>
+<td class="num">26</td>
 <td>3</td>
 </tr>
 <tr>
 <td>21. Quality, security &amp; performance</td>
 <td>End-to-end tests, performance tuning, security and privacy review, load test</td>
-<td class="num">28</td>
+<td class="num">16</td>
 <td>1, 2, 3</td>
 </tr>
 <tr>
 <td>22. Launch &amp; handover</td>
 <td>Content import, staff training, documentation, go-live, two weeks of hypercare</td>
-<td class="num">16</td>
+<td class="num">12</td>
 <td>1, 2, 3</td>
 </tr>
 <tr class="total">
 <td>Subtotal, build</td>
 <td></td>
-<td class="num">574</td>
+<td class="num">336</td>
 <td></td>
 </tr>
 <tr>
 <td>23. Project management &amp; communication</td>
 <td>Planning, weekly reviews and demos, decision log, reporting</td>
-<td class="num">48</td>
+<td class="num">24</td>
 <td>All</td>
 </tr>
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td class="num">622</td>
+<td class="num">360</td>
 <td></td>
 </tr>
 </tbody></table></div>
@@ -606,52 +606,52 @@ tr.total td.num{color:var(--accent-deep)}
 <tr>
 <td>Artist profiles</td>
 <td>Hub page pattern, Experiences grid and filters, related artists from shared genres, follow button and follower count, external links, releases, grouped presentation for artists with little content</td>
-<td class="num">18</td>
+<td class="num">10</td>
 </tr>
 <tr>
 <td>Mixes</td>
 <td>Listing with genre filter, detail page, tracklist, credits, series episode display, like and save</td>
-<td class="num">14</td>
+<td class="num">8</td>
 </tr>
 <tr>
 <td>Series</td>
 <td>Hub page reuse, episode ordering, collected videos, articles, products and links</td>
-<td class="num">12</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>Editorial articles</td>
 <td>Rich text layout, images, byline and credits, pull quote, "In Their Words" section on profiles</td>
-<td class="num">12</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>Videos</td>
 <td>Listing, detail page, video categories, credits, artist, series and event links, like and save</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>Events</td>
 <td>Upcoming and Past, Next Up, venue, ticket action from the ticketing platform, recordings</td>
-<td class="num">10</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>Products and Shop</td>
 <td>Listing, detail page, shop categories, artist attribution, series placement</td>
-<td class="num">12</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>Homepage &amp; featured placements</td>
 <td>Curated slots with ordering and start and end dates, latest and featured content</td>
-<td class="num">12</td>
+<td class="num">8</td>
 </tr>
 <tr>
 <td>Static pages, navigation and footer</td>
 <td>About, Contact, Privacy, Terms; header, footer, cart icon</td>
-<td class="num">4</td>
+<td class="num">3</td>
 </tr>
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td class="num">102</td>
+<td class="num">56</td>
 </tr>
 </tbody></table></div>
 <h3 id="5-2-stretch-package-physical-goods-commerce">5.2 Stretch package: physical goods commerce</h3>
@@ -665,35 +665,35 @@ tr.total td.num{color:var(--accent-deep)}
 <tr>
 <td>Variants and stock</td>
 <td>Size, colour and format variants; stock per variant; sold-out and low-stock states; stock adjustments in the back office</td>
-<td class="num">10</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>Shipping and tax</td>
 <td>Shipping address capture at checkout; shipping rates by zone (New Zealand, Australia, rest of world) and by seller; GST-inclusive pricing and order tax lines</td>
-<td class="num">8</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>Fulfilment without logins</td>
 <td>Order email to the artist with packing details; fulfilment status (new, packed, shipped with tracking number) set by staff or by the artist through a tokenised link; shipping notification to the customer</td>
-<td class="num">10</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>Aesium-sold products and drops</td>
 <td>Products sold by Aesium with no artist split; pre-orders and limited drops with an availability window and a quantity cap</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>Reporting and tests</td>
 <td>Stock and fulfilment reporting; automated tests across the above</td>
-<td class="num">4</td>
+<td class="num">3</td>
 </tr>
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td class="num">40</td>
+<td class="num">24</td>
 </tr>
 </tbody></table></div>
-<p>Price: NZD 6,000 excluding GST. Merchant of record, GST treatment and refund responsibility are specified with Aesium's accountant at the start of the store work, whether or not this package is taken up (Section 12.2).</p>
+<p>Price: NZD 3,600 excluding GST. Merchant of record, GST treatment and refund responsibility are specified with Aesium's accountant at the start of the store work, whether or not this package is taken up (Section 12.2).</p>
 </section>
 <section class="sec" id="6-delivery-plan"><h2>6. Delivery plan</h2>
 <p>The build is delivered in three phases. Each phase ends with a working, deployable release that Aesium can put in front of real users.</p>
@@ -709,34 +709,34 @@ tr.total td.num{color:var(--accent-deep)}
 <tr>
 <td>1. Foundation &amp; listening</td>
 <td>Discovery and mock-ups, infrastructure, staff accounts, content model and editing, credits and rights, publishing, genres, media, audio, player, artist profiles, mixes, series, editorial, homepage, static pages, search, email and SEO, analytics, design system</td>
-<td class="num">374</td>
-<td class="num">32</td>
-<td class="num">406</td>
-<td>13 to 14 weeks</td>
+<td class="num">223</td>
+<td class="num">16</td>
+<td class="num">239</td>
+<td>8 weeks</td>
 </tr>
 <tr>
 <td>2. Audience, video &amp; events</td>
 <td>Audience accounts, follow, like and save, notifications, video, events with ticketing, admin dashboard, submissions</td>
-<td class="num">134</td>
-<td class="num">11</td>
-<td class="num">145</td>
-<td>5 weeks</td>
+<td class="num">72</td>
+<td class="num">5</td>
+<td class="num">77</td>
+<td>3 weeks</td>
 </tr>
 <tr>
 <td>3. Shop &amp; payments</td>
 <td>Products, cart, checkout, Stripe Connect with per-artist commission, orders, refunds, reporting; the physical goods stretch package if taken up</td>
-<td class="num">66</td>
-<td class="num">5</td>
-<td class="num">71</td>
-<td>2 to 3 weeks</td>
+<td class="num">41</td>
+<td class="num">3</td>
+<td class="num">44</td>
+<td>1 to 2 weeks</td>
 </tr>
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td class="num">574</td>
-<td class="num">48</td>
-<td class="num">622</td>
-<td>20 to 22 weeks</td>
+<td class="num">336</td>
+<td class="num">24</td>
+<td class="num">360</td>
+<td>12 to 13 weeks</td>
 </tr>
 </tbody></table></div>
 <p>The phases follow the Operating Model's roadmap. Phase 1 delivers its V1: resident and guest programming, editorial and the web platform, so the first guest spots launch with their write-ups. Phase 2 delivers its V2: audience accounts, live sessions on video, and small venue events with ticketing. Phase 3 delivers the commerce that V3 and V4 need for physical releases and merchandise. Each phase is priced and can be committed separately, so Phase 3 can be scheduled when the shop is ready to open rather than at kick-off.</p>
@@ -754,32 +754,32 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>M1 Foundations</td>
-<td class="num">4</td>
+<td class="num">3</td>
 <td>Staging live on AWS across two zones; staff sign-in; content model migrated; edit-in-place working on the artist template; Phase 1 mock-ups approved</td>
 </tr>
 <tr>
 <td>M2 Phase 1 beta</td>
-<td class="num">10</td>
+<td class="num">6</td>
 <td>Artists, mixes, series, articles, homepage, player and search working end to end on staging with real content</td>
 </tr>
 <tr>
 <td>M3 Phase 1 launch</td>
-<td class="num">14</td>
+<td class="num">8</td>
 <td>Production live; hypercare begins</td>
 </tr>
 <tr>
 <td>M4 Phase 2 release</td>
-<td class="num">19</td>
+<td class="num">11</td>
 <td>Audience accounts, follow, notifications, video, events with ticketing, submissions live</td>
 </tr>
 <tr>
 <td>M5 Phase 3 release</td>
-<td class="num">22</td>
+<td class="num">13</td>
 <td>Shop and payments live; reconciliation report available</td>
 </tr>
 <tr>
 <td>M6 Handover</td>
-<td class="num">22</td>
+<td class="num">13</td>
 <td>Documentation, training and warranty start</td>
 </tr>
 </tbody></table></div>
@@ -914,8 +914,8 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Build hours</td>
-<td>20 (work package 9, audio hosting) + 24 (work package 10, audio player)</td>
-<td>14 (SoundCloud integration) + 30 (work package 10 with the widget adapter). Net change: 0</td>
+<td>12 (work package 9, audio hosting) + 17 (work package 10, audio player)</td>
+<td>8 (SoundCloud integration) + 21 (work package 10 with the widget adapter). Net change: 0</td>
 </tr>
 <tr>
 <td>Monthly cost</td>
@@ -929,7 +929,7 @@ tr.total td.num{color:var(--accent-deep)}
 </li>
 <li>Artwork, waveform and duration come from SoundCloud. The full-view player shows SoundCloud's waveform rather than a custom one.
 </li>
-<li>Mixes are added by pasting a SoundCloud link. There is no audio upload in Aesium's admin in V1. SoundCloud issues API credentials to Artist Pro subscribers, so upload from Aesium through SoundCloud's API can be added later (about 8 hours).
+<li>Mixes are added by pasting a SoundCloud link. There is no audio upload in Aesium's admin in V1. SoundCloud issues API credentials to Artist Pro subscribers, so upload from Aesium through SoundCloud's API can be added later (about 4 hours).
 </li>
 <li>On iOS Safari and some Android browsers, audio inside a third-party frame needs a tap inside that frame before it will start. "Play from any card" and "switch immediately" work on desktop but can require a second tap on mobile.
 </li>
@@ -1003,8 +1003,8 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Build hours</td>
-<td>14 (work package 11, video hosting, including captions)</td>
-<td>8 (YouTube integration). Net change: minus 6</td>
+<td>8 (work package 11, video hosting, including captions)</td>
+<td>5 (YouTube integration). Net change: minus 3</td>
 </tr>
 <tr>
 <td>Monthly cost</td>
@@ -1070,8 +1070,8 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Build hours</td>
-<td>30 (work package 3)</td>
-<td>26: tenant configuration as code, hosted sign-in pages in Aesium's colours, token validation, profile sync, deletion and export through Auth0's API. Net change: minus 4</td>
+<td>18 (work package 3)</td>
+<td>16: tenant configuration as code, hosted sign-in pages in Aesium's colours, token validation, profile sync, deletion and export through Auth0's API. Net change: minus 2</td>
 </tr>
 <tr>
 <td>Monthly cost at launch</td>
@@ -1090,7 +1090,7 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Social and passwordless sign-in</td>
-<td>Not included; about 4 hours per provider if wanted later</td>
+<td>Not included; about 2 hours per provider if wanted later</td>
 <td>Included: Google, Apple and other social sign-ins, passkeys, and one-time codes by email or SMS</td>
 </tr>
 <tr>
@@ -1115,11 +1115,11 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Moving later</td>
-<td>Password hashes are PBKDF2, which Auth0 imports after a format conversion, so a later move needs no password reset (24 hours, Section 8.1)</td>
+<td>Password hashes are PBKDF2, which Auth0 imports after a format conversion, so a later move needs no password reset (12 hours, Section 8.1)</td>
 <td>Auth0 does not export password hashes, so moving away later means every audience member resets their password</td>
 </tr>
 </tbody></table></div>
-<p>Cost and benefit. The base configuration costs nothing beyond ordinary maintenance for the life of the platform. Auth0 also costs nothing until Aesium wants authenticator-app two-factor for staff, more than a day of sign-in logs, or an audience beyond the Free plan, after which the Essentials plan runs from USD 420 to 8,400 a year across the audience sizes above. What Auth0 buys is social and passwordless sign-in, which the requirements do not ask for, and one less security surface for the Supplier to maintain. Recommendation: the base configuration, with the 24-hour migration in Section 8.1 keeping the door to Auth0 open if social sign-in becomes a priority.</p>
+<p>Cost and benefit. The base configuration costs nothing beyond ordinary maintenance for the life of the platform. Auth0 also costs nothing until Aesium wants authenticator-app two-factor for staff, more than a day of sign-in logs, or an audience beyond the Free plan, after which the Essentials plan runs from USD 420 to 8,400 a year across the audience sizes above. What Auth0 buys is social and passwordless sign-in, which the requirements do not ask for, and one less security surface for the Supplier to maintain. Recommendation: the base configuration, with the 12-hour migration in Section 8.1 keeping the door to Auth0 open if social sign-in becomes a priority.</p>
 <h3 id="7-4-commerce-platform-custom-on-stripe-base-or-shopify-considered">7.4 Commerce platform: custom on Stripe (base) or Shopify (considered)</h3>
 <p>Aesium set two criteria for any commerce platform: it must pay artists out automatically, and it must support a separate store for each artist. The base configuration meets both with Stripe Connect and per-artist product listings on Aesium's own front end.</p>
 <p>Shopify was assessed against the same criteria. Three arrangements exist, and one meets both.</p>
@@ -1163,7 +1163,7 @@ tr.total td.num{color:var(--accent-deep)}
 </li>
 <li>Each artist manages their own store, which departs from the assumption that artists never log in to anything. Aesium keeps the customer relationship and the seller's consumer-law obligations, as in the base configuration.
 </li></ul>
-<p>Build effect: work package 20 becomes about 34 hours (Storefront API integration, cart, checkout hand-off, order webhooks into reporting, Collective set-up and artist onboarding notes) instead of 40. Running cost: Aesium's plan from USD 29 a month, plus a Shopify plan for every artist store. Section 7.5 shows this as Option D.</p>
+<p>Build effect: work package 20 becomes about 22 hours (Storefront API integration, cart, checkout hand-off, order webhooks into reporting, Collective set-up and artist onboarding notes) instead of 26. Running cost: Aesium's plan from USD 29 a month, plus a Shopify plan for every artist store. Section 7.5 shows this as Option D.</p>
 <p>Recommendation: keep the base configuration unless most artists already run Shopify stores. Stripe Connect pays artists into their bank accounts with nothing for them to subscribe to, and Aesium's per-artist commission is one field. Revisit Shopify Collective if the shop grows into a catalogue that needs Shopify's stock and shipping tooling, because that is the point at which the stretch package would otherwise be built.</p>
 <h3 id="7-5-option-combinations">7.5 Option combinations</h3>
 <div class="table-wrap"><table>
@@ -1187,48 +1187,48 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Option B only: YouTube video</td>
-<td>minus 6</td>
+<td>minus 3</td>
 <td>about minus USD 45 at launch volume, more as viewing grows</td>
 <td>Provider swap</td>
 </tr>
 <tr>
 <td>Option C only: Auth0 authentication</td>
-<td>minus 4</td>
+<td>minus 2</td>
 <td>0 at launch; rises with monthly active users (Section 7.3)</td>
 <td>Identity provider swap</td>
 </tr>
 <tr>
 <td>Option D only: Shopify Collective commerce</td>
-<td>minus 6</td>
+<td>minus 4</td>
 <td>plus USD 29 for Aesium's store, plus a Shopify plan per artist store</td>
 <td>Most of the physical goods stretch package becomes unnecessary (Section 7.4)</td>
 </tr>
 <tr>
 <td>Options A and B</td>
-<td>minus 6</td>
+<td>minus 3</td>
 <td>about minus USD 38 at launch</td>
 <td>Lowest running cost, least control</td>
 </tr>
 <tr>
 <td>Base plus SoundCloud adapter kept</td>
-<td>plus 20</td>
+<td>plus 12</td>
 <td>0</td>
 <td>Both audio providers available; mixes can be self-hosted or linked</td>
 </tr>
 <tr>
 <td>Base plus YouTube adapter kept</td>
-<td>plus 8</td>
+<td>plus 5</td>
 <td>0</td>
 <td>Both video providers available</td>
 </tr>
 <tr>
 <td>Physical goods stretch package</td>
-<td>plus 40</td>
+<td>plus 24</td>
 <td>0</td>
 <td>Any configuration</td>
 </tr>
 </tbody></table></div>
-<p>Recommendation: keep the base configuration for audio, because the listening experience is the product, and build the SoundCloud adapter (plus 20 hours) so that individual mixes can be linked where licensing or an artist's preference requires it, and so the site can launch on linked audio if Aesium's licences are not yet in place. For video, launch with YouTube (Option B) and the click-to-play facade, since the video library is small at launch and advertising exposure is limited to the videos Aesium chooses to embed. Move to Cloudflare Stream when a branded, ad-free experience matters more than the per-minute cost; the provider interface makes that a 14-hour change. Keep ASP.NET Core Identity for authentication and revisit Auth0 only if social sign-in or passwordless login becomes a priority. Keep the custom shop on Stripe Connect unless most artists already run Shopify stores.</p>
+<p>Recommendation: keep the base configuration for audio, because the listening experience is the product, and build the SoundCloud adapter (plus 12 hours) so that individual mixes can be linked where licensing or an artist's preference requires it, and so the site can launch on linked audio if Aesium's licences are not yet in place. For video, launch with YouTube (Option B) and the click-to-play facade, since the video library is small at launch and advertising exposure is limited to the videos Aesium chooses to embed. Move to Cloudflare Stream when a branded, ad-free experience matters more than the per-minute cost; the provider interface makes that an 8-hour change. Keep ASP.NET Core Identity for authentication and revisit Auth0 only if social sign-in or passwordless login becomes a priority. Keep the custom shop on Stripe Connect unless most artists already run Shopify stores.</p>
 </section>
 <section class="sec" id="8-pricing"><h2>8. Pricing</h2>
 <h3 id="8-1-build">8.1 Build</h3>
@@ -1241,28 +1241,28 @@ tr.total td.num{color:var(--accent-deep)}
 </tr></thead><tbody>
 <tr>
 <td>1. Foundation &amp; listening</td>
-<td class="num">406</td>
-<td class="num">60,900</td>
+<td class="num">239</td>
+<td class="num">35,850</td>
 </tr>
 <tr>
 <td>2. Audience, video &amp; events</td>
-<td class="num">145</td>
-<td class="num">21,750</td>
+<td class="num">77</td>
+<td class="num">11,550</td>
 </tr>
 <tr>
 <td>3. Shop &amp; payments</td>
-<td class="num">71</td>
-<td class="num">10,650</td>
+<td class="num">44</td>
+<td class="num">6,600</td>
 </tr>
 <tr class="total">
 <td>Total, base configuration</td>
-<td class="num">622</td>
-<td class="num">93,300</td>
+<td class="num">360</td>
+<td class="num">54,000</td>
 </tr>
 <tr>
 <td>Contingency reserve (10%, drawn only through approved change requests)</td>
-<td class="num">62</td>
-<td class="num">9,300</td>
+<td class="num">36</td>
+<td class="num">5,400</td>
 </tr>
 </tbody></table></div>
 <p>Option adjustments to the total:</p>
@@ -1279,33 +1279,33 @@ tr.total td.num{color:var(--accent-deep)}
 </tr>
 <tr>
 <td>Option B: YouTube instead of Cloudflare Stream</td>
-<td>minus 6</td>
-<td>minus 900</td>
+<td>minus 3</td>
+<td>minus 450</td>
 </tr>
 <tr>
 <td>Option C: Auth0 instead of ASP.NET Core Identity</td>
+<td>minus 2</td>
+<td>minus 300</td>
+</tr>
+<tr>
+<td>Option D: Shopify Collective instead of the custom shop on Stripe</td>
 <td>minus 4</td>
 <td>minus 600</td>
 </tr>
 <tr>
-<td>Option D: Shopify Collective instead of the custom shop on Stripe</td>
-<td>minus 6</td>
-<td>minus 900</td>
-</tr>
-<tr>
 <td>SoundCloud adapter kept alongside self-hosting</td>
-<td>plus 20</td>
-<td>plus 3,000</td>
+<td>plus 12</td>
+<td>plus 1,800</td>
 </tr>
 <tr>
 <td>YouTube adapter kept alongside Cloudflare Stream</td>
-<td>plus 8</td>
-<td>plus 1,200</td>
+<td>plus 5</td>
+<td>plus 750</td>
 </tr>
 <tr>
 <td>Recommended configuration (base audio plus SoundCloud adapter, YouTube video, ASP.NET Core Identity)</td>
-<td>636</td>
-<td>95,400</td>
+<td>369</td>
+<td>55,350</td>
 </tr>
 </tbody></table></div>
 <p>Stretch package, priced separately and taken up by change request:</p>
@@ -1317,8 +1317,8 @@ tr.total td.num{color:var(--accent-deep)}
 </tr></thead><tbody>
 <tr>
 <td>Physical goods commerce (Section 5.2)</td>
-<td class="num">40</td>
-<td class="num">6,000</td>
+<td class="num">24</td>
+<td class="num">3,600</td>
 </tr>
 </tbody></table></div>
 <p>Later additions, not included in V1 and shown for planning only:</p>
@@ -1330,13 +1330,13 @@ tr.total td.num{color:var(--accent-deep)}
 </tr></thead><tbody>
 <tr>
 <td>Move authentication to Auth0 after launch: password hashes converted to Auth0's import format, a rehearsal import, sign-in flows, tenant configuration</td>
-<td class="num">24</td>
-<td class="num">3,600</td>
+<td class="num">12</td>
+<td class="num">1,800</td>
 </tr>
 <tr>
 <td>Artist self-service accounts: artist role, invitation, profile and content editing with staff approval before publishing</td>
-<td class="num">40</td>
-<td class="num">6,000</td>
+<td class="num">24</td>
+<td class="num">3,600</td>
 </tr>
 </tbody></table></div>
 <h3 id="8-2-running-costs">8.2 Running costs</h3>
@@ -1740,211 +1740,216 @@ tr.total td.num{color:var(--accent-deep)}
 <tr>
 <td>1. Discovery, decisions &amp; design mock-ups</td>
 <td>Decision workshops for Section 12.2, written decision log</td>
-<td class="num">12</td>
+<td class="num">8</td>
 </tr>
 <tr>
 <td>1. Discovery, decisions &amp; design mock-ups</td>
 <td>Wireframes and visual mock-ups for screens the concept does not cover: Now Playing bar and full-view player, volume control, cart drawer and checkout hand-off, account area and library, admin back office and edit-in-place controls, submission form, genre pages, event page with embedded ticketing, email templates; two review rounds each</td>
-<td class="num">24</td>
+<td class="num">12</td>
 </tr>
 <tr>
 <td>2. Platform foundations &amp; infrastructure</td>
 <td>Repository in Aesium's GitHub organisation, solution structure, environments, CI/CD pipelines</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>2. Platform foundations &amp; infrastructure</td>
 <td>AWS via CDK: ECS service across two availability zones, Multi-AZ RDS PostgreSQL with point-in-time recovery, Secrets Manager, container registry, load balancer, TLS</td>
-<td class="num">16</td>
+<td class="num">10</td>
 </tr>
 <tr>
 <td>2. Platform foundations &amp; infrastructure</td>
 <td>Cloudflare: Pages project, R2 buckets and custom domains, image transformations, DNS, basic firewall rules</td>
-<td class="num">6</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>2. Platform foundations &amp; infrastructure</td>
 <td>Logging, error tracking, uptime alerts</td>
-<td class="num">4</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>3. Accounts &amp; permissions</td>
 <td>Staff sign-in, Administrator and Editor roles, two-factor, password reset</td>
-<td class="num">10</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>3. Accounts &amp; permissions</td>
 <td>Audience registration, sign-in, password reset, profile, account deletion and data export</td>
-<td class="num">14</td>
+<td class="num">8</td>
 </tr>
 <tr>
 <td>3. Accounts &amp; permissions</td>
 <td>Authorisation policies and session handling across API and front end</td>
-<td class="num">6</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>4. Content model &amp; edit-in-place</td>
 <td>Data model and migrations for every content type and relationship</td>
-<td class="num">12</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>4. Content model &amp; edit-in-place</td>
 <td>Edit-in-place framework: inline text, rich text, artwork slots, relationship pickers, autosave, validation, required-field rules</td>
-<td class="num">30</td>
+<td class="num">26</td>
 </tr>
 <tr>
 <td>4. Content model &amp; edit-in-place</td>
 <td>Slugs, page metadata, social sharing cards</td>
-<td class="num">6</td>
+<td class="num">2</td>
 </tr>
 <tr>
 <td>5. Credits &amp; rights metadata</td>
 <td>Collaborator records (writer, photographer, filmmaker, producer, designer) with roles on any content item; credits shown on public pages</td>
-<td class="num">6</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>5. Credits &amp; rights metadata</td>
 <td>Rights holder, licence terms and cleared uses on assets and content items; archive export</td>
-<td class="num">6</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>6. Publishing workflow</td>
 <td>Publishing states on every type, scheduler job, preview links, publish event hooks</td>
-<td class="num">12</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>7. Tagging &amp; classification</td>
 <td>Genre list management, multi-select, fixed classifications, filters, genre pages</td>
-<td class="num">8</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>8. Media assets</td>
 <td>Direct-to-R2 upload, asset records, responsive variants, alt text, media library, reuse, orphan clean-up</td>
-<td class="num">16</td>
+<td class="num">10</td>
 </tr>
 <tr>
 <td>9. Audio hosting &amp; delivery</td>
 <td>Multipart upload, processing job (duration, waveform peaks, streaming rendition), expiring delivery URLs, publish-state enforcement, play counting</td>
-<td class="num">20</td>
+<td class="num">12</td>
 </tr>
 <tr>
 <td>10. Audio player</td>
-<td>Persistent Now Playing bar, full-view player, immediate switching, seek, volume and mute, lock-screen and keyboard controls, session state</td>
-<td class="num">24</td>
+<td>Persistent Now Playing bar, full-view player, immediate switching, seek, volume and mute, lock-screen and keyboard controls, session state, testing on real devices</td>
+<td class="num">17</td>
 </tr>
 <tr>
 <td>11. Video hosting &amp; playback</td>
 <td>Direct upload to Cloudflare Stream, processing webhooks, branded player, thumbnails, view counts</td>
-<td class="num">12</td>
+<td class="num">7</td>
 </tr>
 <tr>
 <td>11. Video hosting &amp; playback</td>
 <td>Caption track upload in the admin and display in the player</td>
-<td class="num">2</td>
+<td class="num">1</td>
 </tr>
 <tr>
 <td>12. Content types &amp; pages</td>
 <td>Content types and pages, as itemised in Section 5.1</td>
-<td class="num">102</td>
+<td class="num">56</td>
 </tr>
 <tr>
 <td>13. Search &amp; discovery</td>
 <td>Full-text search across content with accent-insensitive matching, results page, genre filtering, related content</td>
-<td class="num">10</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>14. Design system &amp; front-end build</td>
 <td>Design tokens, typography, component library, responsive layouts, dark mode, accessibility (WCAG 2.1 AA), motion</td>
-<td class="num">28</td>
+<td class="num">14</td>
 </tr>
 <tr>
 <td>15. Email deliverability &amp; SEO</td>
 <td>Sending domain in SES, DKIM, SPF and DMARC records, production access, bounce and complaint handling into a suppression list, one-click unsubscribe headers</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>15. Email deliverability &amp; SEO</td>
 <td>Sitemap, robots, canonical URLs, structured data for artists, mixes, articles, events and products</td>
-<td class="num">6</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>16. Analytics &amp; reporting</td>
 <td>Plausible set-up and platform event recording</td>
-<td class="num">6</td>
+<td class="num">3</td>
 </tr>
 <tr>
 <td>16. Analytics &amp; reporting</td>
 <td>Reporting views mapped to the Operating Model's measures, date ranges, CSV export</td>
-<td class="num">8</td>
+<td class="num">6</td>
 </tr>
 <tr>
 <td>16. Analytics &amp; reporting</td>
 <td>Monthly summary email to staff</td>
-<td class="num">2</td>
+<td class="num">1</td>
 </tr>
 <tr>
 <td>17. Audience activity &amp; notifications</td>
 <td>Follow, like, save, private library, aggregate follower counts</td>
-<td class="num">10</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>17. Audience activity &amp; notifications</td>
 <td>Notification preferences, publish-triggered emails to followers, email templates, sent log</td>
-<td class="num">14</td>
+<td class="num">7</td>
 </tr>
 <tr>
 <td>18. Ticketing integration</td>
 <td>Ticketing platform account link, event records linked to ticketed events, embedded checkout on event pages</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>18. Ticketing integration</td>
 <td>Sync of tickets sold and attendees into reporting (Humanitix's API is read-only with no webhooks, so counts are polled; Eventbrite sends webhooks), free-event RSVP through the same platform, plain-link fallback for events sold elsewhere</td>
-<td class="num">8</td>
+<td class="num">4</td>
 </tr>
 <tr>
 <td>19. Admin back office &amp; submissions</td>
 <td>Dashboard, content lists with status filters, staff management, settings, audit log</td>
-<td class="num">16</td>
+<td class="num">9</td>
 </tr>
 <tr>
 <td>19. Admin back office &amp; submissions</td>
 <td>Structured submission form with genre nomination, review queue, conversion to a draft record</td>
-<td class="num">10</td>
+<td class="num">5</td>
 </tr>
 <tr>
 <td>20. Commerce &amp; payments</td>
 <td>Cart drawer and badge, guest checkout, Stripe Checkout, order and payment records, webhooks, order emails</td>
-<td class="num">18</td>
+<td class="num">12</td>
 </tr>
 <tr>
 <td>20. Commerce &amp; payments</td>
-<td>Stripe Connect onboarding for artists, commission rate per artist with per-product override, refunds, admin order and payout views, reconciliation export</td>
-<td class="num">22</td>
+<td>Stripe Connect onboarding for artists, commission rate per artist with per-product override, refunds, admin order and payout views, reconciliation export, end-to-end testing of the money flow</td>
+<td class="num">14</td>
 </tr>
 <tr>
 <td>21. Quality, security &amp; performance</td>
 <td>API and end-to-end test suites, performance tuning, security review, privacy checks, load test</td>
-<td class="num">28</td>
+<td class="num">16</td>
 </tr>
 <tr>
 <td>22. Launch &amp; handover</td>
 <td>Content import, staff training, documentation, go-live checklist, two weeks of hypercare</td>
-<td class="num">16</td>
+<td class="num">12</td>
 </tr>
 <tr>
 <td>23. Project management &amp; communication</td>
 <td>Project management and communication</td>
-<td class="num">48</td>
+<td class="num">24</td>
 </tr>
 <tr class="total">
 <td>Total</td>
 <td></td>
-<td class="num">622</td>
+<td class="num">360</td>
 </tr>
 </tbody></table></div>
 </section>
-<section class="sec" id="appendix-b-changes-from-version-1-0"><h2>Appendix B. Changes from version 1.0</h2>
+<section class="sec" id="appendix-b-revision-history"><h2>Appendix B. Revision history</h2>
+<p>Version 1.2, 27 September 2026:</p>
+<ul>
+<li>Hour estimates re-examined line by line and reduced across every work package. Base configuration from 622 to 360 hours and from NZD 93,300 to NZD 54,000; durations and milestones shortened to match; option, stretch-package and later-addition hours revised in proportion. Scope is unchanged.
+</li></ul>
+<p>Version 1.1, 26 September 2026:</p>
 <ul>
 <li>Editorial moved into Phase 1 so that guest spots launch with their write-ups. Phases renamed and mapped to the Operating Model's roadmap, with each phase committable separately.
 </li>
@@ -1964,7 +1969,7 @@ tr.total td.num{color:var(--accent-deep)}
 </li>
 <li>Commercial terms expanded: change control, contingency use, payment split, maintenance at the same hourly rate, termination, liability, subcontracting, force majeure and disputes.
 </li>
-<li>Base configuration hours from 522 to 622; price from NZD 78,300 to NZD 93,300.
+<li>Base configuration hours from 522 to 622; price from NZD 78,300 to NZD 93,300 (superseded by version 1.2).
 </li></ul>
 </section>
   </main>

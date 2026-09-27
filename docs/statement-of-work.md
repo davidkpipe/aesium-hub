@@ -6,7 +6,7 @@
 |---|---|
 | **Client** | Aesium |
 | **Supplier** | David Pipe |
-| **Version** | 1.1, 26 September 2026 |
+| **Version** | 1.2, 27 September 2026 |
 | **Basis** | *Aesium Platform Requirements & Build Options*, *Aesium Platform Operating Model*, and the derived working documents in `docs/` (foundations, content types, entity model) |
 | **Currency** | Build pricing in NZD excluding GST. Hosting and service costs in USD unless stated. |
 
@@ -153,46 +153,46 @@ Hours are estimates of the effort to deliver working, tested functionality. Each
 
 | Work package | What it delivers | Hours | Phase |
 |---|---|---|---|
-| 1. Discovery, decisions & design mock-ups | Decision workshops and a decision log for the open questions in Section 12.2; wireframes and visual mock-ups for every screen the existing concept does not cover | 36 | 1, 2, 3 |
-| 2. Platform foundations & infrastructure | Repositories in Aesium's GitHub organisation, CI/CD, staging and production on AWS via CDK across two availability zones, Cloudflare set-up, logging and alerts | 34 | 1 |
-| 3. Accounts & permissions | Staff sign-in with Administrator and Editor roles and two-factor; audience registration, sign-in, recovery, profile, deletion and data export | 30 | 1, 2 |
-| 4. Content model & edit-in-place | Data model for every record and relationship; inline editing framework on rendered pages; slugs and page metadata | 48 | 1 |
-| 5. Credits & rights metadata | Collaborator records and roles on every content item; rights holder, licence terms and cleared uses per asset; credits on public pages; archive export | 12 | 1 |
-| 6. Publishing workflow | Draft, scheduled, published, unpublished on every type; scheduler; preview links; publish hooks | 12 | 1 |
-| 7. Tagging & classification | Managed genre list, multi-select, fixed classifications, filters, genre pages | 8 | 1 |
-| 8. Media assets | Direct-to-R2 upload, responsive variants, alt text, media library, reuse, clean-up | 16 | 1 |
-| 9. Audio hosting & delivery | Large-file upload, processing, waveform, streaming delivery, play counting (base: self-hosted on R2) | 20 | 1 |
-| 10. Audio player | Persistent Now Playing bar, full-view player, immediate switching, volume and mute, lock-screen controls | 24 | 1 |
-| 11. Video hosting & playback | Upload, processing, branded player with caption tracks, thumbnails, view counts (base: Cloudflare Stream) | 14 | 2 |
-| 12. Content types & pages | Templates and behaviours for every content type, homepage placements, account area, static pages | 102 | 1, 2, 3 |
-| 13. Search & discovery | Full-text search with macron-insensitive matching, results page, genre filtering, related content | 10 | 1 |
-| 14. Design system & front-end build | Tokens, typography, components, responsive layouts, dark mode, accessibility | 28 | 1 |
-| 15. Email deliverability & SEO | Sending domain, DKIM, DMARC, bounce and complaint handling, one-click unsubscribe; sitemap, robots, canonical URLs, structured data | 14 | 1 |
-| 16. Analytics & reporting | Web analytics, platform events, reporting views mapped to the Operating Model's measures, CSV export, monthly summary | 16 | 1, 2, 3 |
-| 17. Audience activity & notifications | Follow, like, save, private library, follower counts; preferences; publish-triggered email | 24 | 2 |
-| 18. Ticketing integration | Ticketing platform linked to event records, embedded checkout on event pages, ticket and attendee counts synced | 16 | 2 |
-| 19. Admin back office & submissions | Dashboard, content lists, staff, settings, audit log; submission form and review queue | 26 | 2 |
-| 20. Commerce & payments | Cart, guest checkout, Stripe Checkout, Stripe Connect split at a per-artist commission with per-product override, refunds, orders, reporting | 40 | 3 |
-| 21. Quality, security & performance | End-to-end tests, performance tuning, security and privacy review, load test | 28 | 1, 2, 3 |
-| 22. Launch & handover | Content import, staff training, documentation, go-live, two weeks of hypercare | 16 | 1, 2, 3 |
-| Subtotal, build | | 574 | |
-| 23. Project management & communication | Planning, weekly reviews and demos, decision log, reporting | 48 | All |
-| Total | | 622 | |
+| 1. Discovery, decisions & design mock-ups | Decision workshops and a decision log for the open questions in Section 12.2; wireframes and visual mock-ups for every screen the existing concept does not cover | 20 | 1, 2, 3 |
+| 2. Platform foundations & infrastructure | Repositories in Aesium's GitHub organisation, CI/CD, staging and production on AWS via CDK across two availability zones, Cloudflare set-up, logging and alerts | 20 | 1 |
+| 3. Accounts & permissions | Staff sign-in with Administrator and Editor roles and two-factor; audience registration, sign-in, recovery, profile, deletion and data export | 18 | 1, 2 |
+| 4. Content model & edit-in-place | Data model for every record and relationship; inline editing framework on rendered pages; slugs and page metadata | 34 | 1 |
+| 5. Credits & rights metadata | Collaborator records and roles on every content item; rights holder, licence terms and cleared uses per asset; credits on public pages; archive export | 6 | 1 |
+| 6. Publishing workflow | Draft, scheduled, published, unpublished on every type; scheduler; preview links; publish hooks | 6 | 1 |
+| 7. Tagging & classification | Managed genre list, multi-select, fixed classifications, filters, genre pages | 5 | 1 |
+| 8. Media assets | Direct-to-R2 upload, responsive variants, alt text, media library, reuse, clean-up | 10 | 1 |
+| 9. Audio hosting & delivery | Large-file upload, processing, waveform, streaming delivery, play counting (base: self-hosted on R2) | 12 | 1 |
+| 10. Audio player | Persistent Now Playing bar, full-view player, immediate switching, volume and mute, lock-screen controls | 17 | 1 |
+| 11. Video hosting & playback | Upload, processing, branded player with caption tracks, thumbnails, view counts (base: Cloudflare Stream) | 8 | 2 |
+| 12. Content types & pages | Templates and behaviours for every content type, homepage placements, account area, static pages | 56 | 1, 2, 3 |
+| 13. Search & discovery | Full-text search with macron-insensitive matching, results page, genre filtering, related content | 5 | 1 |
+| 14. Design system & front-end build | Tokens, typography, components, responsive layouts, dark mode, accessibility | 14 | 1 |
+| 15. Email deliverability & SEO | Sending domain, DKIM, DMARC, bounce and complaint handling, one-click unsubscribe; sitemap, robots, canonical URLs, structured data | 7 | 1 |
+| 16. Analytics & reporting | Web analytics, platform events, reporting views mapped to the Operating Model's measures, CSV export, monthly summary | 10 | 1, 2, 3 |
+| 17. Audience activity & notifications | Follow, like, save, private library, follower counts; preferences; publish-triggered email | 12 | 2 |
+| 18. Ticketing integration | Ticketing platform linked to event records, embedded checkout on event pages, ticket and attendee counts synced | 8 | 2 |
+| 19. Admin back office & submissions | Dashboard, content lists, staff, settings, audit log; submission form and review queue | 14 | 2 |
+| 20. Commerce & payments | Cart, guest checkout, Stripe Checkout, Stripe Connect split at a per-artist commission with per-product override, refunds, orders, reporting | 26 | 3 |
+| 21. Quality, security & performance | End-to-end tests, performance tuning, security and privacy review, load test | 16 | 1, 2, 3 |
+| 22. Launch & handover | Content import, staff training, documentation, go-live, two weeks of hypercare | 12 | 1, 2, 3 |
+| Subtotal, build | | 336 | |
+| 23. Project management & communication | Planning, weekly reviews and demos, decision log, reporting | 24 | All |
+| Total | | 360 | |
 
 Content types and pages (work package 12) in detail:
 
 | Page or content type | Included | Hours |
 |---|---|---|
-| Artist profiles | Hub page pattern, Experiences grid and filters, related artists from shared genres, follow button and follower count, external links, releases, grouped presentation for artists with little content | 18 |
-| Mixes | Listing with genre filter, detail page, tracklist, credits, series episode display, like and save | 14 |
-| Series | Hub page reuse, episode ordering, collected videos, articles, products and links | 12 |
-| Editorial articles | Rich text layout, images, byline and credits, pull quote, "In Their Words" section on profiles | 12 |
-| Videos | Listing, detail page, video categories, credits, artist, series and event links, like and save | 8 |
-| Events | Upcoming and Past, Next Up, venue, ticket action from the ticketing platform, recordings | 10 |
-| Products and Shop | Listing, detail page, shop categories, artist attribution, series placement | 12 |
-| Homepage & featured placements | Curated slots with ordering and start and end dates, latest and featured content | 12 |
-| Static pages, navigation and footer | About, Contact, Privacy, Terms; header, footer, cart icon | 4 |
-| Total | | 102 |
+| Artist profiles | Hub page pattern, Experiences grid and filters, related artists from shared genres, follow button and follower count, external links, releases, grouped presentation for artists with little content | 10 |
+| Mixes | Listing with genre filter, detail page, tracklist, credits, series episode display, like and save | 8 |
+| Series | Hub page reuse, episode ordering, collected videos, articles, products and links | 6 |
+| Editorial articles | Rich text layout, images, byline and credits, pull quote, "In Their Words" section on profiles | 6 |
+| Videos | Listing, detail page, video categories, credits, artist, series and event links, like and save | 4 |
+| Events | Upcoming and Past, Next Up, venue, ticket action from the ticketing platform, recordings | 5 |
+| Products and Shop | Listing, detail page, shop categories, artist attribution, series placement | 6 |
+| Homepage & featured placements | Curated slots with ordering and start and end dates, latest and featured content | 8 |
+| Static pages, navigation and footer | About, Contact, Privacy, Terms; header, footer, cart icon | 3 |
+| Total | | 56 |
 
 ### 5.2 Stretch package: physical goods commerce
 
@@ -200,14 +200,14 @@ Work package 20 sells products and splits the money. It does not handle what phy
 
 | Item | Included | Hours |
 |---|---|---|
-| Variants and stock | Size, colour and format variants; stock per variant; sold-out and low-stock states; stock adjustments in the back office | 10 |
-| Shipping and tax | Shipping address capture at checkout; shipping rates by zone (New Zealand, Australia, rest of world) and by seller; GST-inclusive pricing and order tax lines | 8 |
-| Fulfilment without logins | Order email to the artist with packing details; fulfilment status (new, packed, shipped with tracking number) set by staff or by the artist through a tokenised link; shipping notification to the customer | 10 |
-| Aesium-sold products and drops | Products sold by Aesium with no artist split; pre-orders and limited drops with an availability window and a quantity cap | 8 |
-| Reporting and tests | Stock and fulfilment reporting; automated tests across the above | 4 |
-| Total | | 40 |
+| Variants and stock | Size, colour and format variants; stock per variant; sold-out and low-stock states; stock adjustments in the back office | 6 |
+| Shipping and tax | Shipping address capture at checkout; shipping rates by zone (New Zealand, Australia, rest of world) and by seller; GST-inclusive pricing and order tax lines | 5 |
+| Fulfilment without logins | Order email to the artist with packing details; fulfilment status (new, packed, shipped with tracking number) set by staff or by the artist through a tokenised link; shipping notification to the customer | 6 |
+| Aesium-sold products and drops | Products sold by Aesium with no artist split; pre-orders and limited drops with an availability window and a quantity cap | 4 |
+| Reporting and tests | Stock and fulfilment reporting; automated tests across the above | 3 |
+| Total | | 24 |
 
-Price: NZD 6,000 excluding GST. Merchant of record, GST treatment and refund responsibility are specified with Aesium's accountant at the start of the store work, whether or not this package is taken up (Section 12.2).
+Price: NZD 3,600 excluding GST. Merchant of record, GST treatment and refund responsibility are specified with Aesium's accountant at the start of the store work, whether or not this package is taken up (Section 12.2).
 
 ## 6. Delivery plan
 
@@ -215,10 +215,10 @@ The build is delivered in three phases. Each phase ends with a working, deployab
 
 | Phase | Focus | Build hours | PM hours | Total hours | Duration |
 |---|---|---|---|---|---|
-| 1. Foundation & listening | Discovery and mock-ups, infrastructure, staff accounts, content model and editing, credits and rights, publishing, genres, media, audio, player, artist profiles, mixes, series, editorial, homepage, static pages, search, email and SEO, analytics, design system | 374 | 32 | 406 | 13 to 14 weeks |
-| 2. Audience, video & events | Audience accounts, follow, like and save, notifications, video, events with ticketing, admin dashboard, submissions | 134 | 11 | 145 | 5 weeks |
-| 3. Shop & payments | Products, cart, checkout, Stripe Connect with per-artist commission, orders, refunds, reporting; the physical goods stretch package if taken up | 66 | 5 | 71 | 2 to 3 weeks |
-| Total | | 574 | 48 | 622 | 20 to 22 weeks |
+| 1. Foundation & listening | Discovery and mock-ups, infrastructure, staff accounts, content model and editing, credits and rights, publishing, genres, media, audio, player, artist profiles, mixes, series, editorial, homepage, static pages, search, email and SEO, analytics, design system | 223 | 16 | 239 | 8 weeks |
+| 2. Audience, video & events | Audience accounts, follow, like and save, notifications, video, events with ticketing, admin dashboard, submissions | 72 | 5 | 77 | 3 weeks |
+| 3. Shop & payments | Products, cart, checkout, Stripe Connect with per-artist commission, orders, refunds, reporting; the physical goods stretch package if taken up | 41 | 3 | 44 | 1 to 2 weeks |
+| Total | | 336 | 24 | 360 | 12 to 13 weeks |
 
 The phases follow the Operating Model's roadmap. Phase 1 delivers its V1: resident and guest programming, editorial and the web platform, so the first guest spots launch with their write-ups. Phase 2 delivers its V2: audience accounts, live sessions on video, and small venue events with ticketing. Phase 3 delivers the commerce that V3 and V4 need for physical releases and merchandise. Each phase is priced and can be committed separately, so Phase 3 can be scheduled when the shop is ready to open rather than at kick-off.
 
@@ -227,12 +227,12 @@ Milestones:
 | Milestone | Week | Evidence |
 |---|---|---|
 | M0 Kick-off | 0 | Decisions in Section 12.1 confirmed; accounts, GitHub organisation and access in place |
-| M1 Foundations | 4 | Staging live on AWS across two zones; staff sign-in; content model migrated; edit-in-place working on the artist template; Phase 1 mock-ups approved |
-| M2 Phase 1 beta | 10 | Artists, mixes, series, articles, homepage, player and search working end to end on staging with real content |
-| M3 Phase 1 launch | 14 | Production live; hypercare begins |
-| M4 Phase 2 release | 19 | Audience accounts, follow, notifications, video, events with ticketing, submissions live |
-| M5 Phase 3 release | 22 | Shop and payments live; reconciliation report available |
-| M6 Handover | 22 | Documentation, training and warranty start |
+| M1 Foundations | 3 | Staging live on AWS across two zones; staff sign-in; content model migrated; edit-in-place working on the artist template; Phase 1 mock-ups approved |
+| M2 Phase 1 beta | 6 | Artists, mixes, series, articles, homepage, player and search working end to end on staging with real content |
+| M3 Phase 1 launch | 8 | Production live; hypercare begins |
+| M4 Phase 2 release | 11 | Audience accounts, follow, notifications, video, events with ticketing, submissions live |
+| M5 Phase 3 release | 13 | Shop and payments live; reconciliation report available |
+| M6 Handover | 13 | Documentation, training and warranty start |
 
 Durations assume decisions and content arrive when needed and a delivery cadence of roughly 30 hours per week on the project.
 
@@ -268,14 +268,14 @@ Four decisions shape the product, the build and the running cost: where mix audi
 | Player | Fully custom bar and full-view player | Custom bar controlling a SoundCloud widget that must remain visible |
 | Licensing | Aesium's responsibility and outside this Statement of Work. Online licences from APRA AMCOS and Recorded Music NZ are the usual route and must be in place before launch | SoundCloud's terms make the uploader responsible for the rights in every upload. SoundCloud's own agreements with labels and collecting societies cover some material, and its automated matching removes what they do not. This reduces Aesium's exposure but does not remove it, and SoundCloud's position on DJ mixes is less established than Mixcloud's |
 | Play analytics | In Aesium's database and reports | On SoundCloud; Aesium records play starts only |
-| Build hours | 20 (work package 9, audio hosting) + 24 (work package 10, audio player) | 14 (SoundCloud integration) + 30 (work package 10 with the widget adapter). Net change: 0 |
+| Build hours | 12 (work package 9, audio hosting) + 17 (work package 10, audio player) | 8 (SoundCloud integration) + 21 (work package 10 with the widget adapter). Net change: 0 |
 | Monthly cost | R2 storage about USD 1 to 3; music licences from about NZD 510 a year on the published small-service tariffs, otherwise quoted | Artist Pro plan USD 99 a year (NZD 135 when bought from New Zealand) on Aesium's account. Mixes cannot stay on artists' free accounts: a free SoundCloud account allows two hours of upload in total and the USD 39-a-year Artist plan three hours, so a library of mixes needs Artist Pro's unlimited uploads, either on Aesium's account or on each artist's |
 
 Interface changes with Option A:
 
 - The Now Playing bar carries a compact SoundCloud widget. SoundCloud's terms require its player and branding to stay visible and unobscured, so the bar shows a slim SoundCloud strip (track link, logo) alongside Aesium's own play, pause, progress and volume controls, which drive the widget through its API.
 - Artwork, waveform and duration come from SoundCloud. The full-view player shows SoundCloud's waveform rather than a custom one.
-- Mixes are added by pasting a SoundCloud link. There is no audio upload in Aesium's admin in V1. SoundCloud issues API credentials to Artist Pro subscribers, so upload from Aesium through SoundCloud's API can be added later (about 8 hours).
+- Mixes are added by pasting a SoundCloud link. There is no audio upload in Aesium's admin in V1. SoundCloud issues API credentials to Artist Pro subscribers, so upload from Aesium through SoundCloud's API can be added later (about 4 hours).
 - On iOS Safari and some Android browsers, audio inside a third-party frame needs a tap inside that frame before it will start. "Play from any card" and "switch immediately" work on desktop but can require a second tap on mobile.
 - Tracks that are deleted, made private, geo-blocked or have embedding turned off show a fallback state instead of playing. Staff get a warning in the admin when a linked track stops resolving.
 - Volume works through the widget API, so the desktop slider and mobile mute both function.
@@ -309,7 +309,7 @@ Alternative considered: Mixcloud. It is built for DJ mixes and its licensing for
 | Captions | Caption tracks uploaded in the admin as WebVTT files and shown in the player, as WCAG requires for prerecorded video. Stream generates English and eleven other languages' captions automatically at no extra cost, which staff can correct before publishing. The captions themselves are content that Aesium supplies | YouTube's captions, including its automatic ones, inside its player |
 | Advertising | None | YouTube may show ads before or during videos |
 | View analytics | In Aesium's database and reports | In YouTube Studio; Aesium records play starts, and can pull view counts |
-| Build hours | 14 (work package 11, video hosting, including captions) | 8 (YouTube integration). Net change: minus 6 |
+| Build hours | 8 (work package 11, video hosting, including captions) | 5 (YouTube integration). Net change: minus 3 |
 | Monthly cost | USD 5 per 1,000 minutes stored plus USD 1 per 1,000 minutes watched. About USD 45 at a modest starting library; scales with viewing | USD 0 |
 
 Interface changes with Option B:
@@ -348,18 +348,18 @@ The requirements note that a managed authentication provider is the more establi
 | | Base: ASP.NET Core Identity | Option C: Auth0 |
 |---|---|---|
 | What it is | Microsoft's identity framework inside the application. Accounts, password hashes and sessions live in Aesium's database | A managed identity service. Accounts live in an Auth0 tenant hosted in Australia, and the platform trusts Auth0's tokens |
-| Build hours | 30 (work package 3) | 26: tenant configuration as code, hosted sign-in pages in Aesium's colours, token validation, profile sync, deletion and export through Auth0's API. Net change: minus 4 |
+| Build hours | 18 (work package 3) | 16: tenant configuration as code, hosted sign-in pages in Aesium's colours, token validation, profile sync, deletion and export through Auth0's API. Net change: minus 2 |
 | Monthly cost at launch | 0 | 0 on the Free plan, which covers up to 25,000 monthly active users |
 | Monthly cost as the audience grows | 0 | 0 while the Free plan's limits suit. The Essentials plan, needed for authenticator-app two-factor, sign-up and email customisation and five-day logs, is priced on every active user: USD 35 at 500, 70 at 1,000, 350 at 5,000 and 700 at 10,000 monthly active users |
 | Two-factor for staff | Authenticator app, built in | Passkeys on the Free plan; authenticator-app codes need Essentials |
-| Social and passwordless sign-in | Not included; about 4 hours per provider if wanted later | Included: Google, Apple and other social sign-ins, passkeys, and one-time codes by email or SMS |
+| Social and passwordless sign-in | Not included; about 2 hours per provider if wanted later | Included: Google, Apple and other social sign-ins, passkeys, and one-time codes by email or SMS |
 | Sign-in pages | Aesium's own pages | Auth0's hosted pages on Aesium's domain with Aesium's logo and colours; full control of the layout needs a paid plan |
 | Sign-in logs for investigating problems | Kept by the platform for 30 days | 1 day on the Free plan, 5 on Essentials, 10 on Professional |
 | Where account data lives | Aesium's database in Auckland | Auth0's Australia region; the privacy policy must say that account data is held in Australia |
 | Maintenance | Kept current with .NET releases under the maintenance clause | Auth0 maintains the service; Aesium holds the account, its bill and its configuration |
-| Moving later | Password hashes are PBKDF2, which Auth0 imports after a format conversion, so a later move needs no password reset (24 hours, Section 8.1) | Auth0 does not export password hashes, so moving away later means every audience member resets their password |
+| Moving later | Password hashes are PBKDF2, which Auth0 imports after a format conversion, so a later move needs no password reset (12 hours, Section 8.1) | Auth0 does not export password hashes, so moving away later means every audience member resets their password |
 
-Cost and benefit. The base configuration costs nothing beyond ordinary maintenance for the life of the platform. Auth0 also costs nothing until Aesium wants authenticator-app two-factor for staff, more than a day of sign-in logs, or an audience beyond the Free plan, after which the Essentials plan runs from USD 420 to 8,400 a year across the audience sizes above. What Auth0 buys is social and passwordless sign-in, which the requirements do not ask for, and one less security surface for the Supplier to maintain. Recommendation: the base configuration, with the 24-hour migration in Section 8.1 keeping the door to Auth0 open if social sign-in becomes a priority.
+Cost and benefit. The base configuration costs nothing beyond ordinary maintenance for the life of the platform. Auth0 also costs nothing until Aesium wants authenticator-app two-factor for staff, more than a day of sign-in logs, or an audience beyond the Free plan, after which the Essentials plan runs from USD 420 to 8,400 a year across the audience sizes above. What Auth0 buys is social and passwordless sign-in, which the requirements do not ask for, and one less security surface for the Supplier to maintain. Recommendation: the base configuration, with the 12-hour migration in Section 8.1 keeping the door to Auth0 open if social sign-in becomes a priority.
 
 ### 7.4 Commerce platform: custom on Stripe (base) or Shopify (considered)
 
@@ -382,7 +382,7 @@ How Shopify Collective would work for Aesium:
 - Variants, stock, shipping rates, fulfilment and tracking are native to Shopify, so most of the physical goods stretch package in Section 5.2 would not be needed. Aesium's own releases and merchandise would sit in Aesium's store as ordinary products.
 - Each artist manages their own store, which departs from the assumption that artists never log in to anything. Aesium keeps the customer relationship and the seller's consumer-law obligations, as in the base configuration.
 
-Build effect: work package 20 becomes about 34 hours (Storefront API integration, cart, checkout hand-off, order webhooks into reporting, Collective set-up and artist onboarding notes) instead of 40. Running cost: Aesium's plan from USD 29 a month, plus a Shopify plan for every artist store. Section 7.5 shows this as Option D.
+Build effect: work package 20 becomes about 22 hours (Storefront API integration, cart, checkout hand-off, order webhooks into reporting, Collective set-up and artist onboarding notes) instead of 26. Running cost: Aesium's plan from USD 29 a month, plus a Shopify plan for every artist store. Section 7.5 shows this as Option D.
 
 Recommendation: keep the base configuration unless most artists already run Shopify stores. Stripe Connect pays artists into their bank accounts with nothing for them to subscribe to, and Aesium's per-artist commission is one field. Revisit Shopify Collective if the shop grows into a catalogue that needs Shopify's stock and shipping tooling, because that is the point at which the stretch package would otherwise be built.
 
@@ -392,15 +392,15 @@ Recommendation: keep the base configuration unless most artists already run Shop
 |---|---|---|---|
 | Base: R2 audio, Cloudflare Stream video, ASP.NET Core Identity | 0 | 0 | Full control; Aesium's music licences required before audio launch |
 | Option A only: SoundCloud audio | 0 | plus USD 0 to 8; may reduce Aesium's own licence needs, which Aesium confirms | Player provider swap |
-| Option B only: YouTube video | minus 6 | about minus USD 45 at launch volume, more as viewing grows | Provider swap |
-| Option C only: Auth0 authentication | minus 4 | 0 at launch; rises with monthly active users (Section 7.3) | Identity provider swap |
-| Option D only: Shopify Collective commerce | minus 6 | plus USD 29 for Aesium's store, plus a Shopify plan per artist store | Most of the physical goods stretch package becomes unnecessary (Section 7.4) |
-| Options A and B | minus 6 | about minus USD 38 at launch | Lowest running cost, least control |
-| Base plus SoundCloud adapter kept | plus 20 | 0 | Both audio providers available; mixes can be self-hosted or linked |
-| Base plus YouTube adapter kept | plus 8 | 0 | Both video providers available |
-| Physical goods stretch package | plus 40 | 0 | Any configuration |
+| Option B only: YouTube video | minus 3 | about minus USD 45 at launch volume, more as viewing grows | Provider swap |
+| Option C only: Auth0 authentication | minus 2 | 0 at launch; rises with monthly active users (Section 7.3) | Identity provider swap |
+| Option D only: Shopify Collective commerce | minus 4 | plus USD 29 for Aesium's store, plus a Shopify plan per artist store | Most of the physical goods stretch package becomes unnecessary (Section 7.4) |
+| Options A and B | minus 3 | about minus USD 38 at launch | Lowest running cost, least control |
+| Base plus SoundCloud adapter kept | plus 12 | 0 | Both audio providers available; mixes can be self-hosted or linked |
+| Base plus YouTube adapter kept | plus 5 | 0 | Both video providers available |
+| Physical goods stretch package | plus 24 | 0 | Any configuration |
 
-Recommendation: keep the base configuration for audio, because the listening experience is the product, and build the SoundCloud adapter (plus 20 hours) so that individual mixes can be linked where licensing or an artist's preference requires it, and so the site can launch on linked audio if Aesium's licences are not yet in place. For video, launch with YouTube (Option B) and the click-to-play facade, since the video library is small at launch and advertising exposure is limited to the videos Aesium chooses to embed. Move to Cloudflare Stream when a branded, ad-free experience matters more than the per-minute cost; the provider interface makes that a 14-hour change. Keep ASP.NET Core Identity for authentication and revisit Auth0 only if social sign-in or passwordless login becomes a priority. Keep the custom shop on Stripe Connect unless most artists already run Shopify stores.
+Recommendation: keep the base configuration for audio, because the listening experience is the product, and build the SoundCloud adapter (plus 12 hours) so that individual mixes can be linked where licensing or an artist's preference requires it, and so the site can launch on linked audio if Aesium's licences are not yet in place. For video, launch with YouTube (Option B) and the click-to-play facade, since the video library is small at launch and advertising exposure is limited to the videos Aesium chooses to embed. Move to Cloudflare Stream when a branded, ad-free experience matters more than the per-minute cost; the provider interface makes that an 8-hour change. Keep ASP.NET Core Identity for authentication and revisit Auth0 only if social sign-in or passwordless login becomes a priority. Keep the custom shop on Stripe Connect unless most artists already run Shopify stores.
 
 ## 8. Pricing
 
@@ -410,36 +410,36 @@ Rate: NZD 150 per hour, excluding GST. Every figure below is hours multiplied by
 
 | Phase | Hours | Price (NZD, ex GST) |
 |---|---|---|
-| 1. Foundation & listening | 406 | 60,900 |
-| 2. Audience, video & events | 145 | 21,750 |
-| 3. Shop & payments | 71 | 10,650 |
-| Total, base configuration | 622 | 93,300 |
-| Contingency reserve (10%, drawn only through approved change requests) | 62 | 9,300 |
+| 1. Foundation & listening | 239 | 35,850 |
+| 2. Audience, video & events | 77 | 11,550 |
+| 3. Shop & payments | 44 | 6,600 |
+| Total, base configuration | 360 | 54,000 |
+| Contingency reserve (10%, drawn only through approved change requests) | 36 | 5,400 |
 
 Option adjustments to the total:
 
 | Option | Hours | Price (NZD, ex GST) |
 |---|---|---|
 | Option A: SoundCloud instead of self-hosted audio | 0 | 0 |
-| Option B: YouTube instead of Cloudflare Stream | minus 6 | minus 900 |
-| Option C: Auth0 instead of ASP.NET Core Identity | minus 4 | minus 600 |
-| Option D: Shopify Collective instead of the custom shop on Stripe | minus 6 | minus 900 |
-| SoundCloud adapter kept alongside self-hosting | plus 20 | plus 3,000 |
-| YouTube adapter kept alongside Cloudflare Stream | plus 8 | plus 1,200 |
-| Recommended configuration (base audio plus SoundCloud adapter, YouTube video, ASP.NET Core Identity) | 636 | 95,400 |
+| Option B: YouTube instead of Cloudflare Stream | minus 3 | minus 450 |
+| Option C: Auth0 instead of ASP.NET Core Identity | minus 2 | minus 300 |
+| Option D: Shopify Collective instead of the custom shop on Stripe | minus 4 | minus 600 |
+| SoundCloud adapter kept alongside self-hosting | plus 12 | plus 1,800 |
+| YouTube adapter kept alongside Cloudflare Stream | plus 5 | plus 750 |
+| Recommended configuration (base audio plus SoundCloud adapter, YouTube video, ASP.NET Core Identity) | 369 | 55,350 |
 
 Stretch package, priced separately and taken up by change request:
 
 | Package | Hours | Price (NZD, ex GST) |
 |---|---|---|
-| Physical goods commerce (Section 5.2) | 40 | 6,000 |
+| Physical goods commerce (Section 5.2) | 24 | 3,600 |
 
 Later additions, not included in V1 and shown for planning only:
 
 | Addition | Hours | Price (NZD, ex GST) |
 |---|---|---|
-| Move authentication to Auth0 after launch: password hashes converted to Auth0's import format, a rehearsal import, sign-in flows, tenant configuration | 24 | 3,600 |
-| Artist self-service accounts: artist role, invitation, profile and content editing with staff approval before publishing | 40 | 6,000 |
+| Move authentication to Auth0 after launch: password hashes converted to Auth0's import format, a rehearsal import, sign-in flows, tenant configuration | 12 | 1,800 |
+| Artist self-service accounts: artist role, invitation, profile and content editing with staff approval before publishing | 24 | 3,600 |
 
 ### 8.2 Running costs
 
@@ -583,49 +583,55 @@ Time for these is allocated in work package 1, and each decision is recorded in 
 
 | Work package | Item | Hours |
 |---|---|---|
-| 1. Discovery, decisions & design mock-ups | Decision workshops for Section 12.2, written decision log | 12 |
-| 1. Discovery, decisions & design mock-ups | Wireframes and visual mock-ups for screens the concept does not cover: Now Playing bar and full-view player, volume control, cart drawer and checkout hand-off, account area and library, admin back office and edit-in-place controls, submission form, genre pages, event page with embedded ticketing, email templates; two review rounds each | 24 |
-| 2. Platform foundations & infrastructure | Repository in Aesium's GitHub organisation, solution structure, environments, CI/CD pipelines | 8 |
-| 2. Platform foundations & infrastructure | AWS via CDK: ECS service across two availability zones, Multi-AZ RDS PostgreSQL with point-in-time recovery, Secrets Manager, container registry, load balancer, TLS | 16 |
-| 2. Platform foundations & infrastructure | Cloudflare: Pages project, R2 buckets and custom domains, image transformations, DNS, basic firewall rules | 6 |
-| 2. Platform foundations & infrastructure | Logging, error tracking, uptime alerts | 4 |
-| 3. Accounts & permissions | Staff sign-in, Administrator and Editor roles, two-factor, password reset | 10 |
-| 3. Accounts & permissions | Audience registration, sign-in, password reset, profile, account deletion and data export | 14 |
-| 3. Accounts & permissions | Authorisation policies and session handling across API and front end | 6 |
-| 4. Content model & edit-in-place | Data model and migrations for every content type and relationship | 12 |
-| 4. Content model & edit-in-place | Edit-in-place framework: inline text, rich text, artwork slots, relationship pickers, autosave, validation, required-field rules | 30 |
-| 4. Content model & edit-in-place | Slugs, page metadata, social sharing cards | 6 |
-| 5. Credits & rights metadata | Collaborator records (writer, photographer, filmmaker, producer, designer) with roles on any content item; credits shown on public pages | 6 |
-| 5. Credits & rights metadata | Rights holder, licence terms and cleared uses on assets and content items; archive export | 6 |
-| 6. Publishing workflow | Publishing states on every type, scheduler job, preview links, publish event hooks | 12 |
-| 7. Tagging & classification | Genre list management, multi-select, fixed classifications, filters, genre pages | 8 |
-| 8. Media assets | Direct-to-R2 upload, asset records, responsive variants, alt text, media library, reuse, orphan clean-up | 16 |
-| 9. Audio hosting & delivery | Multipart upload, processing job (duration, waveform peaks, streaming rendition), expiring delivery URLs, publish-state enforcement, play counting | 20 |
-| 10. Audio player | Persistent Now Playing bar, full-view player, immediate switching, seek, volume and mute, lock-screen and keyboard controls, session state | 24 |
-| 11. Video hosting & playback | Direct upload to Cloudflare Stream, processing webhooks, branded player, thumbnails, view counts | 12 |
-| 11. Video hosting & playback | Caption track upload in the admin and display in the player | 2 |
-| 12. Content types & pages | Content types and pages, as itemised in Section 5.1 | 102 |
-| 13. Search & discovery | Full-text search across content with accent-insensitive matching, results page, genre filtering, related content | 10 |
-| 14. Design system & front-end build | Design tokens, typography, component library, responsive layouts, dark mode, accessibility (WCAG 2.1 AA), motion | 28 |
-| 15. Email deliverability & SEO | Sending domain in SES, DKIM, SPF and DMARC records, production access, bounce and complaint handling into a suppression list, one-click unsubscribe headers | 8 |
-| 15. Email deliverability & SEO | Sitemap, robots, canonical URLs, structured data for artists, mixes, articles, events and products | 6 |
-| 16. Analytics & reporting | Plausible set-up and platform event recording | 6 |
-| 16. Analytics & reporting | Reporting views mapped to the Operating Model's measures, date ranges, CSV export | 8 |
-| 16. Analytics & reporting | Monthly summary email to staff | 2 |
-| 17. Audience activity & notifications | Follow, like, save, private library, aggregate follower counts | 10 |
-| 17. Audience activity & notifications | Notification preferences, publish-triggered emails to followers, email templates, sent log | 14 |
-| 18. Ticketing integration | Ticketing platform account link, event records linked to ticketed events, embedded checkout on event pages | 8 |
-| 18. Ticketing integration | Sync of tickets sold and attendees into reporting (Humanitix's API is read-only with no webhooks, so counts are polled; Eventbrite sends webhooks), free-event RSVP through the same platform, plain-link fallback for events sold elsewhere | 8 |
-| 19. Admin back office & submissions | Dashboard, content lists with status filters, staff management, settings, audit log | 16 |
-| 19. Admin back office & submissions | Structured submission form with genre nomination, review queue, conversion to a draft record | 10 |
-| 20. Commerce & payments | Cart drawer and badge, guest checkout, Stripe Checkout, order and payment records, webhooks, order emails | 18 |
-| 20. Commerce & payments | Stripe Connect onboarding for artists, commission rate per artist with per-product override, refunds, admin order and payout views, reconciliation export | 22 |
-| 21. Quality, security & performance | API and end-to-end test suites, performance tuning, security review, privacy checks, load test | 28 |
-| 22. Launch & handover | Content import, staff training, documentation, go-live checklist, two weeks of hypercare | 16 |
-| 23. Project management & communication | Project management and communication | 48 |
-| Total | | 622 |
+| 1. Discovery, decisions & design mock-ups | Decision workshops for Section 12.2, written decision log | 8 |
+| 1. Discovery, decisions & design mock-ups | Wireframes and visual mock-ups for screens the concept does not cover: Now Playing bar and full-view player, volume control, cart drawer and checkout hand-off, account area and library, admin back office and edit-in-place controls, submission form, genre pages, event page with embedded ticketing, email templates; two review rounds each | 12 |
+| 2. Platform foundations & infrastructure | Repository in Aesium's GitHub organisation, solution structure, environments, CI/CD pipelines | 4 |
+| 2. Platform foundations & infrastructure | AWS via CDK: ECS service across two availability zones, Multi-AZ RDS PostgreSQL with point-in-time recovery, Secrets Manager, container registry, load balancer, TLS | 10 |
+| 2. Platform foundations & infrastructure | Cloudflare: Pages project, R2 buckets and custom domains, image transformations, DNS, basic firewall rules | 3 |
+| 2. Platform foundations & infrastructure | Logging, error tracking, uptime alerts | 3 |
+| 3. Accounts & permissions | Staff sign-in, Administrator and Editor roles, two-factor, password reset | 5 |
+| 3. Accounts & permissions | Audience registration, sign-in, password reset, profile, account deletion and data export | 8 |
+| 3. Accounts & permissions | Authorisation policies and session handling across API and front end | 5 |
+| 4. Content model & edit-in-place | Data model and migrations for every content type and relationship | 6 |
+| 4. Content model & edit-in-place | Edit-in-place framework: inline text, rich text, artwork slots, relationship pickers, autosave, validation, required-field rules | 26 |
+| 4. Content model & edit-in-place | Slugs, page metadata, social sharing cards | 2 |
+| 5. Credits & rights metadata | Collaborator records (writer, photographer, filmmaker, producer, designer) with roles on any content item; credits shown on public pages | 3 |
+| 5. Credits & rights metadata | Rights holder, licence terms and cleared uses on assets and content items; archive export | 3 |
+| 6. Publishing workflow | Publishing states on every type, scheduler job, preview links, publish event hooks | 6 |
+| 7. Tagging & classification | Genre list management, multi-select, fixed classifications, filters, genre pages | 5 |
+| 8. Media assets | Direct-to-R2 upload, asset records, responsive variants, alt text, media library, reuse, orphan clean-up | 10 |
+| 9. Audio hosting & delivery | Multipart upload, processing job (duration, waveform peaks, streaming rendition), expiring delivery URLs, publish-state enforcement, play counting | 12 |
+| 10. Audio player | Persistent Now Playing bar, full-view player, immediate switching, seek, volume and mute, lock-screen and keyboard controls, session state, testing on real devices | 17 |
+| 11. Video hosting & playback | Direct upload to Cloudflare Stream, processing webhooks, branded player, thumbnails, view counts | 7 |
+| 11. Video hosting & playback | Caption track upload in the admin and display in the player | 1 |
+| 12. Content types & pages | Content types and pages, as itemised in Section 5.1 | 56 |
+| 13. Search & discovery | Full-text search across content with accent-insensitive matching, results page, genre filtering, related content | 5 |
+| 14. Design system & front-end build | Design tokens, typography, component library, responsive layouts, dark mode, accessibility (WCAG 2.1 AA), motion | 14 |
+| 15. Email deliverability & SEO | Sending domain in SES, DKIM, SPF and DMARC records, production access, bounce and complaint handling into a suppression list, one-click unsubscribe headers | 4 |
+| 15. Email deliverability & SEO | Sitemap, robots, canonical URLs, structured data for artists, mixes, articles, events and products | 3 |
+| 16. Analytics & reporting | Plausible set-up and platform event recording | 3 |
+| 16. Analytics & reporting | Reporting views mapped to the Operating Model's measures, date ranges, CSV export | 6 |
+| 16. Analytics & reporting | Monthly summary email to staff | 1 |
+| 17. Audience activity & notifications | Follow, like, save, private library, aggregate follower counts | 5 |
+| 17. Audience activity & notifications | Notification preferences, publish-triggered emails to followers, email templates, sent log | 7 |
+| 18. Ticketing integration | Ticketing platform account link, event records linked to ticketed events, embedded checkout on event pages | 4 |
+| 18. Ticketing integration | Sync of tickets sold and attendees into reporting (Humanitix's API is read-only with no webhooks, so counts are polled; Eventbrite sends webhooks), free-event RSVP through the same platform, plain-link fallback for events sold elsewhere | 4 |
+| 19. Admin back office & submissions | Dashboard, content lists with status filters, staff management, settings, audit log | 9 |
+| 19. Admin back office & submissions | Structured submission form with genre nomination, review queue, conversion to a draft record | 5 |
+| 20. Commerce & payments | Cart drawer and badge, guest checkout, Stripe Checkout, order and payment records, webhooks, order emails | 12 |
+| 20. Commerce & payments | Stripe Connect onboarding for artists, commission rate per artist with per-product override, refunds, admin order and payout views, reconciliation export, end-to-end testing of the money flow | 14 |
+| 21. Quality, security & performance | API and end-to-end test suites, performance tuning, security review, privacy checks, load test | 16 |
+| 22. Launch & handover | Content import, staff training, documentation, go-live checklist, two weeks of hypercare | 12 |
+| 23. Project management & communication | Project management and communication | 24 |
+| Total | | 360 |
 
-## Appendix B. Changes from version 1.0
+## Appendix B. Revision history
+
+Version 1.2, 27 September 2026:
+
+- Hour estimates re-examined line by line and reduced across every work package. Base configuration from 622 to 360 hours and from NZD 93,300 to NZD 54,000; durations and milestones shortened to match; option, stretch-package and later-addition hours revised in proportion. Scope is unchanged.
+
+Version 1.1, 26 September 2026:
 
 - Editorial moved into Phase 1 so that guest spots launch with their write-ups. Phases renamed and mapped to the Operating Model's roadmap, with each phase committable separately.
 - New work packages: discovery, decisions and design mock-ups (1); credits and rights metadata (5); email deliverability and SEO (15); ticketing integration (18). Work packages renumbered.
@@ -636,4 +642,4 @@ Time for these is allocated in work package 1, and each decision is recorded in 
 - SoundCloud licensing wording corrected, and the two-hour upload limit on free SoundCloud accounts noted.
 - Lead-time dependencies listed. Content entry stated as staff work. Licensing of any kind stated as outside scope.
 - Commercial terms expanded: change control, contingency use, payment split, maintenance at the same hourly rate, termination, liability, subcontracting, force majeure and disputes.
-- Base configuration hours from 522 to 622; price from NZD 78,300 to NZD 93,300.
+- Base configuration hours from 522 to 622; price from NZD 78,300 to NZD 93,300 (superseded by version 1.2).
